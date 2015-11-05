@@ -18,7 +18,7 @@ return array(
      */
     'supported-locales' => array(
         'en_US',
-				'ja_JP',
+        'ja_JP',
     ),
 
     /**
