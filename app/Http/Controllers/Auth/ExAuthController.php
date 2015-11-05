@@ -7,7 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Illuminate\Contracts\Events\Dispatcher;
+// use Illuminate\Contracts\Events\Dispatcher;
 use Ontheroadjp\LaravelAuth\Events\UserWasRegistered;
 
 
@@ -65,8 +65,10 @@ class ExAuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        $event = app('Illuminate\Contracts\Events\Dispatcher');
-        $event->fire( new UserWasRegistered($user) );
+        // $event = app('Illuminate\Contracts\Events\Dispatcher');
+        // $event->fire( new UserWasRegistered($user) );
+        
+        \Event::fire(new UserWasRegistered($user));
 
         return $user;
     }
