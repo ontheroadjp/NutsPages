@@ -56,7 +56,7 @@ return array(
     /**
      * Translator contact data (used on .po headers too)
      */
-    'translator' => 'James Translator <james@translations.colm>',
+    'translator' => 'Hideaki Ishihara<dev@ontheroad.jp>',
 
     /**
      * Paths where PoEdit will search recursively for strings to translate.
@@ -67,7 +67,8 @@ return array(
     'source-paths' => array(
         'Http/Controllers',
         '../resources/views',
-        'Console/Commands'
+        'Console/Commands',
+        '../vendor/ontheroadjp/laravel-auth/Providers'
     ),
 
     /**
