@@ -1,0 +1,361 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: MultilanguageLaravelApplication\n"
+"POT-Creation-Date: 2015-11-05 12:25+0900\n"
+"PO-Revision-Date: 2015-11-05 12:27+0900\n"
+"Last-Translator: James Translator <james@translations.colm>\n"
+"Language-Team: James Translator <james@translations.colm>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-Basepath: ../../../../../app\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: Http/Controllers\n"
+"X-Poedit-SearchPath-1: ../resources/views\n"
+"X-Poedit-SearchPath-2: ../resources/views/auth\n"
+"X-Poedit-SearchPath-3: Console/Commands\n"
+"X-Poedit-SearchPath-4: ../storage/framework/messages\n"
+
+#: ../storage/framework/messages/00493b94faf96212319d99df6908f350.php:2
+msgid "Password recovery"
+msgstr "パスワード再発行"
+
+#: ../storage/framework/messages/00493b94faf96212319d99df6908f350.php:20
+#: ../storage/framework/messages/33b618ac18b9b400ea21f88ad3274c5c.php:12
+#: ../storage/framework/messages/466ff8d79058177ad3b4dc6e32ea9e58.php:19
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:12
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:14
+msgid "There were some problems with your input."
+msgstr "入力内容を確認してみてください"
+
+#: ../storage/framework/messages/00493b94faf96212319d99df6908f350.php:37
+#: ../storage/framework/messages/466ff8d79058177ad3b4dc6e32ea9e58.php:36
+msgid "Reset Password"
+msgstr "パスワードリセット"
+
+#: ../storage/framework/messages/00493b94faf96212319d99df6908f350.php:41
+#: ../storage/framework/messages/33b618ac18b9b400ea21f88ad3274c5c.php:32
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:32
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:40
+msgid "Email"
+msgstr "E-mail アドレス"
+
+#: ../storage/framework/messages/00493b94faf96212319d99df6908f350.php:51
+msgid "Send Password Reset Link"
+msgstr "リセット用 URL をメール送信"
+
+#: ../storage/framework/messages/00493b94faf96212319d99df6908f350.php:58
+#: ../storage/framework/messages/33b618ac18b9b400ea21f88ad3274c5c.php:2
+#: ../storage/framework/messages/466ff8d79058177ad3b4dc6e32ea9e58.php:73
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:2
+msgid "Log in"
+msgstr "ログイン"
+
+#: ../storage/framework/messages/00493b94faf96212319d99df6908f350.php:59
+#: ../storage/framework/messages/33b618ac18b9b400ea21f88ad3274c5c.php:58
+#: ../storage/framework/messages/466ff8d79058177ad3b4dc6e32ea9e58.php:74
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:58
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:31
+msgid "Register a new membership"
+msgstr "新規ユーザー登録"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:29
+msgid "You have 4 messages"
+msgstr "4通の新規メッセージがあります"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:50
+msgid "See All Messages"
+msgstr "全てのメッセージを見る"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:62
+msgid "You have 10 notifications"
+msgstr "10件の通知があります"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:68
+msgid "5 new members joined today"
+msgstr "本日 5 名の新規メンバーが参加しました"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:74
+msgid "View all"
+msgstr "全て見る"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:85
+msgid "You have 9 tasks"
+msgstr "残り 9 タスク"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:93
+msgid "Design some buttons"
+msgstr "ボタンのデザイン"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:109
+msgid "View all tasks"
+msgstr "全てのタスクを見る"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:135
+#: ../storage/framework/messages/7edcac573b43c3fbe011aff3d15c1e4a.php:43
+msgid "Followers"
+msgstr "フォロワー"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:138
+#: ../storage/framework/messages/7edcac573b43c3fbe011aff3d15c1e4a.php:46
+msgid "Sales"
+msgstr "セールス"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:141
+#: ../storage/framework/messages/7edcac573b43c3fbe011aff3d15c1e4a.php:49
+msgid "Friends"
+msgstr "友達"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:147
+#: ../storage/framework/messages/7edcac573b43c3fbe011aff3d15c1e4a.php:55
+msgid "Profile"
+msgstr "プロフィール"
+
+#: ../storage/framework/messages/06674fbb25cd9bfb6bf036f16b4b6e93.php:150
+#: ../storage/framework/messages/7edcac573b43c3fbe011aff3d15c1e4a.php:58
+msgid "Sign out"
+msgstr "ログアウト"
+
+#: ../storage/framework/messages/33b618ac18b9b400ea21f88ad3274c5c.php:12
+#: ../storage/framework/messages/466ff8d79058177ad3b4dc6e32ea9e58.php:19
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:12
+msgid "Whoops!"
+msgstr "エラー！"
+
+#: ../storage/framework/messages/33b618ac18b9b400ea21f88ad3274c5c.php:28
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:28
+msgid "Sign in to start your session"
+msgstr "ログイン"
+
+#: ../storage/framework/messages/33b618ac18b9b400ea21f88ad3274c5c.php:37
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:37
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:46
+msgid "Password"
+msgstr "パスワード"
+
+#: ../storage/framework/messages/33b618ac18b9b400ea21f88ad3274c5c.php:45
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:45
+msgid "Remember Me"
+msgstr "ログインを保持"
+
+#: ../storage/framework/messages/33b618ac18b9b400ea21f88ad3274c5c.php:51
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:51
+msgid "Sign In"
+msgstr "ログイン"
+
+#: ../storage/framework/messages/33b618ac18b9b400ea21f88ad3274c5c.php:57
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:57
+msgid "I forgot my password"
+msgstr "パスワードリセット"
+
+#: ../storage/framework/messages/3fc100e760f17146687a290810522b36.php:12
+msgid "Recent Activity"
+msgstr "最近の活動"
+
+#: ../storage/framework/messages/3fc100e760f17146687a290810522b36.php:18
+msgid "Langdon's Birthday"
+msgstr ""
+
+#: ../storage/framework/messages/3fc100e760f17146687a290810522b36.php:19
+msgid "Will be 23 on April 24th"
+msgstr ""
+
+#: ../storage/framework/messages/3fc100e760f17146687a290810522b36.php:25
+msgid "Tasks Progress"
+msgstr ""
+
+#: ../storage/framework/messages/3fc100e760f17146687a290810522b36.php:30
+msgid "Custom Template Design"
+msgstr ""
+
+#: ../storage/framework/messages/3fc100e760f17146687a290810522b36.php:47
+msgid "General Settings"
+msgstr ""
+
+#: ../storage/framework/messages/3fc100e760f17146687a290810522b36.php:50
+msgid "Report panel usage"
+msgstr ""
+
+#: ../storage/framework/messages/3fc100e760f17146687a290810522b36.php:55
+msgid "Some information about this general settings option"
+msgstr ""
+
+#: ../storage/framework/messages/466ff8d79058177ad3b4dc6e32ea9e58.php:42
+msgid "Your Email Address"
+msgstr "登録してある Email アドレス"
+
+#: ../storage/framework/messages/466ff8d79058177ad3b4dc6e32ea9e58.php:49
+msgid "New Password"
+msgstr "新しく登録するパスワード"
+
+#: ../storage/framework/messages/466ff8d79058177ad3b4dc6e32ea9e58.php:56
+msgid "New Password(Confirm)"
+msgstr "新しく登録するパスワード（確認）"
+
+#: ../storage/framework/messages/466ff8d79058177ad3b4dc6e32ea9e58.php:66
+msgid "Exsecute Reset password"
+msgstr "パスワードリセットを実行する"
+
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:66
+msgid "Sign in using Facebook"
+msgstr "Facebook アカウントでログイン"
+
+#: ../storage/framework/messages/4974ed2ca3fdd417be30e10936520513.php:67
+msgid "Sign in using Google"
+msgstr "Google アカウントでログイン"
+
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:2
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:65
+msgid "Register"
+msgstr "登録"
+
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:14
+msgid "Woops!"
+msgstr "エラー"
+
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:35
+msgid "Full name"
+msgstr "ユーザー名"
+
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:51
+msgid "Retype password"
+msgstr "パスワードをもう一度入力してください"
+
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:60
+msgid "I agree to the"
+msgstr "規約に同意する"
+
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:60
+msgid "terms"
+msgstr "規約に同意する"
+
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:70
+msgid "I already have a membership"
+msgstr "ユーザー登録済みの方はこちら"
+
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:78
+msgid "Sign up using Facebook"
+msgstr "Facebook アカウントで登録"
+
+#: ../storage/framework/messages/65a8d98c0ca6cc3d0e8e84b6d8483efb.php:79
+msgid "Sign up using Google"
+msgstr "Google アカウントでサインイン"
+
+#: ../storage/framework/messages/7edcac573b43c3fbe011aff3d15c1e4a.php:28
+msgid "こんにちは、"
+msgstr ""
+
+#: ../storage/framework/messages/7edcac573b43c3fbe011aff3d15c1e4a.php:28
+msgid "さん"
+msgstr ""
+
+#: ../storage/framework/messages/aff8c74f6509595540a67bf4420a8a29.php:2
+#: ../storage/framework/messages/aff8c74f6509595540a67bf4420a8a29.php:12
+#: ../storage/framework/messages/b336946a50697d35855e0a52cda14f88.php:34
+#: ../storage/framework/messages/d144c1823b66d878b12e1375714e016b.php:12
+msgid "Home"
+msgstr "ホーム"
+
+#: ../storage/framework/messages/b336946a50697d35855e0a52cda14f88.php:15
+msgid "Online"
+msgstr "オンライン"
+
+#: ../storage/framework/messages/b336946a50697d35855e0a52cda14f88.php:22
+msgid "Search..."
+msgstr "検索…"
+
+#: ../storage/framework/messages/b336946a50697d35855e0a52cda14f88.php:32
+#: ../storage/framework/messages/d144c1823b66d878b12e1375714e016b.php:10
+msgid "HEADER"
+msgstr "ヘッダー"
+
+#: ../storage/framework/messages/b336946a50697d35855e0a52cda14f88.php:35
+#: ../storage/framework/messages/d144c1823b66d878b12e1375714e016b.php:13
+msgid "Link"
+msgstr "リンク"
+
+#: ../storage/framework/messages/b336946a50697d35855e0a52cda14f88.php:37
+#: ../storage/framework/messages/d144c1823b66d878b12e1375714e016b.php:15
+msgid "Multi level Link"
+msgstr "ドロップダウン"
+
+#: ../storage/framework/messages/b336946a50697d35855e0a52cda14f88.php:39
+#: ../storage/framework/messages/d144c1823b66d878b12e1375714e016b.php:17
+msgid "Sample Link 01"
+msgstr "リンク 01"
+
+#: ../storage/framework/messages/b336946a50697d35855e0a52cda14f88.php:40
+#: ../storage/framework/messages/d144c1823b66d878b12e1375714e016b.php:18
+msgid "Sample Link 02"
+msgstr "リンク 02"
+
+#: ../storage/framework/messages/c2b795cbe4aad18ab6fdf1062ad426c6.php:3
+msgid "Click here to reset your password"
+msgstr "パスワードをリセットする"
+
+#: ../storage/framework/messages/e157e73165f3baf121a858e6f3c4b04e.php:45
+msgid "Start"
+msgstr "はじめる"
+
+#~ msgid "START"
+#~ msgstr "はじめる"
+
+#~ msgid "Reset password"
+#~ msgstr "パスワードリセット"
+
+#~ msgid "Sign in to start your sessio"
+#~ msgstr "E-mail アドレスとパスワードを入力してください"
+
+#~ msgid "There-were-some-problems-with-your-input."
+#~ msgstr "不正な入力です"
+
+#~ msgid "Register-a-new-membership"
+#~ msgstr "新規ユーザー登録"
+
+#~ msgid "Sign up using Google+"
+#~ msgstr "Google アカウントで登録"
+
+#~ msgid "auth.login.header"
+#~ msgstr "ログインしてください"
+
+#~ msgid "Remember-Me"
+#~ msgstr "ログイン保持"
+
+#~ msgid "Sign-In"
+#~ msgstr "ログイン"
+
+#~ msgid "Sign-in-using-Facebook"
+#~ msgstr "Facebook アカウントでログイン"
+
+#~ msgid "Sign-in-using-Google"
+#~ msgstr "Google アカウントでログイン"
+
+#~ msgid "I-forgot-my-password"
+#~ msgstr "パスワードリセット"
+
+#~ msgid "auth.login.errer.woops"
+#~ msgstr "エラー"
+
+#~ msgid "auth.login.errer.msg"
+#~ msgstr "E-mail アドレスとパスワードが一致しません"
+
+#~ msgid "auth.login.remembar-me"
+#~ msgstr "ログインを維持"
+
+#~ msgid "auth.login.sign-in"
+#~ msgstr "ログイン"
+
+#~ msgid "auth.login.sign-in-using-facebook"
+#~ msgstr "Facebook アカウントでサインイン"
+
+#~ msgid "auth.login.sign-in-using-google+"
+#~ msgstr "Google アカウントでサインイン"
+
+#~ msgid "auth.login.i-forgot-my-password"
+#~ msgstr "パスワード再設定"
+
+#~ msgid "auth.login.register-a-new-membership"
+#~ msgstr "新規ユーザー登録"
