@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
 				"xinax/laravel-gettext": "3.x",
-        "spatie/laravel-medialibrary": "^3.7"
+        "spatie/laravel-medialibrary": "^3.7",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

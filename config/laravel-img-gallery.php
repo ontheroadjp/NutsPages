@@ -78,15 +78,15 @@ return [
         'default' => [
             'middleware' => 'auth',
             'format' => 'image|video',
-            // 'image' => [
-            //  'resize' => [1024, 768],
-            //  'crop' => [800, 800],
-            //  'fit' => [400, 400],
-            //  'thumbs' => [
-            //      'small' => [50, 50],
-            //      'medium' => [100, 100],
-            //  ]
-            // ],
+            'image' => [
+                // 'resize' => [1024, 768],
+                // 'crop' => [800, 800],
+                // 'fit' => [400, 400],
+                'thumbs' => [
+                    'medium' => [100, 100],
+                    'small' => [50, 50],
+                ]
+            ],
             'multiple' => false,
             'save_original' => false,
         ],
