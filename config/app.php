@@ -148,6 +148,7 @@ return [
         Ontheroadjp\LaravelAuth\Providers\LaravelAuthServiceProvider::class,
         Xinax\LaravelGettext\LaravelGettextServiceProvider::class,
 
+        Ontheroadjp\LaravelImageGallery\Providers\LaravelImageGalleryServiceProvider::class,
 
     ],
 

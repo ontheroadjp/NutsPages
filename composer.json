@@ -21,7 +21,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Ontheroadjp\\LaravelAuth\\": "vendor/ontheroadjp/laravel-auth/"
+            "Ontheroadjp\\LaravelAuth\\": "vendor/ontheroadjp/laravel-auth/src/",
+            "Ontheroadjp\\LaravelImageGallery\\": "vendor/ontheroadjp/laravel-img-gallery/src/"
         }
     },
     "autoload-dev": {
