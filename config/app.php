@@ -145,6 +145,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+				Barryvdh\Debugbar\ServiceProvider::class,
+
         Ontheroadjp\LaravelAuth\Providers\LaravelAuthServiceProvider::class,
         Xinax\LaravelGettext\LaravelGettextServiceProvider::class,
 
