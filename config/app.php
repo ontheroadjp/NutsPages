@@ -147,11 +147,6 @@ return [
 
         Ontheroadjp\LaravelAuth\Providers\LaravelAuthServiceProvider::class,
         Xinax\LaravelGettext\LaravelGettextServiceProvider::class,
-				Barryvdh\Debugbar\ServiceProvider::class,
-        Ontheroadjp\LaravelImageGallery\Providers\LaravelImageGalleryServiceProvider::class,
-				Triasrahman\MediaUpload\MediaUploadServiceProvider::class,
-				Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
-				//Intervention\Image\ImageServiceProvider::class,
 
 
     ],
