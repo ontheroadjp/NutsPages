@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-				"xinax/laravel-gettext": "3.x"
+				"xinax/laravel-gettext": "3.x",
+        "spatie/laravel-medialibrary": "^3.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

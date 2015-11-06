@@ -59,6 +59,22 @@ return [
      */
 
     'types' => [
+        'image' => [
+            'middleware' => 'auth',
+            'format' => 'image',
+            // 'image' => [
+            //  'resize' => [1024, 768],
+            //  'crop' => [800, 800],
+            //  'fit' => [400, 400],
+            //  'thumbs' => [
+            //      'small' => [50, 50],
+            //      'medium' => [100, 100],
+            //  ]
+            // ],
+            'multiple' => false,
+            'save_original' => false,
+        ],
+
         'default' => [
             'middleware' => 'auth',
             'format' => 'image|video',
@@ -73,22 +89,6 @@ return [
             // ],
             'multiple' => false,
             'save_original' => false,
-        ],
-
-        'img' => [
-            'middleware' => 'auth',
-            'format' => 'image',
-            'image' => [
-             'resize' => [1024, 768],
-             'crop' => [800, 800],
-             'fit' => [400, 400],
-             'thumbs' => [
-                 'small' => [50, 50],
-                 'medium' => [100, 100],
-             ]
-            ],
-            'multiple' => false,
-            'save_original' => true,
         ],
 
         // ... put your custom type ...

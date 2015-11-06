@@ -151,6 +151,7 @@ return [
         Xinax\LaravelGettext\LaravelGettextServiceProvider::class,
 
         Ontheroadjp\LaravelImageGallery\Providers\LaravelImageGalleryServiceProvider::class,
+				Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
     ],
 
