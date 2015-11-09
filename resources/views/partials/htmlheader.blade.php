@@ -5,11 +5,14 @@
 
 <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <!-- Ionicons -->
 <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 
 <!-- Theme style -->
 <link href="{{ asset('/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
+<!-- <link href="{{ asset('/css/pixel-admin.min.css') }}" rel="stylesheet" type="text/css" /> -->
 <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
       page. However, you can choose any other skin. Make sure you
       apply the skin class to the body tag so the changes take effect.
