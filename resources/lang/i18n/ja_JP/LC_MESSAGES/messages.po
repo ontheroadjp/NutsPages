@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MultilanguageLaravelApplication\n"
-"POT-Creation-Date: 2015-11-05 21:04+0900\n"
-"PO-Revision-Date: 2015-11-05 21:05+0900\n"
+"POT-Creation-Date: 2015-11-09 22:24+0900\n"
+"PO-Revision-Date: 2015-11-09 22:31+0900\n"
 "Last-Translator: Hideaki Ishihara <dev@ontheroad.jp>\n"
 "Language-Team: Hideaki Ishihara <dev@ontheroad.jp>\n"
 "Language: ja_JP\n"
@@ -16,8 +16,28 @@ msgstr ""
 "X-Poedit-SearchPath-0: Http/Controllers\n"
 "X-Poedit-SearchPath-1: ../resources/views\n"
 "X-Poedit-SearchPath-2: Console/Commands\n"
-"X-Poedit-SearchPath-3: ../vendor/ontheroadjp/laravel-auth/Providers\n"
-"X-Poedit-SearchPath-4: ../storage/framework/messages\n"
+"X-Poedit-SearchPath-3: ../vendor/ontheroadjp/laravel-auth/src/Providers\n"
+"X-Poedit-SearchPath-4: ../vendor/ontheroadjp/laravel-img-gallery/src/views\n"
+"X-Poedit-SearchPath-5: ../vendor/ontheroadjp/laravel-user/src/views\n"
+"X-Poedit-SearchPath-6: ../storage/framework/messages\n"
+
+#: ../storage/framework/messages/00d602497484534a2d3ba2abcdaf26da.php:2
+#: ../storage/framework/messages/00d602497484534a2d3ba2abcdaf26da.php:9
+#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:14
+msgid "Image Gallery"
+msgstr "画像ギャラリー"
+
+#: ../storage/framework/messages/00d602497484534a2d3ba2abcdaf26da.php:22
+msgid "Try it by uploading an image (max. 1 MB)."
+msgstr "画像のアップロードが出来ます。（1画像あたり最大 1 MB）"
+
+#: ../storage/framework/messages/00d602497484534a2d3ba2abcdaf26da.php:43
+msgid "Upload"
+msgstr "アップロード"
+
+#: ../storage/framework/messages/1e85c22cb00d44f5c526d0c9b866c4af.php:15
+msgid "Delete"
+msgstr "削除"
 
 #: ../storage/framework/messages/2a77bf939b5db1d2c58216e279744105.php:2
 #: ../storage/framework/messages/481e3ca75cc4503a2567bc8c46bb655b.php:2
@@ -55,6 +75,7 @@ msgstr "E-mail アドレス"
 #: ../storage/framework/messages/2a77bf939b5db1d2c58216e279744105.php:37
 #: ../storage/framework/messages/33582de997285cc036827a42100bca3b.php:46
 #: ../storage/framework/messages/481e3ca75cc4503a2567bc8c46bb655b.php:37
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:156
 msgid "Password"
 msgstr "パスワード"
 
@@ -130,6 +151,71 @@ msgstr "Google アカウントでサインイン"
 msgid "Click here to reset your password"
 msgstr "パスワードをリセットする"
 
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:2
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:9
+msgid "User Pofile"
+msgstr "スペルミス"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:12
+msgid "You can change your profile"
+msgstr "登録情報を変更することができます"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:119
+msgid "User Profile"
+msgstr "登録情報"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:128
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:130
+msgid "User Name"
+msgstr "ユーザー名"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:132
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:142
+msgid "Change"
+msgstr "変更"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:138
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:140
+msgid "Email Address"
+msgstr "E-mail アドレス"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:165
+msgid "Old password"
+msgstr "現在のパスワード"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:166
+msgid "Old Password"
+msgstr "現在のパスワード"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:170
+msgid "New password"
+msgstr "新しく登録するパスワード"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:171
+#: ../storage/framework/messages/e836f51ee6fd6a2af939fae60f71c214.php:49
+msgid "New Password"
+msgstr "新しく登録するパスワード"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:175
+msgid "New password(Confirm)"
+msgstr "新しく登録するパスワード（確認用）"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:176
+msgid "New Password Again"
+msgstr "新しく登録するパスワード（確認用）"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:185
+msgid "Change Password"
+msgstr "パスワードの変更"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:251
+msgid "SUCCESS"
+msgstr "成功"
+
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:252
+msgid "User name has been changed."
+msgstr "ユーザー名を変更しました。"
+
 #: ../storage/framework/messages/5abaad891077824e43c914fc95b686d4.php:2
 msgid "Password recovery"
 msgstr "パスワード再発行"
@@ -159,24 +245,19 @@ msgstr "ホーム"
 msgid "Create New Page"
 msgstr "新規ページ作成"
 
-#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:15
+#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:16
 msgid "Help"
 msgstr "ヘルプ"
 
-#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:17
+#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:18
 #: ../storage/framework/messages/9ac4e7ee6ac7181143a8f27d53785595.php:39
 msgid "Sample Link 01"
 msgstr "リンク 01"
 
-#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:18
+#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:19
 #: ../storage/framework/messages/9ac4e7ee6ac7181143a8f27d53785595.php:40
 msgid "Sample Link 02"
 msgstr "リンク 02"
-
-#: ../storage/framework/messages/830b78231aef4f7306a31383a065ad7d.php:60
-#: ../vendor/ontheroadjp/laravel-auth/Providers/LaravelAuthServiceProvider.php:60
-msgid "Welcome to the Nuts Pages"
-msgstr "Nuts Pages へようこそ！"
 
 #: ../storage/framework/messages/92d5bce79888d63463d9f760affdfc6f.php:28
 msgid "こんにちは、"
@@ -237,39 +318,35 @@ msgstr "最近の活動"
 
 #: ../storage/framework/messages/cfac07cebd95c22f5020796a1f17731c.php:18
 msgid "Langdon's Birthday"
-msgstr ""
+msgstr "ランドンの誕生日"
 
 #: ../storage/framework/messages/cfac07cebd95c22f5020796a1f17731c.php:19
 msgid "Will be 23 on April 24th"
-msgstr ""
+msgstr "23才 - 4月24日 "
 
 #: ../storage/framework/messages/cfac07cebd95c22f5020796a1f17731c.php:25
 msgid "Tasks Progress"
-msgstr ""
+msgstr "タスク進捗"
 
 #: ../storage/framework/messages/cfac07cebd95c22f5020796a1f17731c.php:30
 msgid "Custom Template Design"
-msgstr ""
+msgstr "カスタムテンプレートデザイン"
 
 #: ../storage/framework/messages/cfac07cebd95c22f5020796a1f17731c.php:47
 msgid "General Settings"
-msgstr ""
+msgstr "基本設定"
 
 #: ../storage/framework/messages/cfac07cebd95c22f5020796a1f17731c.php:50
 msgid "Report panel usage"
-msgstr ""
+msgstr "パネルの使い方の報告"
 
 #: ../storage/framework/messages/cfac07cebd95c22f5020796a1f17731c.php:55
 msgid "Some information about this general settings option"
-msgstr ""
+msgstr "基本設定の説明"
 
 #: ../storage/framework/messages/e836f51ee6fd6a2af939fae60f71c214.php:42
 msgid "Your Email Address"
 msgstr "登録してある Email アドレス"
-
-#: ../storage/framework/messages/e836f51ee6fd6a2af939fae60f71c214.php:49
-msgid "New Password"
-msgstr "新しく登録するパスワード"
 
 #: ../storage/framework/messages/e836f51ee6fd6a2af939fae60f71c214.php:56
 msgid "New Password(Confirm)"
@@ -310,6 +387,11 @@ msgstr "ボタンのデザイン"
 #: ../storage/framework/messages/ec6fd4e6ed27c81b1a494664f93b86fe.php:109
 msgid "View all tasks"
 msgstr "全てのタスクを見る"
+
+#: ../storage/framework/messages/f921ab49d5955b78ddd85e1d2d83b7fb.php:66
+#: ../vendor/ontheroadjp/laravel-auth/src/Providers/LaravelAuthServiceProvider.php:66
+msgid "Welcome to the Nuts Pages"
+msgstr "Nuts Pages へようこそ！"
 
 #~ msgid "START"
 #~ msgstr "はじめる"

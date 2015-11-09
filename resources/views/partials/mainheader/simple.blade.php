@@ -6,7 +6,8 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>L</b>vL</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">Laravel</span>
+        <span class="logo-lg">Nuts Pages <span class="nuts-badge-white">Free</span>
+</span>
     </a>
 
     <!-- Header Navbar -->
@@ -51,7 +52,7 @@
  -->                        <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="/{{ Auth::user()->id }}/profile" class="btn btn-default btn-flat">{{ _('Profile') }}</a>
+                                <a href="/profile" class="btn btn-default btn-flat">{{ _('Profile') }}</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{{ url('/auth/logout') }}" class="btn btn-default btn-flat">{{ _('Sign out') }}</a>

@@ -5,7 +5,7 @@
 <head>
 <title>Laravel</title>
 <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" />
+<link href="<?php echo e(asset('/css/style.css')); ?>" rel="stylesheet" type="text/css" />
 <style>
     html, body {
         height: 100%;
@@ -42,7 +42,7 @@
     <div class="container">
         <div class="content">
             <div class="title">Nuts Pages</div>
-            <div><a href="home" class="btn btn-primary start-btn">{{ _('Start') }}</a></div>
+            <div><a href="home" class="btn btn-primary start-btn"><?php echo e(_('Start')); ?></a></div>
         </div>
     </div>
 </body>

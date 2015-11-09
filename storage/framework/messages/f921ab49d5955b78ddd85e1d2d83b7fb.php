@@ -24,6 +24,13 @@ class LaravelAuthServiceProvider extends ServiceProvider
     use AppNamespaceDetectorTrait;
 
     /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
+
+    /**
      * Register the application services.
      *
      * @return void
@@ -40,7 +47,6 @@ class LaravelAuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerRoutes();
-        $this->publishControllers();
         $this->publishViews();
         $this->publishLangAssets();
 
@@ -70,31 +76,26 @@ class LaravelAuthServiceProvider extends ServiceProvider
     {
 
         // Route::controllers([
-        //     'auth' => $this->getAppNamespace() . 'Http\Controllers\Auth\AuthController',
-        //     'password' => $this->getAppNamespace() . 'Http\Controllers\Auth\PasswordController',
+        //     'auth' => 'Ontheroadjp\LaravelAuth\Controllers\Auth\ExAuthController',
+        //     'password' => 'Ontheroadjp\LaravelAuth\Controllers\Auth\ExPasswordController',
         // ]);
-        Route::controllers([
-            'auth' => 'Ontheroadjp\LaravelAuth\Controllers\Auth\ExAuthController',
-            'password' => 'Ontheroadjp\LaravelAuth\Controllers\Auth\ExPasswordController',
-        ]);
 
         Route::get('/home', ['middleware' => 'auth', function () {
             return view('home');
         }]);
 
-    }
+        // Define the route
+        $routeConfig = [
+            'namespace' => 'Ontheroadjp\LaravelAuth\Controllers\Auth',
+        ];
 
-    /**
-     * Publish Controllers to Laravel project
-     *
-     * @return void
-     */
-    private function publishControllers()
-    {
-        $this->publishes([
-            dirname(__FILE__) . '/../Controllers/auth/ExAuthController.php' => app_path('Http/Controllers/auth/ExAuthController.php'),
-            dirname(__FILE__) . '/../Controllers/auth/ExPasswordController.php' => app_path('Http/Controllers/auth/ExPasswordController.php'),
-        ]);
+        $this->app['router']->group($routeConfig, function($router) {
+            $router->controllers([
+                'auth' => 'ExAuthController',
+                'password' => 'ExPasswordController',
+            ]);
+        });
+
     }
 
     /**
