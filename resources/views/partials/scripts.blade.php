@@ -11,4 +11,6 @@
       user experience. Slimscroll is required when using the
       fixed layout. -->
 
+<script src="{{ asset('/js/holder.js') }}" type="text/javascript"></script>
+
 @yield('javascript')

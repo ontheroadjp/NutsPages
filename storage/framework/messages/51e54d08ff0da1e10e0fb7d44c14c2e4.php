@@ -3,20 +3,30 @@
 
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('contentheader_title'); ?>
+<i class="fa fa-user"></i> <?php echo e(_('My Account')); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('breadcrumb'); ?>
+<?php echo e(_('My Account')); ?>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('help_content'); ?>
+<ul>
+	<li>このページでは登録情報の変更が行えます。</li>
+	<li>画面には現在の登録情報が表示されています。</li>
+	<li>変更したい項目の内容を修正して、変更ボタン（パスワード変更の場合はパスワードの変更ボタン）を押してください。</li>
+	<li>登録情報の変更が完了すると、その旨のメッセージが表示されます。</li>
+	<li>エラーが表示されてしまう場合には、お手数ですがこちらまでお問い合わせください。</li>
+</ul>
+<?php $__env->stopSection(); ?>
+
 
 <?php $__env->startSection('main-content'); ?>
-<div class="panel panel-default">
-	<div class="panel-heading"><?php echo e(_('User Pofile')); ?></div>
-
-	<div class="panel-body">
-		<?php echo e(_('You can change your profile')); ?>
-
-	</div>
-</div>
-
-<?php
-	// echo '<pre>';var_dump($user);echo '</pre>';
-?>
+<?php echo $__env->make('partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <style>
 .nuts-alert.alert-success.alert-dark {
@@ -25,8 +35,8 @@
     color: #fff;
     text-shadow: 0 1px 0 rgba(0,0,0,.2);
     background: 0 0;
-    border-color: #43a543;
-    background-color: #5ebd5e !important;
+    border-color: #4358A5;
+    background-color: #5E8DBD !important;
     background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,.06)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,.06)),color-stop(0.75,rgba(255,255,255,.06)),color-stop(0.75,transparent),to(transparent));
     background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
     background-image: -moz-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
@@ -82,7 +92,7 @@
     color: #af8640;
     background-size: 20px 20px;
     padding: 15px;
-    margin-bottom: 18px;
+    /*margin-bottom: 18px;*/
     border: 1px solid transparent;
     border-radius: 2px;
 }
@@ -95,28 +105,44 @@
 
 <div class="nuts-alert alert-success alert-dark">
 <button type="button" class="close" data-dismiss="alert">×</button>
-<strong><i class="icon fa fa-ban"></i> Success!</strong>　<span class="msg">Change a few things up and try submitting again.</span>
+<strong><i class="icon fa fa-ban"></i> Success!</strong>　<span class="msg"></span>
 </div>
 
 <div class="nuts-alert alert-info alert-dark">
 <button type="button" class="close" data-dismiss="alert">×</button>
-<strong><i class="icon fa fa-ban"></i> Info!</strong>　<span class="msg">Change a few things up and try submitting again.</span>
+<strong><i class="icon fa fa-ban"></i> Info!</strong>　<span class="msg"></span>
 </div>
 
 <div class="nuts-alert alert-danger alert-dark">
 <button type="button" class="close" data-dismiss="alert">×</button>
-<strong><i class="icon fa fa-ban"></i> Alert!</strong>　<span class="msg">Change a few things up and try submitting again.</span>
+<strong><i class="icon fa fa-ban"></i> Alert!</strong>　<span class="msg"></span>
 </div>
 
 <div class="nuts-alert alert-warning alert-dark">
 <button type="button" class="close" data-dismiss="alert">×</button>
-<strong><i class="icon fa fa-ban"></i> Warning!</strong>　<span class="msg">Change a few things up and try submitting again.</span>
+<strong><i class="icon fa fa-ban"></i> Warning!</strong>　<span class="msg"></span>
 </div>
 
 
+<div class="panel">
+	<div class="panel-body">
+		<ul id="" class="nav nav-tabs">
+			<li class="active">
+				<a href="#account-settings-tab-pane" data-toggle="tab"><?php echo e(_('Account Settings')); ?></a>
+			</li>
+			<li class="">
+				<a href="#billing-and-plan-settings-tab-pane" data-toggle="tab"><?php echo e(_('Billing & Plan Settings')); ?></a>
+			</li>
+		</ul>
+
+		<div class="tab-content tab-content-bordered">
+			<div class="tab-pane fade active in" id="account-settings-tab-pane">
+
+<!-- ------------------------------------- -->
+
 <div class="box box-primary">
 	<div class="box-header with-border">
-		<h3 class="box-title"><?php echo e(_('User Profile')); ?></h3>
+		<h3 class="box-title"><i class="fa fa-paw"></i><?php echo e(_('User Profile')); ?></h3>
 	</div>
 
 
@@ -129,7 +155,7 @@
 				<div class="input-group input-group">
 				<input name="name" type="text" class="form-control" placeholder="<?php echo e(_('User Name')); ?>" value="<?php echo e($user->name); ?>">
 				<span class="input-group-btn">
-				<button name="name" type="button" class="btn btn-info btn-flat change-btn"><?php echo e(_('Change')); ?></button>
+				<button name="name" type="button" class="btn btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
 				</span>
 			</div>
 		</div>
@@ -139,21 +165,31 @@
 				<div class="input-group input-group">
 				<input name='email' type="text" class="form-control" placeholder="<?php echo e(_('Email Address')); ?>" value="<?php echo e($user->email); ?>">
 				<span class="input-group-btn">
-				<button name="email" type="button" class="btn btn-info btn-flat change-btn"><?php echo e(_('Change')); ?></button>
+				<button name="email" type="button" class="btn btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
 				</span>
 			</div>
 		</div>
 
+
+
 		</div><!-- / .col -->
 		</div><!-- /.box-body -->
 	</form>
+
+
+		</div><!-- / .col -->
+		</div><!-- /.box-body -->
+
+
+	</form>
+
 
 </div>
 
 
 <div class="box box-primary">
 	<div class="box-header with-border">
-		<h3 class="box-title"><?php echo e(_('Password')); ?></h3>
+		<h3 class="box-title"><i class="fa fa-lock"></i><?php echo e(_('Password')); ?></h3>
 	</div>
 
 
@@ -187,6 +223,17 @@
 	</div>
 
 </div>
+
+
+							</div> <!-- / .tab-pane -->
+							<div class="tab-pane fade" id="billing-and-plan-settings-tab-pane">
+								<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+							</div> <!-- / .tab-pane -->
+						</div> <!-- / .tab-content -->
+					</div>
+				</div>
+
+
 
 <style>
 .nuts-modal {
@@ -291,8 +338,9 @@ $(function(){
 				}
 			},
 		}).done(function(data, textStatus, jqXHR){
-			successAlert.find('.msg').html(data.message);
-			successAlert.show('fast');
+			// successAlert.find('.msg').html(data.message);
+			// successAlert.show('fast');
+			successMsg(data.message);
 
 		}).fail(function(data, textStatus, errorThrown){
 			errorAlert.find('.msg').html(errorThrown);
@@ -307,6 +355,16 @@ $(function(){
 	$('.close').click(function(){
 		$(this).parent('.nuts-alert').hide('first');
 	});
+
+	function successMsg( message ) {
+		logo = $('.logo-lg').html();
+		$('.logo').addClass('nuts-alert alert-success alert-dark').css('display','block');
+		$('.logo-lg').css('font-size','14px').html( message);
+		setTimeout(function(){
+			$('.logo-lg').html(logo);
+			$('.logo').removeClass('nuts-alert alert-success alert-dark');
+		},2000);
+	}
 
 });
 

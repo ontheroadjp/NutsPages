@@ -40,7 +40,7 @@ gulp.task('publish-bs-reload', function(callback) {
 // build
 
 gulp.task('build', function(callback) {
-	return runSequence('clean',[ 'bowerassets','assets','sass','js' ]);
+	return runSequence('clean',[ 'bowerassets','assets','sass','js','img' ]);
 });
 
 gulp.task('clean', function(cb) {
@@ -137,6 +137,16 @@ gulp.task('js', function() {
 	.pipe(gulp.dest(paths.lara_public + 'js'))
 	.pipe(reload({stream:true}));
 });
+
+// -------------------------
+// Imagemin
+
+gulp.task('img', function() {
+    gulp.src([paths.src + 'img/**/*.{png,jpg,gif,svg}'])
+        .pipe(imagemin({optimizationLevel: 7}))
+        .pipe(gulp.dest(paths.lara_public + 'img'));
+});
+
 
 // -------------------------
 // Static server

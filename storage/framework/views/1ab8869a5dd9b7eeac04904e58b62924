@@ -8,102 +8,26 @@
 
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('breadcrumb'); ?>
+<?php echo e(_('My Account')); ?>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('help_content'); ?>
+<ul>
+	<li>このページでは登録情報の変更が行えます。</li>
+	<li>画面には現在の登録情報が表示されています。</li>
+	<li>変更したい項目の内容を修正して、変更ボタン（パスワード変更の場合はパスワードの変更ボタン）を押してください。</li>
+	<li>登録情報の変更が完了すると、その旨のメッセージが表示されます。</li>
+	<li>エラーが表示されてしまう場合には、お手数ですがこちらまでお問い合わせください。</li>
+</ul>
+<?php $__env->stopSection(); ?>
+
+
 <?php $__env->startSection('main-content'); ?>
-<div class="panel panel-default nuts-help-panel">
-	<div class="panel-heading text-right">
-		<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-example" href="#collapseOne"><i class="fa fa-question-circle"></i>HELP</a>
-	</div> <!-- / .panel-heading -->
-	<div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
-		<div class="panel-body">
-			<ul>
-				<li>このページでは登録情報の変更が行えます。</li>
-				<li>画面には現在の登録情報が表示されています。</li>
-				<li>変更したい項目の内容を修正して、変更ボタン（パスワード変更の場合はパスワードの変更ボタン）を押してください。</li>
-				<li>登録情報の変更が完了すると、その旨のメッセージが表示されます。</li>
-				<li>エラーが表示されてしまう場合には、お手数ですがこちらまでお問い合わせください。</li>
-			</ul>
-		</div> <!-- / .panel-body -->
-	</div> <!-- / .collapse -->
-</div>
+<?php echo $__env->make('partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-<?php
-	// echo '<pre>';var_dump($user);echo '</pre>';
-?>
-
-<style>
-.nuts-alert.alert-success.alert-dark {
-	display:none;
-
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0,0,0,.2);
-    background: 0 0;
-    border-color: #43a543;
-    background-color: #5ebd5e !important;
-    background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,.06)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,.06)),color-stop(0.75,rgba(255,255,255,.06)),color-stop(0.75,transparent),to(transparent));
-    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: -moz-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-size: 20px 20px;
-}
-.nuts-alert.alert-danger.alert-dark {
-	display:none;
-
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0,0,0,.2);
-    background: 0 0;
-    border-color: #df3c28;
-    background-color: #e66454 !important;
-    background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,.04)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,.04)),color-stop(0.75,rgba(255,255,255,.04)),color-stop(0.75,transparent),to(transparent));
-    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.04)25%,transparent 25%,transparent 50%,rgba(255,255,255,.04)50%,rgba(255,255,255,.04)75%,transparent 75%,transparent);
-    background-image: -moz-linear-gradient(45deg,rgba(255,255,255,.04)25%,transparent 25%,transparent 50%,rgba(255,255,255,.04)50%,rgba(255,255,255,.04)75%,transparent 75%,transparent);
-    background-image: linear-gradient(45deg,rgba(255,255,255,.04)25%,transparent 25%,transparent 50%,rgba(255,255,255,.04)50%,rgba(255,255,255,.04)75%,transparent 75%,transparent);
-    background-size: 20px 20px;
-}
-.nuts-alert.alert-info.alert-dark {
-	display:none;
-
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0,0,0,.2);
-    background: 0 0;
-    border-color: #31b0d5;
-    background-color: #5bc0de !important;
-    background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,.06)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,.06)),color-stop(0.75,rgba(255,255,255,.06)),color-stop(0.75,transparent),to(transparent));
-    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: -moz-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-size: 20px 20px;
-}
-.nuts-alert.alert-warning.alert-dark {
-	display:none;
-
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0,0,0,.2);
-    background: 0 0;
-    border-color: #f19a1f;
-    background-color: #f4b04f;
-    background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,.06)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,.06)),color-stop(0.75,rgba(255,255,255,.06)),color-stop(0.75,transparent),to(transparent));
-    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: -moz-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-size: 20px 20px;
-}
-
-.nuts-alert {
-    background: #f9f1c7;
-    border-color: #f6deac;
-    color: #af8640;
-    background-size: 20px 20px;
-    padding: 15px;
-    margin-bottom: 18px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-}
-
-.nuts-alert .nuts-close {
-    top: 0;
-}
-
-</style>
 
 <div class="nuts-alert alert-success alert-dark">
 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -130,10 +54,10 @@
 	<div class="panel-body">
 		<ul id="" class="nav nav-tabs">
 			<li class="active">
-				<a href="#account-settings-tab-pane" data-toggle="tab">Account Settings</a>
+				<a href="#account-settings-tab-pane" data-toggle="tab"><?php echo e(_('Account Settings')); ?></a>
 			</li>
 			<li class="">
-				<a href="#billing-and-plan-settings-tab-pane" data-toggle="tab">Billing & Plan Settings</a>
+				<a href="#billing-and-plan-settings-tab-pane" data-toggle="tab"><?php echo e(_('Billing & Plan Settings')); ?></a>
 			</li>
 		</ul>
 
@@ -332,8 +256,9 @@ $(function(){
 				}
 			},
 		}).done(function(data, textStatus, jqXHR){
-			successAlert.find('.msg').html(data.message);
-			successAlert.show('fast');
+			// successAlert.find('.msg').html(data.message);
+			// successAlert.show('fast');
+			nutsSuccessMsg(data.message);
 
 		}).fail(function(data, textStatus, errorThrown){
 			errorAlert.find('.msg').html(errorThrown);
@@ -348,6 +273,16 @@ $(function(){
 	$('.close').click(function(){
 		$(this).parent('.nuts-alert').hide('first');
 	});
+
+	// function successMsg( message ) {
+	// 	logo = $('.logo-lg').html();
+	// 	$('.logo').addClass('nuts-alert alert-success alert-dark').css('display','block');
+	// 	$('.logo-lg').css('font-size','14px').html( message);
+	// 	setTimeout(function(){
+	// 		$('.logo-lg').html(logo);
+	// 		$('.logo').removeClass('nuts-alert alert-success alert-dark');
+	// 	},2000);
+	// }
 
 });
 

@@ -42,7 +42,7 @@
     <div class="container">
         <div class="content">
             <div class="title">Nuts Pages</div>
-            <div><a href="home" class="btn btn-primary start-btn">{{ _('Start') }}</a></div>
+            <div><a href="{{ url('dashboard') }}" class="btn btn-primary start-btn">{{ _('Start') }}</a></div>
         </div>
     </div>
 </body>

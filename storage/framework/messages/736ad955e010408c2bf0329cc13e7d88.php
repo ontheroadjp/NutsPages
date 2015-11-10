@@ -9,14 +9,14 @@
         <ul class="sidebar-menu">
             <!-- <li class="header"><?php echo e(_('HEADER')); ?></li> -->
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="<?php echo e(url('home')); ?>"><i class='fa fa-home'></i> <span><?php echo e(_('Home')); ?></span></a></li>
+            <li class="active"><a href="<?php echo e(url('home')); ?>"><i class='fa fa-home'></i> <span><?php echo e(_('Dashboard')); ?></span></a></li>
             <li><a href="#"><i class='fa fa-sticky-note-o'></i> <span><?php echo e(_('Create New Page')); ?></span></a></li>
-            <li><a href="/<?php echo e(Auth::user()->id); ?>/imagegallery"><i class='fa fa-picture-o'></i> <span><?php echo e(_('Image Gallery')); ?></span></a></li>
+            <li><a href="/imagegallery"><i class='fa fa-picture-o'></i> <span><?php echo e(_('Image Gallery')); ?></span></a></li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-question'></i> <span><?php echo e(_('Help')); ?></span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-user'></i> <span><?php echo e(_('My Account')); ?></span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><?php echo e(_('Sample Link 01')); ?></a></li>
-                    <li><a href="#"><?php echo e(_('Sample Link 02')); ?></a></li>
+                    <li><a href="#"><?php echo e(_('Account Settings')); ?></a></li>
+                    <li><a href="#"><?php echo e(_('Billing & Plan Settings')); ?></a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

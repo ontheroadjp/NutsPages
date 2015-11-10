@@ -24,6 +24,7 @@
         ],
         "psr-4": {
             "App\\": "app/",
+            "Ontheroadjp\\NutsPages\\": "vendor/ontheroadjp/NutsPages/src/",
             "Ontheroadjp\\LaravelAuth\\": "vendor/ontheroadjp/laravel-auth/src/",
             "Ontheroadjp\\LaravelUser\\": "vendor/ontheroadjp/laravel-user/src/",
             "Ontheroadjp\\LaravelImageGallery\\": "vendor/ontheroadjp/laravel-img-gallery/src/"

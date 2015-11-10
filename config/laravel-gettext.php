@@ -68,7 +68,11 @@ return array(
         'Http/Controllers',
         '../resources/views',
         'Console/Commands',
-        '../vendor/ontheroadjp/laravel-auth/Providers'
+        '../vendor/ontheroadjp/laravel-auth/src/Providers',
+        '../vendor/ontheroadjp/laravel-img-gallery/src/Providers',
+        '../vendor/ontheroadjp/laravel-user/src/Providers',
+        '../vendor/ontheroadjp/laravel-img-gallery/src/views',
+        '../vendor/ontheroadjp/laravel-user/src/views',
     ),
 
     /**

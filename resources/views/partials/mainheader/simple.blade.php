@@ -18,47 +18,7 @@
         </a>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
-  
-  <style>
-  /* ---------------------------------------------------------------------- */
-/* Global Styles
-/* ---------------------------------------------------------------------- */
-.nuts-language-switcher {
-    font: 14px/1.5em "Helvetica Neue", Helvetica, Arial, sans-serif !important; /* edit or delete so that the switcher inherits the font styles of your project */
-    z-index: 999 !important;
-}
-
-.nuts-language-switcher,
-.nuts-language-switcher * {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.nuts-language-switcher {
-    position: relative !important;
-}
-
-.nuts-language-switcher ul {
-    list-style: none !important;
-}
-
-.nuts-language-switcher a {
-    transition: all 0.2s ease-in-out !important;
-}
-
-.nuts-language-switcher img {
-    margin-right: 3px !important;
-}
-</style>
-
-
             <ul class="nav navbar-nav">
-
-      @foreach(Config::get('laravel-gettext.supported-locales') as $locale)
-            <li><a href="/lang/{{$locale}}">{{$locale}}</a></li>
-      @endforeach
-
-
 
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
@@ -67,7 +27,8 @@
                         <!-- The user image in the navbar-->
                         <!-- <img src="/img/adminlte/user2-160x160.jpg" class="user-image" alt="User Image"/> -->
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs"><i class="fa fa-user"></i> {{ _('こんにちは、') }}{{ Auth::user()->name }} {{ _('さん') }}</span>
+                        <span class="hidden-xs"><i class="fa fa-user"></i> {{ _('Hello, ') }}{{ Auth::user()->name }} 
+                        <?php if( LaravelGettext::getLocale() === 'ja_JP' ) echo _('さん') ?>&nbsp;&nbsp;<i class="fa fa-caret-down"></i></span>
                     </a>
                     <ul class="dropdown-menu">
 
@@ -102,6 +63,31 @@
                         </li>
                     </ul>
                 </li>
+
+                <!-- Language Switcher Menu -->
+                <li class="dropdown">
+                    <?php $currentLocale = LaravelGettext::getLocale(); ?>
+                            <?php if( $currentLocale === 'ja_JP' ) { $currentLabel = _('JP'); } ?>
+                            <?php if( $currentLocale === 'en_US' ) { $currentLabel = _('EN'); } ?> 
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="img/flags/{{ $currentLocale }}.png" alt="{{ $currentLabel }}-flag"/>
+                        <?php echo $currentLabel ?>&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                      @foreach(Config::get('laravel-gettext.supported-locales') as $locale)
+                            <?php if( $currentLocale === $locale) { continue; } ?>
+                            <?php if( $locale === 'ja_JP' ) { $label = '日本語'; } ?>
+                            <?php if( $locale === 'en_US' ) { $label = 'English'; } ?>
+
+                            <li>
+                                <a href="/lang/{{$locale}}">&nbsp;&nbsp;<img src="img/flags/{{$locale}}.png" alt="{{$label}}-flag"/>{{ $label }}</a>
+                            </li>
+                      @endforeach
+                    </ul>
+                </li>
+
+
             </ul>
         </div>
     </nav>

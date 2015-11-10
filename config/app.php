@@ -147,6 +147,8 @@ return [
 
 				Barryvdh\Debugbar\ServiceProvider::class,
 
+        Ontheroadjp\NutsPages\Providers\NutsPagesServiceProvider::class,
+
         Ontheroadjp\LaravelAuth\Providers\LaravelAuthServiceProvider::class,
         Xinax\LaravelGettext\LaravelGettextServiceProvider::class,
         Ontheroadjp\LaravelUser\Providers\LaravelUserServiceProvider::class,

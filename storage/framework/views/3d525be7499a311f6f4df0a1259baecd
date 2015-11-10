@@ -8,17 +8,115 @@
 
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('breadcrumb'); ?>
+<?php echo e(_('Image Gallery')); ?>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('help_content'); ?>
+<ul>
+	<li>このページでは画像ファイルの登録（アップロード）/削除が行えます。</li>
+	<li>画像ギャラリに登録してある画像は、作成したページにて使用することができます。</li>
+</ul>
+<?php $__env->stopSection(); ?>
+
 
 <?php $__env->startSection('main-content'); ?>
-<div class="panel panel-default">
-	<div class="panel-heading"><?php echo e(_('Image Gallery')); ?></div>
-	<div class="panel-body">
-		You are logged in!
-		<?php if( Auth::viaRemember() ): ?>
-			via Remember Token
-		<?php endif; ?>
+<?php echo $__env->make('partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
+<style>
+.dropzone-box {
+    position: relative;
+    background-color: #F6F6F6;
+    margin-bottom: 20px;
+    min-height: 284px;
+    border: 3px dashed #ddd;
+    border-radius: 3px;
+    vertical-align: middle;
+    width: 100%;
+    cursor: pointer;
+    padding: 0 15px 15px 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+.dz-default.dz-message {
+    color: #555;
+    font-size: 20px;
+    font-weight: 600;
+    display: block;
+    min-height: 70px;
+    width: 300px;
+    position: absolute;
+    padding-left: 90px;
+    padding-top: 12px;
+    line-height: 22px;
+    top: 50%;
+    margin-top: -35px;
+    left: 50%;
+    margin-left: -150px;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+.dropzone-box .fa.fa-cloud-upload {
+    display: block;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    line-height: 70px;
+    font-size: 32px;
+    background: #eee;
+    color: #aaa;
+    border-radius: 2px;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+.dz-default.dz-message {
+    color: #555;
+    font-size: 20px;
+    font-weight: 600;
+    display: block;
+    min-height: 70px;
+    width: 300px;
+    position: absolute;
+    padding-left: 90px;
+    padding-top: 12px;
+    line-height: 22px;
+    top: 50%;
+    margin-top: -35px;
+    left: 50%;
+    margin-left: -150px;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+.dz-text-small {
+    font-size: 14px;
+    font-weight: 400;
+}
+.skin-nuts .dropzone-box:hover .fa.fa-cloud-upload {
+    background: #1d89cf;
+}
+.dropzone-box:hover .fa.fa-cloud-upload {
+    color: #fff;
+}
+
+</style>
+
+<div id="dropzonejs-example" class="dropzone-box dz-clickable">
+	<div class="dz-default dz-message">
+		<i class="fa fa-cloud-upload"></i>
+		<?php echo e(_('Drop files in here')); ?><br><span class="dz-text-small"><?php echo e(_('or click to pick manually')); ?></span>
 	</div>
+
+<form>
+</form>
+
 </div>
+
 
 <div id="nuts-img-collection"></div>
 
@@ -28,16 +126,6 @@
 
 <div class="row">
 
-<!-- 
-<div class="view nuts-overlay">
-<img src="/media/24/menu5_img.jpg">
-<div class="mask">
-<h2>Hover Style #8</h2>
-<p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-<a href="#" class="info">Read More</a>
-</div>
-</div>
--->
 
 <div class="col-md-6">
 <form>
@@ -136,7 +224,7 @@ var settings = {
 		$(this).find('input[name=file_path]').val(data.result.path);
 
 		$("#nuts-img-collection").load("/<?php echo e(Auth::user()->id); ?>/collection", function(){ 
-			//alert("success!"); 
+			nutsSuccessMsg("成功");
 		});
 	},
 

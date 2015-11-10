@@ -1,5 +1,5 @@
 /*
- * Skin: Blue
+ * Skin: Nuts
  * ----------
  */
 .skin-nuts .main-header .navbar {
@@ -31,17 +31,28 @@
 .skin-nuts .main-header .navbar .sidebar-toggle:hover {
   background-color: #367fa9;
 }
-@media (max-width: 767px) {
+
+/*@media (max-width: 767px) {
   .skin-nuts .main-header .navbar .dropdown-menu li.divider {
     background-color: rgba(255, 255, 255, 0.1);
   }
   .skin-nuts .main-header .navbar .dropdown-menu li a {
-    color: #fff;
+    color: #777;
   }
   .skin-nuts .main-header .navbar .dropdown-menu li a:hover {
-    background: #367fa9;
+    background: #e1e3e9;
   }
 }
+*/
+/*@media (max-width: 991px)
+.navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
+    position: absolute;
+    right: 1%;
+    left: auto;
+    border: 1px solid #ddd;
+    background: #fff;
+*/
+
 .skin-nuts .main-header .logo {
   background-color: #1B465F;
   color: #ffffff;
@@ -82,20 +93,26 @@
 }
 .skin-nuts .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
-  background: #2c3b41;
+  background: ##EEF7FB;
 }
 .skin-nuts .sidebar a {
   color: #b8c7ce;
+  &:hover {
+    text-decoration: none;
+  }
 }
-.skin-nuts .sidebar a:hover {
-  text-decoration: none;
+/*.skin-nuts .sidebar a:hover {
 }
+*/
 .skin-nuts .treeview-menu > li > a {
   color: #8aa4af;
+  padding: 10px;
+  border-bottom: 1px solid #C5DCE6;
 }
 .skin-nuts .treeview-menu > li.active > a,
 .skin-nuts .treeview-menu > li > a:hover {
-  color: #ffffff;
+  /*color: #ffffff;*/
+  border-left: 5px solid #8E92CA;
 }
 .skin-nuts .sidebar-form {
   border-radius: 3px;
@@ -149,3 +166,5 @@
 .skin-nuts .content-wrapper{
   background-color: #fff;
 }
+
+

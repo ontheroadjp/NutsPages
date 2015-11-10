@@ -1,0 +1,21 @@
+
+.content-header > h1 {
+    padding-top: 10px;
+}
+
+@media (max-width: 991px) {
+	.content-header > .breadcrumb {
+	    background: #fff;
+	}
+}
+
+.main-header .logo {
+    font-size: 14px;
+}
+
+.box-header {
+    color: #444;
+    display: block;
+    padding: 20px 10px;
+    position: relative;
+}
