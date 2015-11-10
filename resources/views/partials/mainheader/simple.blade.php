@@ -18,7 +18,48 @@
         </a>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
+  
+  <style>
+  /* ---------------------------------------------------------------------- */
+/* Global Styles
+/* ---------------------------------------------------------------------- */
+.nuts-language-switcher {
+    font: 14px/1.5em "Helvetica Neue", Helvetica, Arial, sans-serif !important; /* edit or delete so that the switcher inherits the font styles of your project */
+    z-index: 999 !important;
+}
+
+.nuts-language-switcher,
+.nuts-language-switcher * {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.nuts-language-switcher {
+    position: relative !important;
+}
+
+.nuts-language-switcher ul {
+    list-style: none !important;
+}
+
+.nuts-language-switcher a {
+    transition: all 0.2s ease-in-out !important;
+}
+
+.nuts-language-switcher img {
+    margin-right: 3px !important;
+}
+</style>
+
+
             <ul class="nav navbar-nav">
+
+      @foreach(Config::get('laravel-gettext.supported-locales') as $locale)
+            <li><a href="/lang/{{$locale}}">{{$locale}}</a></li>
+      @endforeach
+
+
+
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
@@ -29,6 +70,7 @@
                         <span class="hidden-xs"><i class="fa fa-user"></i> {{ _('こんにちは、') }}{{ Auth::user()->name }} {{ _('さん') }}</span>
                     </a>
                     <ul class="dropdown-menu">
+
                         <!-- The user image in the menu -->
                         <li class="user-header">
                             <!-- <img src="/img/adminlte/user2-160x160.jpg" class="img-circle" alt="User Image" /> -->

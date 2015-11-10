@@ -4,7 +4,7 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-<?php echo e(_('My Account')); ?>
+<i class="fa fa-user"></i> <?php echo e(_('My Account')); ?>
 
 <?php $__env->stopSection(); ?>
 
@@ -144,7 +144,7 @@
 
 <div class="box box-primary">
 	<div class="box-header with-border">
-		<h3 class="box-title"><?php echo e(_('User Profile')); ?></h3>
+		<h3 class="box-title"><i class="fa fa-paw"></i><?php echo e(_('User Profile')); ?></h3>
 	</div>
 
 
@@ -183,7 +183,7 @@
 
 <div class="box box-primary">
 	<div class="box-header with-border">
-		<h3 class="box-title"><?php echo e(_('Password')); ?></h3>
+		<h3 class="box-title"><i class="fa fa-lock"></i><?php echo e(_('Password')); ?></h3>
 	</div>
 
 

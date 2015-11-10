@@ -1,4 +1,4 @@
-<?php LaravelGettext::setLocale('ja_JP'); ?>
+<?php // LaravelGettext::setLocale('ja_JP'); ?>
 
 <meta charset="UTF-8">
 <title> Laravel-Auth - <?php echo $__env->yieldContent('htmlheader_title', ''); ?> </title>

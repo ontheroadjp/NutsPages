@@ -3,6 +3,11 @@
 
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('contentheader_title'); ?>
+<i class="fa fa-picture-o"></i> <?php echo e(_('Image Gallery')); ?>
+
+<?php $__env->stopSection(); ?>
+
 
 <?php $__env->startSection('main-content'); ?>
 <div class="panel panel-default">
