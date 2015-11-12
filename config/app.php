@@ -150,13 +150,14 @@ return [
         Ontheroadjp\NutsPages\Providers\NutsPagesServiceProvider::class,
 
         Ontheroadjp\LaravelAuth\Providers\LaravelAuthServiceProvider::class,
-        Xinax\LaravelGettext\LaravelGettextServiceProvider::class,
         Ontheroadjp\LaravelUser\Providers\LaravelUserServiceProvider::class,
+        Xinax\LaravelGettext\LaravelGettextServiceProvider::class,
 
         Ontheroadjp\LaravelImageGallery\Providers\LaravelImageGalleryServiceProvider::class,
 				Intervention\Image\ImageServiceProvider::class,
 				Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
+        Ontheroadjp\NutsWhois\Providers\NutsWhoisServiceProvider::class,
     ],
 
     /*

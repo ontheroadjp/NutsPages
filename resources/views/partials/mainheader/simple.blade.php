@@ -71,7 +71,7 @@
                             <?php if( $currentLocale === 'en_US' ) { $currentLabel = _('EN'); } ?> 
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="img/flags/{{ $currentLocale }}.png" alt="{{ $currentLabel }}-flag"/>
+                    <img src="/img/flags/{{ $currentLocale }}.png" alt="{{ $currentLabel }}-flag"/>
                         <?php echo $currentLabel ?>&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu">
@@ -81,7 +81,7 @@
                             <?php if( $locale === 'en_US' ) { $label = 'English'; } ?>
 
                             <li>
-                                <a href="/lang/{{$locale}}">&nbsp;&nbsp;<img src="img/flags/{{$locale}}.png" alt="{{$label}}-flag"/>{{ $label }}</a>
+                                <a href="/lang/{{$locale}}">&nbsp;&nbsp;<img src="/img/flags/{{$locale}}.png" alt="{{$label}}-flag"/>{{ $label }}</a>
                             </li>
                       @endforeach
                     </ul>

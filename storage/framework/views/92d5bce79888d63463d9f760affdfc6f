@@ -72,7 +72,7 @@
                             <?php if( $currentLocale === 'en_US' ) { $currentLabel = _('EN'); } ?> 
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="img/flags/<?php echo e($currentLocale); ?>.png" alt="<?php echo e($currentLabel); ?>-flag"/>
+                    <img src="/img/flags/<?php echo e($currentLocale); ?>.png" alt="<?php echo e($currentLabel); ?>-flag"/>
                         <?php echo $currentLabel ?>&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu">
@@ -82,7 +82,7 @@
                             <?php if( $locale === 'en_US' ) { $label = 'English'; } ?>
 
                             <li>
-                                <a href="/lang/<?php echo e($locale); ?>">&nbsp;&nbsp;<img src="img/flags/<?php echo e($locale); ?>.png" alt="<?php echo e($label); ?>-flag"/><?php echo e($label); ?></a>
+                                <a href="/lang/<?php echo e($locale); ?>">&nbsp;&nbsp;<img src="/img/flags/<?php echo e($locale); ?>.png" alt="<?php echo e($label); ?>-flag"/><?php echo e($label); ?></a>
                             </li>
                       <?php endforeach; ?>
                     </ul>

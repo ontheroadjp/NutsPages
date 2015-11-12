@@ -9992,6 +9992,30 @@ button.close {
   border: 1px solid #fff;
 }
 
+.nuts-btn-primary {
+  color: #2e6da4;
+  background-color: #fff;
+  border-color: #2e6da4;
+}
+
+.nuts-btn-info {
+  color: #46b8da;
+  background-color: #fff;
+  border-color: #46b8da;
+}
+
+.nuts-btn-success {
+  color: #4cae4c;
+  background-color: #fff;
+  border-color: #4cae4c;
+}
+
+.nuts-btn-danger {
+  color: #d43f3a;
+  background-color: #fff;
+  border-color: #d43f3a;
+}
+
 /* ---------------------------------------------
 Nuts Alert
 ---------------------------------------------- */
@@ -10057,6 +10081,65 @@ Nuts Alert
 
 .nuts-alert .nuts-close {
   top: 0;
+}
+
+.nuts-modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.nuts-modal-dialog {
+  width: 350px;
+  margin: 150px auto;
+}
+
+.nuts-modal-content {
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+}
+
+.nuts-modal-success .modal-header {
+  background-color: #5ebd5e;
+  color: #fff;
+  font-size: 90px;
+  margin-bottom: 30px;
+  padding: 0px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.08);
+}
+
+.nuts-modal-success .modal-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.nuts-modal-success .modal-body {
+  color: #888;
+}
+
+.nuts-modal-success .modal-footer {
+  padding: 15px;
+  border-top: none;
+  text-align: center;
+}
+
+.nuts-modal-success button {
+  width: 100px;
+  background-color: #fff;
+  color: #449d44;
+  margin-bottom: 20px;
 }
 
 .nuts-upload-btn {
