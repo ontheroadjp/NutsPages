@@ -96,12 +96,11 @@
     vertical-align: middle;
 }
 .wizard-steps>li.active .wizard-step-number, .wizard-steps>li.completed .wizard-step-number {
-    border-color: #155073;
-    color: #155073;
+    border-color: #555;
+    color: #555;
 }
 .wizard-steps>li.active .wizard-step-caption, .wizard-steps>li.completed .wizard-step-caption {
-    color: #155073;
-    font-weight: 600;
+    color: #555;
 }
 .wizard-steps>li+li:before {
     background: #e4e4e4;
@@ -140,7 +139,7 @@
 .wizard-step-caption, .wizard-step-description {
     color: #bbb;
     display: inline-block;
-    line-height: 18px;
+    line-height: 14px;
     white-space: normal;
 }
 
@@ -248,9 +247,6 @@
 				<div class="panel no-box-shadow">
 					<div class="panel-body">
 						<div id="whois-results"></div>
-						<div class="text-center">
-							<button class="btn nuts-btn-primary wizard-next-step-btn"><?php echo e(_('Next')); ?></button>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -366,6 +362,7 @@ $(function(){
 				output += '<div class="col-sm-2 col-sm-offset-2"><button class="btn nuts-btn-primary ' + disabled + '">' + btnLabel + '</button></div>';
 				output += '</div>';
 			}
+			output += '<button class="btn nuts-btn-primary wizard-next-step-btn">Next</button>'
 			$('#whois-results').html(output);
 
 

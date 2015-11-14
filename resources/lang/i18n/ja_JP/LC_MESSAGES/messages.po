@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MultilanguageLaravelApplication\n"
-"POT-Creation-Date: 2015-11-10 16:19+0900\n"
-"PO-Revision-Date: 2015-11-10 16:21+0900\n"
+"POT-Creation-Date: 2015-11-14 00:56+0900\n"
+"PO-Revision-Date: 2015-11-14 00:57+0900\n"
 "Last-Translator: Hideaki Ishihara <dev@ontheroad.jp>\n"
 "Language-Team: Hideaki Ishihara <dev@ontheroad.jp>\n"
 "Language: ja_JP\n"
@@ -18,14 +18,26 @@ msgstr ""
 "X-Poedit-SearchPath-2: Console/Commands\n"
 "X-Poedit-SearchPath-3: ../vendor/ontheroadjp/laravel-auth/src/"
 "Providers\n"
-"X-Poedit-SearchPath-4: ../vendor/ontheroadjp/laravel-img-gallery/src/"
+"X-Poedit-SearchPath-4: ../vendor/ontheroadjp/laravel-user/src/"
 "Providers\n"
-"X-Poedit-SearchPath-5: ../vendor/ontheroadjp/laravel-user/src/"
+"X-Poedit-SearchPath-5: ../vendor/ontheroadjp/laravel-img-gallery/src/"
 "Providers\n"
-"X-Poedit-SearchPath-6: ../vendor/ontheroadjp/laravel-img-gallery/src/"
+"X-Poedit-SearchPath-6: ../vendor/ontheroadjp/NutsWhois/src/"
+"Providers\n"
+"X-Poedit-SearchPath-7: ../vendor/ontheroadjp/laravel-user/src/"
+"Controllers\n"
+"X-Poedit-SearchPath-8: ../vendor/ontheroadjp/laravel-img-gallery/src/"
+"Controllers\n"
+"X-Poedit-SearchPath-9: ../vendor/ontheroadjp/NutsWhois/src/"
+"Controllers\n"
+"X-Poedit-SearchPath-10: ../vendor/ontheroadjp/laravel-user/src/"
 "views\n"
-"X-Poedit-SearchPath-7: ../vendor/ontheroadjp/laravel-user/src/views\n"
-"X-Poedit-SearchPath-8: ../storage/framework/messages\n"
+"X-Poedit-SearchPath-11: ../vendor/ontheroadjp/laravel-img-gallery/"
+"src/views\n"
+"X-Poedit-SearchPath-12: ../vendor/ontheroadjp/NutsWhois/src/views\n"
+"X-Poedit-SearchPath-13: ../vendor/ontheroadjp/NutsWhois/src/"
+"Services\n"
+"X-Poedit-SearchPath-14: ../storage/framework/messages\n"
 
 #: ../resources/views/partials/mainheader/simple.blade.php:31
 #: ../storage/framework/messages/92d5bce79888d63463d9f760affdfc6f.php:31
@@ -105,7 +117,7 @@ msgstr "E-mail アドレス"
 #: ../storage/framework/messages/2a77bf939b5db1d2c58216e279744105.php:37
 #: ../storage/framework/messages/33582de997285cc036827a42100bca3b.php:46
 #: ../storage/framework/messages/481e3ca75cc4503a2567bc8c46bb655b.php:37
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:192
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:110
 msgid "Password"
 msgstr "パスワード"
 
@@ -139,6 +151,31 @@ msgstr "Facebook アカウントでログイン"
 #: ../storage/framework/messages/2a77bf939b5db1d2c58216e279744105.php:67
 msgid "Sign in using Google"
 msgstr "Google アカウントでログイン"
+
+#: ../storage/framework/messages/32da6f043dffe6f1587532559b9b5a6d.php:52
+#: ../vendor/ontheroadjp/laravel-user/src/Controllers/UserController.php:52
+msgid "User name has been changed Successfully."
+msgstr "ユーザー名を変更しました"
+
+#: ../storage/framework/messages/32da6f043dffe6f1587532559b9b5a6d.php:54
+#: ../vendor/ontheroadjp/laravel-user/src/Controllers/UserController.php:54
+msgid "E-mail address has been changed Successfully."
+msgstr "Email アドレスを変更しました"
+
+#: ../storage/framework/messages/32da6f043dffe6f1587532559b9b5a6d.php:57
+#: ../vendor/ontheroadjp/laravel-user/src/Controllers/UserController.php:57
+msgid "Success Saved!"
+msgstr "保存しました"
+
+#: ../storage/framework/messages/32da6f043dffe6f1587532559b9b5a6d.php:67
+#: ../vendor/ontheroadjp/laravel-user/src/Controllers/UserController.php:67
+msgid "DB update failed."
+msgstr "アップデートに失敗しました"
+
+#: ../storage/framework/messages/32da6f043dffe6f1587532559b9b5a6d.php:75
+#: ../vendor/ontheroadjp/laravel-user/src/Controllers/UserController.php:75
+msgid "Bad Request."
+msgstr "不正なリクエストです"
 
 #: ../storage/framework/messages/33582de997285cc036827a42100bca3b.php:2
 #: ../storage/framework/messages/33582de997285cc036827a42100bca3b.php:65
@@ -187,73 +224,75 @@ msgstr "スペルミス"
 
 #: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:7
 #: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:12
-#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:16
+#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:17
 msgid "My Account"
 msgstr "マイアカウント"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:131
-#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:18
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:57
+#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:19
 msgid "Account Settings"
 msgstr "アカウント設定"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:134
-#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:19
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:60
+#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:20
 msgid "Billing & Plan Settings"
 msgstr "プラン設定"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:145
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:71
 msgid "User Profile"
 msgstr "登録情報"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:154
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:156
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:80
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:82
 msgid "User Name"
 msgstr "ユーザー名"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:158
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:168
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:84
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:94
 msgid "UPDATE"
 msgstr "更新"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:164
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:166
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:90
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:92
 msgid "Email Address"
 msgstr "E-mail アドレス"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:201
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:119
 msgid "Old password"
 msgstr "現在のパスワード"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:202
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:120
 msgid "Old Password"
 msgstr "現在のパスワード"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:206
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:124
 msgid "New password"
 msgstr "新しく登録するパスワード"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:207
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:125
 #: ../storage/framework/messages/e836f51ee6fd6a2af939fae60f71c214.php:49
 msgid "New Password"
 msgstr "新しく登録するパスワード"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:211
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:129
 msgid "New password(Confirm)"
 msgstr "新しく登録するパスワード（確認用）"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:212
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:130
 msgid "New Password Again"
 msgstr "新しく登録するパスワード（確認用）"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:221
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:139
 msgid "Change Password"
 msgstr "パスワードの変更"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:298
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:216
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:55
 msgid "SUCCESS"
 msgstr "成功"
 
-#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:299
+#: ../storage/framework/messages/51e54d08ff0da1e10e0fb7d44c14c2e4.php:217
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:56
 msgid "User name has been changed."
 msgstr "ユーザー名を変更しました。"
 
@@ -283,6 +322,13 @@ msgstr "ヘッダー"
 #: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:13
 msgid "Create New Page"
 msgstr "新規ページ作成"
+
+#: ../storage/framework/messages/736ad955e010408c2bf0329cc13e7d88.php:15
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:2
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:7
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:186
+msgid "Domain Search"
+msgstr "ドメイン検索"
 
 #: ../storage/framework/messages/92d5bce79888d63463d9f760affdfc6f.php:30
 msgid "Hello, "
@@ -395,6 +441,33 @@ msgstr "新しく登録するパスワード（確認）"
 #: ../storage/framework/messages/e836f51ee6fd6a2af939fae60f71c214.php:66
 msgid "Exsecute Reset password"
 msgstr "パスワードリセットを実行する"
+
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:12
+msgid "Domain search"
+msgstr "ドメイン検索"
+
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:185
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:194
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:203
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:212
+msgid "Step"
+msgstr "ステップ"
+
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:195
+msgid "Regist ID & PASS"
+msgstr "ID & パスワード登録"
+
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:204
+msgid "Regist Your Info."
+msgstr "お客様情報の入力"
+
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:213
+msgid "Payment"
+msgstr "お支払い"
+
+#: ../storage/framework/messages/eb8ea23ebe68a0cb8cd801a134577d87.php:245
+msgid "Search Domain"
+msgstr "ドメイン検索する"
 
 #: ../storage/framework/messages/ec6fd4e6ed27c81b1a494664f93b86fe.php:29
 msgid "You have 4 messages"

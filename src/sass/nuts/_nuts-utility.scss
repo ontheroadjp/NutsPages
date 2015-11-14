@@ -1,0 +1,20 @@
+
+
+
+@for $i from 1 through 12 {
+	.nuts-fs-#{$i * 2} {
+		font-size:#{$i * 2}px;
+	}
+
+	.nuts-mg-b-#{$i * 5} {
+		margin-bottom:#{$i * 5}px;
+	}
+}
+
+
+
+.no-box-shadow {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;    
+}
+
+

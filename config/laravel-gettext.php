@@ -69,10 +69,19 @@ return array(
         '../resources/views',
         'Console/Commands',
         '../vendor/ontheroadjp/laravel-auth/src/Providers',
-        '../vendor/ontheroadjp/laravel-img-gallery/src/Providers',
         '../vendor/ontheroadjp/laravel-user/src/Providers',
-        '../vendor/ontheroadjp/laravel-img-gallery/src/views',
+        '../vendor/ontheroadjp/laravel-img-gallery/src/Providers',
+        '../vendor/ontheroadjp/NutsWhois/src/Providers',
+
+        '../vendor/ontheroadjp/laravel-user/src/Controllers',
+        '../vendor/ontheroadjp/laravel-img-gallery/src/Controllers',
+        '../vendor/ontheroadjp/NutsWhois/src/Controllers',
+
         '../vendor/ontheroadjp/laravel-user/src/views',
+        '../vendor/ontheroadjp/laravel-img-gallery/src/views',
+        '../vendor/ontheroadjp/NutsWhois/src/views',
+
+        '../vendor/ontheroadjp/NutsWhois/src/Services',
     ),
 
     /**

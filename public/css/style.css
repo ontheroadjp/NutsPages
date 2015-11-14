@@ -9969,11 +9969,69 @@ button.close {
   font-size: 14px;
 }
 
+.box {
+  border-top: 1px solid #d2d6de;
+}
+
 .box-header {
   color: #444;
   display: block;
   padding: 20px 10px;
   position: relative;
+}
+
+.nuts-btn-primary {
+  color: #2e6da4;
+  background-color: #fff;
+  border-color: #2e6da4;
+}
+.nuts-btn-primary:hover {
+  color: #fff;
+  background-color: #2e6da4;
+  border-color: #2e6da4;
+}
+
+.nuts-btn-info {
+  color: #46b8da;
+  background-color: #fff;
+  border-color: #46b8da;
+}
+.nuts-btn-info:hover {
+  color: #fff;
+  background-color: #46b8da;
+  border-color: #46b8da;
+}
+
+.nuts-btn-success {
+  color: #4cae4c;
+  background-color: #fff;
+  border-color: #4cae4c;
+}
+.nuts-btn-success:hover {
+  color: #fff;
+  background-color: #4cae4c;
+  border-color: #4cae4c;
+}
+
+.nuts-btn-danger {
+  color: #d43f3a;
+  background-color: #fff;
+  border-color: #d43f3a;
+}
+.nuts-btn-danger:hover {
+  color: #fff;
+  background-color: #d43f3a;
+  border-color: #d43f3a;
+}
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+  cursor: not-allowed;
+  opacity: 0.35;
+  filter: alpha(opacity=35);
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 2px dotted;
 }
 
 .nuts-badge-white {
@@ -9990,30 +10048,6 @@ button.close {
   /* background-color: #fff; */
   border-radius: 10px;
   border: 1px solid #fff;
-}
-
-.nuts-btn-primary {
-  color: #2e6da4;
-  background-color: #fff;
-  border-color: #2e6da4;
-}
-
-.nuts-btn-info {
-  color: #46b8da;
-  background-color: #fff;
-  border-color: #46b8da;
-}
-
-.nuts-btn-success {
-  color: #4cae4c;
-  background-color: #fff;
-  border-color: #4cae4c;
-}
-
-.nuts-btn-danger {
-  color: #d43f3a;
-  background-color: #fff;
-  border-color: #d43f3a;
 }
 
 /* ---------------------------------------------
@@ -10311,6 +10345,107 @@ Overlay Effect
           transform: translateY(0px);
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
+}
+
+.nuts-fs-2 {
+  font-size: 2px;
+}
+
+.nuts-mg-b-5 {
+  margin-bottom: 5px;
+}
+
+.nuts-fs-4 {
+  font-size: 4px;
+}
+
+.nuts-mg-b-10 {
+  margin-bottom: 10px;
+}
+
+.nuts-fs-6 {
+  font-size: 6px;
+}
+
+.nuts-mg-b-15 {
+  margin-bottom: 15px;
+}
+
+.nuts-fs-8 {
+  font-size: 8px;
+}
+
+.nuts-mg-b-20 {
+  margin-bottom: 20px;
+}
+
+.nuts-fs-10 {
+  font-size: 10px;
+}
+
+.nuts-mg-b-25 {
+  margin-bottom: 25px;
+}
+
+.nuts-fs-12 {
+  font-size: 12px;
+}
+
+.nuts-mg-b-30 {
+  margin-bottom: 30px;
+}
+
+.nuts-fs-14 {
+  font-size: 14px;
+}
+
+.nuts-mg-b-35 {
+  margin-bottom: 35px;
+}
+
+.nuts-fs-16 {
+  font-size: 16px;
+}
+
+.nuts-mg-b-40 {
+  margin-bottom: 40px;
+}
+
+.nuts-fs-18 {
+  font-size: 18px;
+}
+
+.nuts-mg-b-45 {
+  margin-bottom: 45px;
+}
+
+.nuts-fs-20 {
+  font-size: 20px;
+}
+
+.nuts-mg-b-50 {
+  margin-bottom: 50px;
+}
+
+.nuts-fs-22 {
+  font-size: 22px;
+}
+
+.nuts-mg-b-55 {
+  margin-bottom: 55px;
+}
+
+.nuts-fs-24 {
+  font-size: 24px;
+}
+
+.nuts-mg-b-60 {
+  margin-bottom: 60px;
+}
+
+.no-box-shadow {
+  -webkit-box-shadow: 0 0 0 transparent !important;
+          box-shadow: 0 0 0 transparent !important;
 }
 
 .nuts-help-panel .panel-body {

@@ -224,7 +224,7 @@ var settings = {
 		$(this).find('input[name=file_path]').val(data.result.path);
 
 		$("#nuts-img-collection").load("/<?php echo e(Auth::user()->id); ?>/collection", function(){ 
-			//alert("success!"); 
+			nutsSuccessMsg("成功");
 		});
 	},
 

@@ -28,80 +28,6 @@
 <?php $__env->startSection('main-content'); ?>
 <?php echo $__env->make('partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-<style>
-.nuts-alert.alert-success.alert-dark {
-	display:none;
-
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0,0,0,.2);
-    background: 0 0;
-    border-color: #4358A5;
-    background-color: #5E8DBD !important;
-    background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,.06)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,.06)),color-stop(0.75,rgba(255,255,255,.06)),color-stop(0.75,transparent),to(transparent));
-    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: -moz-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-size: 20px 20px;
-}
-.nuts-alert.alert-danger.alert-dark {
-	display:none;
-
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0,0,0,.2);
-    background: 0 0;
-    border-color: #df3c28;
-    background-color: #e66454 !important;
-    background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,.04)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,.04)),color-stop(0.75,rgba(255,255,255,.04)),color-stop(0.75,transparent),to(transparent));
-    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.04)25%,transparent 25%,transparent 50%,rgba(255,255,255,.04)50%,rgba(255,255,255,.04)75%,transparent 75%,transparent);
-    background-image: -moz-linear-gradient(45deg,rgba(255,255,255,.04)25%,transparent 25%,transparent 50%,rgba(255,255,255,.04)50%,rgba(255,255,255,.04)75%,transparent 75%,transparent);
-    background-image: linear-gradient(45deg,rgba(255,255,255,.04)25%,transparent 25%,transparent 50%,rgba(255,255,255,.04)50%,rgba(255,255,255,.04)75%,transparent 75%,transparent);
-    background-size: 20px 20px;
-}
-.nuts-alert.alert-info.alert-dark {
-	display:none;
-
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0,0,0,.2);
-    background: 0 0;
-    border-color: #31b0d5;
-    background-color: #5bc0de !important;
-    background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,.06)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,.06)),color-stop(0.75,rgba(255,255,255,.06)),color-stop(0.75,transparent),to(transparent));
-    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: -moz-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-size: 20px 20px;
-}
-.nuts-alert.alert-warning.alert-dark {
-	display:none;
-
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0,0,0,.2);
-    background: 0 0;
-    border-color: #f19a1f;
-    background-color: #f4b04f;
-    background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,.06)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,.06)),color-stop(0.75,rgba(255,255,255,.06)),color-stop(0.75,transparent),to(transparent));
-    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: -moz-linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-image: linear-gradient(45deg,rgba(255,255,255,.06)25%,transparent 25%,transparent 50%,rgba(255,255,255,.06)50%,rgba(255,255,255,.06)75%,transparent 75%,transparent);
-    background-size: 20px 20px;
-}
-
-.nuts-alert {
-    background: #f9f1c7;
-    border-color: #f6deac;
-    color: #af8640;
-    background-size: 20px 20px;
-    padding: 15px;
-    /*margin-bottom: 18px;*/
-    border: 1px solid transparent;
-    border-radius: 2px;
-}
-
-.nuts-alert .nuts-close {
-    top: 0;
-}
-
-</style>
 
 <div class="nuts-alert alert-success alert-dark">
 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -124,7 +50,7 @@
 </div>
 
 
-<div class="panel">
+<div class="panel no-box-shadow">
 	<div class="panel-body">
 		<ul id="" class="nav nav-tabs">
 			<li class="active">
@@ -140,8 +66,8 @@
 
 <!-- ------------------------------------- -->
 
-<div class="box box-primary">
-	<div class="box-header with-border">
+<div class="box box-primary no-box-shadow">
+	<div class="box-header">
 		<h3 class="box-title"><i class="fa fa-paw"></i><?php echo e(_('User Profile')); ?></h3>
 	</div>
 
@@ -155,7 +81,7 @@
 				<div class="input-group input-group">
 				<input name="name" type="text" class="form-control" placeholder="<?php echo e(_('User Name')); ?>" value="<?php echo e($user->name); ?>">
 				<span class="input-group-btn">
-				<button name="name" type="button" class="btn btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
+				<button name="name" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
 				</span>
 			</div>
 		</div>
@@ -165,7 +91,7 @@
 				<div class="input-group input-group">
 				<input name='email' type="text" class="form-control" placeholder="<?php echo e(_('Email Address')); ?>" value="<?php echo e($user->email); ?>">
 				<span class="input-group-btn">
-				<button name="email" type="button" class="btn btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
+				<button name="email" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
 				</span>
 			</div>
 		</div>
@@ -176,19 +102,11 @@
 		</div><!-- /.box-body -->
 	</form>
 
-
-		</div><!-- / .col -->
-		</div><!-- /.box-body -->
-
-
-	</form>
-
-
 </div>
 
 
-<div class="box box-primary">
-	<div class="box-header with-border">
+<div class="box box-primary no-box-shadow">
+	<div class="box-header">
 		<h3 class="box-title"><i class="fa fa-lock"></i><?php echo e(_('Password')); ?></h3>
 	</div>
 
@@ -216,9 +134,9 @@
 		</div><!-- /.box-body -->
 	</form>
 
-	<div class="box-footer">
+	<div class="box-footer no-border">
 	<div class="col-md-6 text-right">
-	<button type="submit" class="btn btn-info"><?php echo e(_('Change Password')); ?></button>
+	<button type="submit" class="btn nuts-btn-info"><?php echo e(_('Change Password')); ?></button>
 	</div>
 	</div>
 
@@ -338,13 +256,12 @@ $(function(){
 				}
 			},
 		}).done(function(data, textStatus, jqXHR){
-			// successAlert.find('.msg').html(data.message);
-			// successAlert.show('fast');
-			successMsg(data.message);
+			nutsLogoMsgSuccess(data.message);
 
 		}).fail(function(data, textStatus, errorThrown){
-			errorAlert.find('.msg').html(errorThrown);
-			errorAlert.show('fast');
+			nutsLogoMsgDanger(errorThrown);
+			// errorAlert.find('.msg').html(errorThrown);
+			// errorAlert.show('fast');
 			// alert(errorHandler(arguments));
 
 		}).always(function(data, textStatus, returnedObject){ 
@@ -355,16 +272,6 @@ $(function(){
 	$('.close').click(function(){
 		$(this).parent('.nuts-alert').hide('first');
 	});
-
-	function successMsg( message ) {
-		logo = $('.logo-lg').html();
-		$('.logo').addClass('nuts-alert alert-success alert-dark').css('display','block');
-		$('.logo-lg').css('font-size','14px').html( message);
-		setTimeout(function(){
-			$('.logo-lg').html(logo);
-			$('.logo').removeClass('nuts-alert alert-success alert-dark');
-		},2000);
-	}
 
 });
 

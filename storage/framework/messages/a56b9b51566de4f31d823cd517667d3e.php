@@ -42,7 +42,7 @@
     <div class="container">
         <div class="content">
             <div class="title">Nuts Pages</div>
-            <div><a href="home" class="btn btn-primary start-btn"><?php echo e(_('Start')); ?></a></div>
+            <div><a href="<?php echo e(url('dashboard')); ?>" class="btn btn-primary start-btn"><?php echo e(_('Start')); ?></a></div>
         </div>
     </div>
 </body>
