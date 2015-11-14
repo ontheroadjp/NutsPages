@@ -4,14 +4,12 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-
 <!-- <body class="register-page"> -->
 <body>
  
     <?php if(count($errors) > 0): ?>
-        <div class="alert alert-danger text-align">
-            <!-- <strong>Whoops!</strong> There were some problems with your input.<br><br> -->
-            <strong><?php echo e(_('Woops!')); ?></strong> <?php echo e(_('There were some problems with your input.')); ?><br><br>
+        <div class="alert alert-danger text-center">
+            <strong><?php echo e(_('Whoops!')); ?></strong> <?php echo e(_('There were some problems with your input.')); ?><br><br>
             <ul>
                 <?php foreach($errors->all() as $error): ?>
                     <li><?php echo e($error); ?></li>
@@ -80,7 +78,7 @@
             </div>
 
 
-    <?php echo $__env->make('auth.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php /* <?php echo $__env->make('auth.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
 
     <script>
         $(function () {
@@ -95,4 +93,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('auth.auth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('LaravelAuth::auth.auth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

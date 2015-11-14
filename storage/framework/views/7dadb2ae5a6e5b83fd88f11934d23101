@@ -62,7 +62,7 @@
 </div>
 
 
-    <?php echo $__env->make('auth.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php /* <?php echo $__env->make('auth.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
 
     <script>
         $(function () {
@@ -77,4 +77,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('auth.auth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('LaravelAuth::auth.auth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
