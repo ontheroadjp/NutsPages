@@ -25,9 +25,6 @@ class UserController extends Controller
      */
     public function view()
     {
-        // if( $id !== \Auth::user()->id ) {
-        //     \App::abort('403');
-        // }
         $user = \DB::table('users')->where('id',\Auth::user()->id)->first();
         return view('LaravelUser::profile', compact('user'));
     }
@@ -49,22 +46,13 @@ class UserController extends Controller
 
             if($result === 1){
 
-                $msg = '<i class="fa fa-check-circle-o"></i> ' . _('Success Saved!');
-
-                if($params['field'] === 'name') {
-                    $msg = _('User name has been changed Successfully.');
-                    $activity = new Activity();
-                    $activity->user_id = \Auth::user()->id;
-                    $activity->activity_id = 2;
-                    $activity->save();
-                    // Activity::addUpdatedUserName(\Auth::user()->id);
-                } elseif($params['field'] === 'email') {
-                    $msg = _('E-mail address has been changed Successfully.');
-                    // Activity::addUpdatedEmailAddress($req->user->id);
-                }
+                $msg = [
+                    'name' => _('User name has been changed Successfully.'),
+                    'email' => _('E-mail address has been changed Successfully.'),
+                ];
 
                 return \Response::json([
-                    'message' => $msg,
+                    'message' => $msg[$params['field']],
                     'result' => $result,
                 ]);
 

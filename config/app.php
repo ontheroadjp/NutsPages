@@ -149,8 +149,8 @@ return [
 
         Ontheroadjp\NutsPages\Providers\NutsPagesServiceProvider::class,
 
-        Ontheroadjp\LaravelAuth\Providers\LaravelAuthServiceProvider::class,
-        //Ontheroadjp\LaravelUser\Providers\LaravelUserServiceProvider::class,
+        //Ontheroadjp\LaravelAuth\Providers\LaravelAuthServiceProvider::class,
+        Ontheroadjp\LaravelUser\Providers\LaravelUserServiceProvider::class,
         Xinax\LaravelGettext\LaravelGettextServiceProvider::class,
 
         Ontheroadjp\LaravelImageGallery\Providers\LaravelImageGalleryServiceProvider::class,

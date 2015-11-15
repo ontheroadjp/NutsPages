@@ -27,7 +27,8 @@ class UserModelEventObserver {
 	}
 
 	public function updated($model){
-
+        // Activity::updatedUserName(\Auth::user()->id);
+        // Activity::updatedEmailAddress(\Auth::user()->id);
 	}
 
     private function sendWelcomeMail($user)

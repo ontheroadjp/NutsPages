@@ -9,6 +9,8 @@
 * 
 */
 
+namespace Ontheroadjp\LaravelUser\Providers;
+
 use App\User;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Console\AppNamespaceDetectorTrait;
@@ -18,6 +20,8 @@ use Route;
 
 use Illuminate\Support\Facades\URL;
 use Xinax\LaravelGettext\Facades\LaravelGettext;
+
+use Ontheroadjp\LaravelUser\Listeners\UserModelEventObserver;
 
 /**
  * Class LaravelUserServiceProvider
@@ -114,9 +118,9 @@ class LaravelUserServiceProvider extends ServiceProvider
         ]);
 
         // Seeds
-        $this->publishes([
-            dirname(__FILE__).$src['seed'].'ActivityMasterTableSeeder.php' => base_path('database/seeds/ActivityMasterTableSeeder.php'),
-        ]);
+        // $this->publishes([
+        //     dirname(__FILE__).$src['seed'].'ActivityMasterTableSeeder.php' => base_path('database/seeds/ActivityMasterTableSeeder.php'),
+        // ]);
 
     }
 
@@ -138,7 +142,7 @@ class LaravelUserServiceProvider extends ServiceProvider
 
         // Define the route for auth
         $routeConfig = [
-            'namespace' => 'Ontheroadjp\LaravelUser\Controllers',
+            'namespace' => 'Ontheroadjp\LaravelUser\Controllers\auth',
         ];
 
         $this->app['router']->group($routeConfig, function($router) {

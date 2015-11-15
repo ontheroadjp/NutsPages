@@ -1,4 +1,4 @@
-@extends('LaravelAuth::auth.auth')
+@extends('LaravelUser::auth.auth')
 
 @section('htmlheader_title')
 {{ _('Log in') }}

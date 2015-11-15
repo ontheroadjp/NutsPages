@@ -74,16 +74,16 @@ class ExAuthController extends \App\Http\Controllers\Auth\AuthController
     
     public function getLogin()
     {
-        if (view()->exists('LaravelAuth::auth.authenticate')) {
-            return view('LaravelAuth::auth.authenticate');
+        if (view()->exists('LaravelUser::auth.authenticate')) {
+            return view('LaravelUser::auth.authenticate');
         }
 
-        return view('LaravelAuth::auth.login');
+        return view('LaravelUser::auth.login');
     }
 
     public function getRegister()
     {
-        return view('LaravelAuth::auth.register');
+        return view('LaravelUser::auth.register');
     }
 
     protected function authenticated($request, $user) {

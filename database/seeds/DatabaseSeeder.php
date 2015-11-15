@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 use Carbon\Carbon;
 
-use Ontheroadjp\NutsPages\Models\ActivityMaster as Activity;
+use Ontheroadjp\LaravelUser\database\seeds\ActivityMasterTableSeeder;
 
 
 class DatabaseSeeder extends Seeder
@@ -20,21 +20,9 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->call('ActivityMasterTableSeeder');
+        $this->call('Ontheroadjp\LaravelUser\database\seeds\ActivityMasterTableSeeder');
 
         Model::reguard();
-    }
-}
-
-class ActivityMasterTableSeeder extends Seeder
-{
-    public function run() {
-        DB::table('activity_master')->delete();
-        Activity::create(['activity' => 'Create New Page']);
-        Activity::create(['activity' => 'Update Username']);
-        Activity::create(['activity' => 'Update Email Address']);
-        Activity::create(['activity' => 'Update Password']);
-        $this->command->info('ActivityMaster table seeded!');
     }
 }
 
