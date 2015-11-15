@@ -11,7 +11,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('/dashboard') }}"><i class='fa fa-home'></i> <span>{{ _('Dashboard') }}</span></a></li>
             <li><a href="#"><i class='fa fa-sticky-note-o'></i> <span>{{ _('Create New Page') }}</span></a></li>
-            <li><a href="{{ url('/imagegallery') }}t"><i class='fa fa-picture-o'></i> <span>{{ _('Image Gallery') }}</span></a></li>
+            <li><a href="{{ url('/imagegallery') }}"><i class='fa fa-picture-o'></i> <span>{{ _('Image Gallery') }}</span></a></li>
             <li><a href="{{ url('/whois/search') }}"><i class='fa fa-search'></i> <span>{{ _('Domain Search') }}</span></a></li>
             <li><a href="{{ url('/profile') }}"><i class='fa fa-user'></i> <span>{{ _('Account Settings') }}</span></a></li>
 
