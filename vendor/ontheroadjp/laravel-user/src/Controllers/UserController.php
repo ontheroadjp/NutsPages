@@ -3,6 +3,7 @@
 namespace Ontheroadjp\LaravelUser\Controllers;
 
 use Auth;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -40,11 +41,16 @@ class UserController extends Controller
         if($req->ajax()){
 
             $params = $req->all();
-            $result = \DB::table('users')->where('id', $params['id'])->update([
-                $params['field'] => $params['val']
-            ]);
+            // $result = \DB::table('users')->where('id', $params['id'])->update([
+            //     $params['field'] => $params['val']
+            // ]);
 
-            if($result === 1){
+            $user = Auth::user();
+            $user->setAttribute( $params['field'], $params['val'] );
+            if( $user->save() ) {
+
+
+            // if($result === 1){
 
                 $msg = [
                     'name' => _('User name has been changed Successfully.'),
@@ -53,7 +59,7 @@ class UserController extends Controller
 
                 return \Response::json([
                     'message' => $msg[$params['field']],
-                    'result' => $result,
+                    'result' => 'OK',
                 ]);
 
             } else {

@@ -11,7 +11,7 @@
 
 namespace Ontheroadjp\LaravelUser\Providers;
 
-use App\User;
+// use App\User;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Console\AppNamespaceDetectorTrait;
 use Route;
@@ -21,7 +21,12 @@ use Route;
 use Illuminate\Support\Facades\URL;
 use Xinax\LaravelGettext\Facades\LaravelGettext;
 
-use Ontheroadjp\LaravelUser\Listeners\UserModelEventObserver;
+use Ontheroadjp\LaravelUser\Listeners\UserObserver;
+
+use Ontheroadjp\LaravelUser\Models\ExUser;
+use Ontheroadjp\LaravelUser\Models\UserActivity;
+use Ontheroadjp\LaravelUser\Listeners\UserActivityObserver;
+
 
 /**
  * Class LaravelUserServiceProvider
@@ -46,6 +51,9 @@ class LaravelUserServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // $this->app->bind('ExUser', function($app) {
+        //     return new ExUser();
+        // });
     }
 
     /**
@@ -61,7 +69,8 @@ class LaravelUserServiceProvider extends ServiceProvider
         $this->publishViews();
         $this->publishLangAssets();
 
-        User::observe(new UserModelEventObserver);
+        ExUser::observe(new UserObserver);
+        UserActivity::observe(new UserActivityObserver);
 
         // ---------------------------
         // Eloquoent Model Event Handller

@@ -28,7 +28,8 @@ return [
     |
     */
 
-    'model' => App\User::class,
+//    'model' => App\User::class,
+    'model' => Ontheroadjp\LaravelUser\Models\ExUser::class,
 
     /*
     |--------------------------------------------------------------------------

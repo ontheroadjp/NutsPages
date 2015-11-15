@@ -2,12 +2,14 @@
 
 namespace Ontheroadjp\LaravelUser\Controllers\Auth;
 
-use App\User;
+// use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-// use Ontheroadjp\LaravelAuth\Events\UserWasRegistered;
+// use Ontheroadjp\LaravelUser\Events\UserWasRegistered;
+use Ontheroadjp\LaravelUser\Models\ExUser;
+use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
 
 class ExAuthController extends \App\Http\Controllers\Auth\AuthController
 {
@@ -56,21 +58,21 @@ class ExAuthController extends \App\Http\Controllers\Auth\AuthController
      * @param  array  $data
      * @return User
      */
-    // protected function create(array $data)
-    // {
-    //     $user = User::create([
-    //         'name' => $data['name'],
-    //         'email' => $data['email'],
-    //         'password' => bcrypt($data['password']),
-    //     ]);
+    protected function create(array $data)
+    {
+        $user = ExUser::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'hash' => sha1(uniqid(rand(),true)),
+        ]);
 
-    //     // $event = app('Illuminate\Contracts\Events\Dispatcher');
-    //     // $event->fire( new UserWasRegistered($user) );
-        
-    //     \Event::fire(new UserWasRegistered($user));
+        // $event = app('Illuminate\Contracts\Events\Dispatcher');
+        // $event->fire( new UserWasRegistered($user) );
+        // \Event::fire(new UserWasRegistered($user));
 
-    //     return $user;
-    // }
+        return $user;
+    }
     
     public function getLogin()
     {
@@ -87,7 +89,7 @@ class ExAuthController extends \App\Http\Controllers\Auth\AuthController
     }
 
     protected function authenticated($request, $user) {
-        // activity 追加処理
+        Activity::logedin($user->id); 
         return redirect()->intended($this->redirectPath());
     }
 
