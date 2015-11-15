@@ -1,0 +1,23 @@
+{
+    "name": "ontheroadjp/laravel-img-gallery",
+    "description": "Ajax media upload for Laravel",
+    "keywords": ["ajax", "media", "upload", "file", "image", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "@ontheroad_jp",
+            "email": "dev@ontheroad.jp"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.*",
+        "intervention/image": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Triasrahman\\MediaUpload\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
