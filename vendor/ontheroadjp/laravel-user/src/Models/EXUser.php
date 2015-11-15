@@ -1,7 +1,9 @@
 <?php
 namespace Ontheroadjp\LaravelUser\Models;
 
-class ExUser extends \App\User {
+use App\User;
+
+class ExUser extends User {
 
 	protected $fillable = ['name', 'email', 'password', 'hash'];
 

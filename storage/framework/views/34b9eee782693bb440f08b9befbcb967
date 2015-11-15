@@ -2,6 +2,7 @@
 <?php
 	$usermodel = \Ontheroadjp\LaravelImageGallery\Models\ExUser::find(Auth::user()->id);
 	$mediaItems = $usermodel->getMedia();
+
 	for( $n=0; $n<count( $mediaItems ); $n++ ) {
 
 		$url = $mediaItems[$n]->getUrl();

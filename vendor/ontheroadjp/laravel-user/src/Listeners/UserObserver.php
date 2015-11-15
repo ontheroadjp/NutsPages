@@ -8,23 +8,22 @@ use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
 class UserObserver {
 
 	public function creating($model){
-		info('UserObserver@creating: '.$model );
+		// info('UserObserver@creating: '.$model );
 		DB::beginTransaction();
-		info('Begin Transaction');
+		info('Begin Transaction.');
 	}
 
 	public function created($model){
-		info('UserObserver@created: '.$model );
+		// info('UserObserver@created: '.$model );
 		if($this->createUserDir($model)){
-			info('User Dir Created.');
 			DB::commit();
+			info('DB Commit.');
 			Activity::registered($model['attributes']['id']);
 			// $this->sendWelcomeMail($model);
 		} else {
-			info('Create User Dir Failed.');
 			DB::rollback();
+			info('DB Rollback.');
 		}
-		
 	}
 
 	public function saving($model){
@@ -36,17 +35,25 @@ class UserObserver {
 	}
 
 	public function updating($model){
-		info('UserObserver@uodating: '.var_export($model,true) );
+		// info('UserObserver@uodating: '.var_export($model,true) );
 	}
 
 	public function updated($model){
-		info('UserObserver@updated: '.$model);
+		// info('UserObserver@updated: '.$model);
 		if( $model['original']['name'] !== $model['attributes']['name']) {
 			Activity::updatedUserName(\Auth::user()->id);
 		} 
 		if( $model['original']['email'] !== $model['attributes']['email']) {
 			Activity::updatedEmailAddress(\Auth::user()->id);
 		}
+	}
+
+	public function restoring($model){
+		// info('UserObserver@restoring: '.$model );
+	}
+
+	public function restored($model){
+		// info('UserObserver@restoring: '.$model );
 	}
 
 	private function sendWelcomeMail($user)

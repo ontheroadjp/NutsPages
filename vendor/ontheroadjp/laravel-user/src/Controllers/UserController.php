@@ -12,12 +12,6 @@ use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
 
 class UserController extends Controller
 {
-
-    // public function changeLang($locale=null){
-    //     LaravelGettext::setLocale($locale);
-    //     return Redirect::to(URL::previous());
-    // }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -41,16 +35,9 @@ class UserController extends Controller
         if($req->ajax()){
 
             $params = $req->all();
-            // $result = \DB::table('users')->where('id', $params['id'])->update([
-            //     $params['field'] => $params['val']
-            // ]);
-
             $user = Auth::user();
             $user->setAttribute( $params['field'], $params['val'] );
             if( $user->save() ) {
-
-
-            // if($result === 1){
 
                 $msg = [
                     'name' => _('User name has been changed Successfully.'),

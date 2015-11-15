@@ -101,36 +101,20 @@ class LaravelUserServiceProvider extends ServiceProvider
         // });
     }
 
-    // private function sendWelcomeMail($user)
-    // {
-    //    \Mail::send('emails.welcome', compact('user'), function($message) use ($user) {
-    //        $message->to($user->email, $user->name)->subject( _('Welcome to the Nuts Pages') );
-    //     }, 10);
-    // }
-
-    // private function createUserDir($user)
-    // {
-    //     return mkdir(base_path('users').'/'.$user->id);
-    // }
-
     private function publishMigrationsAndSeeds() {
 
-        $src = [
-            'migration' => '/../database/migrations/',
-            'seed' => '/../database/seeds/'
+        $mig = [
+            'src' => '/../database/migrations/',
+            'dist' => 'database/migrations/'
         ];
 
         // Migration
         $this->publishes([
-            dirname(__FILE__).$src['migration'].'2015_11_14_043725_create_activity_master_table.php' => base_path('database/migrations/2015_11_14_043725_create_activity_master_table.php'),
-            dirname(__FILE__).$src['migration'].'2015_11_14_042625_create_user_activities_table.php' => base_path('database/migrations/2015_11_14_042625_create_user_activities_table.php'),
+            dirname(__FILE__).$mig['src'].'2015_11_14_043725_create_activity_master_table.php' 
+                => base_path($mig['dist'].'2015_11_14_043725_create_activity_master_table.php'),
+            dirname(__FILE__).$mig['src'].'2015_11_14_042625_create_user_activities_table.php' 
+                => base_path($mig['dist'].'2015_11_14_042625_create_user_activities_table.php'),
         ]);
-
-        // Seeds
-        // $this->publishes([
-        //     dirname(__FILE__).$src['seed'].'ActivityMasterTableSeeder.php' => base_path('database/seeds/ActivityMasterTableSeeder.php'),
-        // ]);
-
     }
 
     private function registerRoutes()
@@ -158,8 +142,6 @@ class LaravelUserServiceProvider extends ServiceProvider
             $router->controllers([
                 'auth' => 'ExAuthController',
                 'password' => 'ExPasswordController',
-                // 'auth' => '\App\Http\Controllers\Auth\AuthController',
-                // 'password' => '\App\Http\Controllers\Auth\PasswordController',
             ]);
         });
 
@@ -172,8 +154,6 @@ class LaravelUserServiceProvider extends ServiceProvider
         ];
 
         $this->app['router']->group($routeConfig, function() {
-               // $router->get('{id}', 'UserController@view');
-               // $router->post('editp', 'UserController@hoge');
                Route::get('/', 'UserController@view');               
                Route::post('edit', 'UserController@edit');
             }

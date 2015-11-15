@@ -64,7 +64,7 @@ class ExAuthController extends \App\Http\Controllers\Auth\AuthController
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'hash' => sha1(uniqid(rand(),true)),
+            'hash' => sha1(uniqid(rand(),true)),    // 40文字
         ]);
 
         // $event = app('Illuminate\Contracts\Events\Dispatcher');
