@@ -2,6 +2,11 @@
  * Skin: Nuts
  * ----------
  */
+
+body.skin-nuts  {
+  font-weight: 200;
+}
+
 .skin-nuts .main-header .navbar {
   background-color: #1F6086;
 }
@@ -53,6 +58,7 @@
     background: #fff;
 */
 
+
 .skin-nuts .main-header .logo {
   background-color: #1B465F;
   color: #ffffff;
@@ -81,19 +87,33 @@
   background: #1a2226;
 }
 .skin-nuts .sidebar-menu > li > a {
-  border-left: 3px solid transparent;
+  border-left: 8px solid transparent;
   border-bottom: 1px solid #dfe4e6;
   color: #626b7a;
 }
-.skin-nuts .sidebar-menu > li:hover > a,
-.skin-nuts .sidebar-menu > li.active > a {
-  /*color: #ffffff;*/
-  /*background: #1e282c;*/
-  border-left-color: #3c8dbc;
+.skin-nuts .sidebar-menu > li:hover > a, .skin-nuts .sidebar-menu > li.active > a {
+    /* color: #ffffff; */
+    /* background: #1e282c; */
+    border-left: 8px solid #F7AC05;
 }
+.skin-nuts .main-menu-item.active:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 12px 10px 0;
+    border-color: transparent #fff transparent transparent;
+    position: absolute;
+    left: 218px;
+    right: auto;
+    top: 12px;
+    z-index: 999;
+}
+
 .skin-nuts .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
-  background: ##EEF7FB;
+  background: #EEF7FB;
 }
 .skin-nuts .sidebar a {
   color: #b8c7ce;

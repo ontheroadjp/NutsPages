@@ -21,7 +21,19 @@ class UserController extends Controller
     public function view()
     {
         $user = \DB::table('users')->where('id',\Auth::user()->id)->first();
-        return view('LaravelUser::profile', compact('user'));
+        $history = \DB::table('user_activities')
+            ->join('users', 'user_activities.user_id', '=', 'users.id')
+            ->join('activity_master', 'user_activities.activity_id', '=', 'activity_master.id')
+            ->select(
+                'user_activities.message',
+                'user_activities.created_at',
+                'user_activities.message',
+                'activity_master.activity'
+            )
+            ->where('user_id', \Auth::user()->id)
+            ->orderBy('user_activities.created_at','desc')
+            ->get();
+        return view('LaravelUser::profile', compact('user','history'));
     }
 
     public function edit(Request $req)

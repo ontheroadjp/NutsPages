@@ -2,20 +2,16 @@
 
 namespace Ontheroadjp\LaravelUser\Controllers;
 
+use Auth;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
 
 class UserController extends Controller
 {
-
-    // public function changeLang($locale=null){
-    //     LaravelGettext::setLocale($locale);
-    //     return Redirect::to(URL::previous());
-    // }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -24,11 +20,20 @@ class UserController extends Controller
      */
     public function view()
     {
-        // if( $id !== \Auth::user()->id ) {
-        //     \App::abort('403');
-        // }
         $user = \DB::table('users')->where('id',\Auth::user()->id)->first();
-        return view('LaravelUser::profile', compact('user'));
+        $history = \DB::table('user_activities')
+            ->join('users', 'user_activities.user_id', '=', 'users.id')
+            ->join('activity_master', 'user_activities.activity_id', '=', 'activity_master.id')
+            ->select(
+                'user_activities.message',
+                'user_activities.created_at',
+                'user_activities.message',
+                'activity_master.activity'
+            )
+            ->where('user_id', \Auth::user()->id)
+            ->orderBy('user_activities.created_at','desc')
+            ->get();
+        return view('LaravelUser::profile', compact('user','history'));
     }
 
     public function edit(Request $req)
@@ -42,23 +47,18 @@ class UserController extends Controller
         if($req->ajax()){
 
             $params = $req->all();
-            $result = \DB::table('users')->where('id', $params['id'])->update([
-                $params['field'] => $params['val']
-            ]);
+            $user = Auth::user();
+            $user->setAttribute( $params['field'], $params['val'] );
+            if( $user->save() ) {
 
-            if($result === 1){
-
-                if($params['field'] === 'name') {
-                    $msg = _('User name has been changed Successfully.');
-                } elseif($params['field'] === 'email') {
-                    $msg = _('E-mail address has been changed Successfully.');
-                }
-
-                $msg = '<i class="fa fa-check-circle-o"></i> ' . _('Success Saved!');
+                $msg = [
+                    'name' => _('User name has been changed Successfully.'),
+                    'email' => _('E-mail address has been changed Successfully.'),
+                ];
 
                 return \Response::json([
-                    'message' => $msg,
-                    'result' => $result,
+                    'message' => $msg[$params['field']],
+                    'result' => 'OK',
                 ]);
 
             } else {
@@ -66,7 +66,6 @@ class UserController extends Controller
                 return \Response::json([
                     'message' => _('DB update failed.')
                 ]);
-
             }
 
         } else {

@@ -33,43 +33,43 @@ class NutsWhoisController extends Controller
             // ];
 
             $domains = [
-                'title' => 'Search result',
+                        'title' => _('Search result'),
                 'domains' => [    
                     [
                         'name' => 'com',
                         'available' => 'false',
-                        'message' => 'is not available',
-                        'btnLabel' => 'select'
+                        'message' => _('is not available'),
+                        'btnLabel' => _('select')
                     ],
                     [
                         'name' => 'net',
                         'available' => 'false',
-                        'message' => 'is not available',
-                        'btnLabel' => 'select'
+                        'message' => _('is not available'),
+                        'btnLabel' => _('select')
                     ],
                     [
                         'name' => 'org',
                         'available' => 'false',
-                        'message' => 'is not available',
-                        'btnLabel' => 'select'
+                        'message' => _('is not available'),
+                        'btnLabel' => _('select')
                     ],
                     [
                         'name' => 'asia',
                         'available' => 'false',
-                        'message' => 'is not available',
-                        'btnLabel' => 'select'
+                        'message' => _('is not available'),
+                        'btnLabel' => _('select')
                     ],
                     [
                         'name' => 'jp',
                         'available' => 'false',
-                        'message' => 'is not available',
-                        'btnLabel' => 'select'
+                        'message' => _('is not available'),
+                        'btnLabel' => _('select')
                     ],
                     [
                         'name' => 'cn',
                         'available' => 'false',
-                        'message' => 'is not available',
-                        'btnLabel' => 'select'
+                        'message' => _('is not available'),
+                        'btnLabel' => _('select')
                     ]
                 ]
             ];
@@ -79,7 +79,7 @@ class NutsWhoisController extends Controller
                 $whois = new Whois($inputValue.'.'.$domains['domains'][$n]['name']);
                 if ($whois->isAvailable()) {
                     $domains['domains'][$n]['available'] = 'true';
-                    $domains['domains'][$n]['message'] = 'is available';
+                    $domains['domains'][$n]['message'] = _('is available');
                 }
             }
 

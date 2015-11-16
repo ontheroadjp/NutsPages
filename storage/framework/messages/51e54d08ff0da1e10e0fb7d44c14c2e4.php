@@ -28,129 +28,38 @@
 <?php $__env->startSection('main-content'); ?>
 <?php echo $__env->make('partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-
-<div class="nuts-alert alert-success alert-dark">
-<button type="button" class="close" data-dismiss="alert">×</button>
-<strong><i class="icon fa fa-ban"></i> Success!</strong>　<span class="msg"></span>
-</div>
-
-<div class="nuts-alert alert-info alert-dark">
-<button type="button" class="close" data-dismiss="alert">×</button>
-<strong><i class="icon fa fa-ban"></i> Info!</strong>　<span class="msg"></span>
-</div>
-
-<div class="nuts-alert alert-danger alert-dark">
-<button type="button" class="close" data-dismiss="alert">×</button>
-<strong><i class="icon fa fa-ban"></i> Alert!</strong>　<span class="msg"></span>
-</div>
-
-<div class="nuts-alert alert-warning alert-dark">
-<button type="button" class="close" data-dismiss="alert">×</button>
-<strong><i class="icon fa fa-ban"></i> Warning!</strong>　<span class="msg"></span>
-</div>
-
+<?php /* Alert 使う場合 --}
+{{-- <?php echo $__env->make('nuts-components.nuts-alert', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
 
 <div class="panel no-box-shadow">
-	<div class="panel-body">
-		<ul id="" class="nav nav-tabs">
-			<li class="active">
-				<a href="#account-settings-tab-pane" data-toggle="tab"><?php echo e(_('Account Settings')); ?></a>
-			</li>
-			<li class="">
-				<a href="#billing-and-plan-settings-tab-pane" data-toggle="tab"><?php echo e(_('Billing & Plan Settings')); ?></a>
-			</li>
-		</ul>
+<div class="panel-body">
 
-		<div class="tab-content tab-content-bordered">
-			<div class="tab-pane fade active in" id="account-settings-tab-pane">
+	<ul id="" class="nav nav-tabs">
+		<li class="active">
+			<a href="#action-history-tab-pane" data-toggle="tab"><?php echo _('Action History') ?></a>
+		</li>
+		<li class="">
+			<a href="#account-settings-tab-pane" data-toggle="tab"><?php echo e(_('Account Settings')); ?></a>
+		</li>
+		<li class="">
+			<a href="#billing-and-plan-settings-tab-pane" data-toggle="tab"><?php echo e(_('Billing & Plan Settings')); ?></a>
+		</li>
+	</ul>
 
-<!-- ------------------------------------- -->
-
-<div class="box box-primary no-box-shadow">
-	<div class="box-header">
-		<h3 class="box-title"><i class="fa fa-paw"></i><?php echo e(_('User Profile')); ?></h3>
-	</div>
-
-
-	<form role="form">
-		<div class="box-body">
-		<div class="col-md-6">
-
-		<div class="form-group">
-			<label for="exampleInputEmail1"><?php echo e(_('User Name')); ?></label>
-				<div class="input-group input-group">
-				<input name="name" type="text" class="form-control" placeholder="<?php echo e(_('User Name')); ?>" value="<?php echo e($user->name); ?>">
-				<span class="input-group-btn">
-				<button name="name" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
-				</span>
-			</div>
+	<div class="tab-content tab-content-bordered">
+		<div id="action-history-tab-pane" class="tab-pane fade active in">
+			<?php echo $__env->make('LaravelUser::partials.user.action-history-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		</div>
-
-		<div class="form-group">
-			<label for="exampleInputEmail1"><?php echo e(_('Email Address')); ?></label>
-				<div class="input-group input-group">
-				<input name='email' type="text" class="form-control" placeholder="<?php echo e(_('Email Address')); ?>" value="<?php echo e($user->email); ?>">
-				<span class="input-group-btn">
-				<button name="email" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
-				</span>
-			</div>
+		<div id="account-settings-tab-pane" class="tab-pane fade">
+			<?php echo $__env->make('LaravelUser::partials.user.account-settings-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		</div>
-
-
-
-		</div><!-- / .col -->
-		</div><!-- /.box-body -->
-	</form>
-
-</div>
-
-
-<div class="box box-primary no-box-shadow">
-	<div class="box-header">
-		<h3 class="box-title"><i class="fa fa-lock"></i><?php echo e(_('Password')); ?></h3>
-	</div>
-
-
-	<form role="form">
-		<div class="box-body">
-		<div class="col-md-6">
-
-		<div class="form-group">
-			<label for="exampleInputEmail1"><?php echo e(_('Old password')); ?></label>
-			<input type="email" class="form-control" id="" placeholder="<?php echo e(_('Old Password')); ?>">
+		<div id="billing-and-plan-settings-tab-pane" class="tab-pane fade">
+			<?php echo $__env->make('LaravelUser::partials.user.billing-and-plan-settings-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		</div>
-
-		<div class="form-group">
-			<label for="exampleInputEmail1"><?php echo e(_('New password')); ?></label>
-			<input type="email" class="form-control" id="" placeholder="<?php echo e(_('New Password')); ?>">
-		</div>
-
-		<div class="form-group">
-			<label for="exampleInputEmail1"><?php echo e(_('New password(Confirm)')); ?></label>
-			<input type="email" class="form-control" id="" placeholder="<?php echo e(_('New Password Again')); ?>">
-		</div>
-
-		</div><!-- / .col -->
-		</div><!-- /.box-body -->
-	</form>
-
-	<div class="box-footer no-border">
-	<div class="col-md-6 text-right">
-	<button type="submit" class="btn nuts-btn-info"><?php echo e(_('Change Password')); ?></button>
-	</div>
 	</div>
 
 </div>
-
-
-							</div> <!-- / .tab-pane -->
-							<div class="tab-pane fade" id="billing-and-plan-settings-tab-pane">
-								<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
-							</div> <!-- / .tab-pane -->
-						</div> <!-- / .tab-content -->
-					</div>
-				</div>
-
+</div>
 
 
 <style>
@@ -190,7 +99,7 @@
 	font-size: 14px;
     font-weight: 600;
     margin-bottom: 3px;
-}}
+}
 .nuts-modal-success .modal-body {
 	color: #888;
 }
@@ -208,25 +117,32 @@
 </style>
 
 <div id="successModal" class="nuts-modal nuts-modal-success fade in" aria-hidden="false">
-	<div class="nuts-modal-dialog">
-		<div class="nuts-modal-content">
-			<div class="modal-header">
-				<i class="fa fa-check-circle"></i>
-			</div>
-			<div class="modal-title"><?php echo e(_('SUCCESS')); ?></div>
-			<div class="modal-body"><?php echo e(_('User name has been changed.')); ?></div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true">OK</button>
-			</div>
-		</div> <!-- / .modal-content -->
-	</div> <!-- / .modal-dialog -->
+<div class="nuts-modal-dialog">
+<div class="nuts-modal-content">
+
+	<div class="modal-header">
+		<i class="fa fa-check-circle"></i>
+	</div>
+	<div class="modal-title"><?php echo e(_('SUCCESS')); ?></div>
+	<div class="modal-body"><?php echo e(_('User name has been changed.')); ?></div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true">OK</button>
+	</div>
+
+</div> <!-- / .modal-content -->
+</div> <!-- / .modal-dialog -->
 </div>
 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('javascript'); ?>
+
 <script>
 $(function(){
+
+	// -----------------------------------------
+	// For Account Settings Pane
+	// -----------------------------------------
 
 	$('.change-btn').click( function() {
 
@@ -257,12 +173,11 @@ $(function(){
 			},
 		}).done(function(data, textStatus, jqXHR){
 			nutsLogoMsgSuccess(data.message);
+			// nutsAlertSuccess(data.message);
 
 		}).fail(function(data, textStatus, errorThrown){
 			nutsLogoMsgDanger(errorThrown);
-			// errorAlert.find('.msg').html(errorThrown);
-			// errorAlert.show('fast');
-			// alert(errorHandler(arguments));
+			// nutsAlertDanger(errorThrown);
 
 		}).always(function(data, textStatus, returnedObject){ 
 			// alert(textStatus);
@@ -275,26 +190,26 @@ $(function(){
 
 });
 
-	/* エラー文字列の生成 */
-	function errorHandler(args) {
-	    var error;
-	    // errorThrownはHTTP通信に成功したときだけ空文字列以外の値が定義される
-	    if (args[2]) {
-	        try {
-	            // JSONとしてパースが成功し、且つ {"error":"..."} という構造であったとき
-	            // (undefinedが代入されるのを防ぐためにtoStringメソッドを使用)
-	            error = $.parseJSON(args[0].responseText).error.toString();
-	        } catch (e) {
-	            // パースに失敗した、もしくは期待する構造でなかったとき
-	            // (PHP側にエラーがあったときにもデバッグしやすいようにレスポンスをテキストとして返す)
-	            error = 'parsererror(' + args[2] + '): ' + args[0].responseText;
-	        }
-	    } else {
-	        // 通信に失敗したとき
-	        error = args[1] + '(HTTP request failed)';
-	    }
-	    return error;
-	}
+/* エラー文字列の生成 */
+function errorHandler(args) {
+    var error;
+    // errorThrownはHTTP通信に成功したときだけ空文字列以外の値が定義される
+    if (args[2]) {
+        try {
+            // JSONとしてパースが成功し、且つ {"error":"..."} という構造であったとき
+            // (undefinedが代入されるのを防ぐためにtoStringメソッドを使用)
+            error = $.parseJSON(args[0].responseText).error.toString();
+        } catch (e) {
+            // パースに失敗した、もしくは期待する構造でなかったとき
+            // (PHP側にエラーがあったときにもデバッグしやすいようにレスポンスをテキストとして返す)
+            error = 'parsererror(' + args[2] + '): ' + args[0].responseText;
+        }
+    } else {
+        // 通信に失敗したとき
+        error = args[1] + '(HTTP request failed)';
+    }
+    return error;
+}
 
 </script>
 <?php $__env->stopSection(); ?>

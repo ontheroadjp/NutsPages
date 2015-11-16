@@ -18,7 +18,7 @@ class UserObserver {
 		if($this->createUserDir($model)){
 			DB::commit();
 			info('DB Commit.');
-			Activity::registered($model['attributes']['id']);
+			Activity::createdUserAccount($model['attributes']['id'], "CREATED_USER_ACCOUNT");
 			// $this->sendWelcomeMail($model);
 		} else {
 			DB::rollback();
@@ -41,10 +41,10 @@ class UserObserver {
 	public function updated($model){
 		// info('UserObserver@updated: '.$model);
 		if( $model['original']['name'] !== $model['attributes']['name']) {
-			Activity::updatedUserName(\Auth::user()->id);
+			Activity::updatedUserAccount(\Auth::user()->id, "UPDATED_USER_NAME");
 		} 
 		if( $model['original']['email'] !== $model['attributes']['email']) {
-			Activity::updatedEmailAddress(\Auth::user()->id);
+			Activity::updatedUserAccount(\Auth::user()->id, "UPDATED_EMAIL_ADDRESS");
 		}
 	}
 

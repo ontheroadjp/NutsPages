@@ -18,7 +18,7 @@ class CreateUserActivitiesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('activity_id')->unsigned();
             $table->foreign('activity_id')->references('id')->on('activity_master')->onDelete('cascade');
-            $table->string('message')->nullable();
+            $table->string('message');
             $table->timestamps();
         });
     }

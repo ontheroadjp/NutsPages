@@ -31,25 +31,33 @@
 {{-- @include('nuts-components.nuts-alert') --}}
 
 <div class="panel no-box-shadow">
-	<div class="panel-body">
-		<ul id="" class="nav nav-tabs">
-			<li class="active">
-				<a href="#account-settings-tab-pane" data-toggle="tab">{{ _('Account Settings') }}</a>
-			</li>
-			<li class="">
-				<a href="#billing-and-plan-settings-tab-pane" data-toggle="tab">{{ _('Billing & Plan Settings') }}</a>
-			</li>
-		</ul>
+<div class="panel-body">
 
-		<div class="tab-content tab-content-bordered">
-			<div class="tab-pane fade active in" id="account-settings-tab-pane">
-				@include('LaravelUser::partials.user.account-settings-panel')
-			</div> <!-- / .tab-pane -->
-			<div class="tab-pane fade" id="billing-and-plan-settings-tab-pane">
-				@include('LaravelUser::partials.user.billing-and-plan-settings-panel')
-			</div> <!-- / .tab-pane -->
-		</div> <!-- / .tab-content -->
+	<ul id="" class="nav nav-tabs">
+		<li class="active">
+			<a href="#action-history-tab-pane" data-toggle="tab"><?php echo _('Action History') ?></a>
+		</li>
+		<li class="">
+			<a href="#account-settings-tab-pane" data-toggle="tab">{{ _('Account Settings') }}</a>
+		</li>
+		<li class="">
+			<a href="#billing-and-plan-settings-tab-pane" data-toggle="tab">{{ _('Billing & Plan Settings') }}</a>
+		</li>
+	</ul>
+
+	<div class="tab-content tab-content-bordered">
+		<div id="action-history-tab-pane" class="tab-pane fade active in">
+			@include('LaravelUser::partials.user.action-history-pane')
+		</div>
+		<div id="account-settings-tab-pane" class="tab-pane fade">
+			@include('LaravelUser::partials.user.account-settings-pane')
+		</div>
+		<div id="billing-and-plan-settings-tab-pane" class="tab-pane fade">
+			@include('LaravelUser::partials.user.billing-and-plan-settings-pane')
+		</div>
 	</div>
+
+</div>
 </div>
 
 
@@ -127,8 +135,13 @@
 @endsection
 
 @section('javascript')
+
 <script>
 $(function(){
+
+	// -----------------------------------------
+	// For Account Settings Pane
+	// -----------------------------------------
 
 	$('.change-btn').click( function() {
 
@@ -176,26 +189,26 @@ $(function(){
 
 });
 
-	/* エラー文字列の生成 */
-	function errorHandler(args) {
-	    var error;
-	    // errorThrownはHTTP通信に成功したときだけ空文字列以外の値が定義される
-	    if (args[2]) {
-	        try {
-	            // JSONとしてパースが成功し、且つ {"error":"..."} という構造であったとき
-	            // (undefinedが代入されるのを防ぐためにtoStringメソッドを使用)
-	            error = $.parseJSON(args[0].responseText).error.toString();
-	        } catch (e) {
-	            // パースに失敗した、もしくは期待する構造でなかったとき
-	            // (PHP側にエラーがあったときにもデバッグしやすいようにレスポンスをテキストとして返す)
-	            error = 'parsererror(' + args[2] + '): ' + args[0].responseText;
-	        }
-	    } else {
-	        // 通信に失敗したとき
-	        error = args[1] + '(HTTP request failed)';
-	    }
-	    return error;
-	}
+/* エラー文字列の生成 */
+function errorHandler(args) {
+    var error;
+    // errorThrownはHTTP通信に成功したときだけ空文字列以外の値が定義される
+    if (args[2]) {
+        try {
+            // JSONとしてパースが成功し、且つ {"error":"..."} という構造であったとき
+            // (undefinedが代入されるのを防ぐためにtoStringメソッドを使用)
+            error = $.parseJSON(args[0].responseText).error.toString();
+        } catch (e) {
+            // パースに失敗した、もしくは期待する構造でなかったとき
+            // (PHP側にエラーがあったときにもデバッグしやすいようにレスポンスをテキストとして返す)
+            error = 'parsererror(' + args[2] + '): ' + args[0].responseText;
+        }
+    } else {
+        // 通信に失敗したとき
+        error = args[1] + '(HTTP request failed)';
+    }
+    return error;
+}
 
 </script>
 @endsection

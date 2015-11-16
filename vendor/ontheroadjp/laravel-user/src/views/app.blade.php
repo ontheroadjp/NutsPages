@@ -1,15 +1,3 @@
-<?php
-// $pathUrl = str_replace(Request::root().'/', '', Request::url());
-// $pageTitles = array(
-//     "imagegallery" => _('Image Gallery'),
-//     "profile" => _('My Acctount'),
-// );
-// $pageIcons = array(
-//     "imagegallery" => "fa-picture-o",
-//     "profile" => "fa-picture-o",    
-// );
-?>
-
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
 <head>

@@ -1,6 +1,25 @@
 
 
+/* --------------------------------------
+background-color:
+---------------------------------------*/
+.nuts-bg-indigo		{ background-color: #7B9AB5; }
+.nuts-bg-aqua		{ background-color: #B4EBF9; }
+.nuts-bg-black		{ background-color: #000; }
+.nuts-bg-white		{ background-color: #fff; }
 
+/* --------------------------------------
+color:
+---------------------------------------*/
+.nuts-text-indigo	{ color: #7B9AB5; }
+.nuts-text-aqua		{ color: #B4EBF9; }
+.nuts-text-black	{ color: #000; }
+.nuts-text-white	{ color: #fff; }
+
+/* --------------------------------------
+font-size:
+margin-buttom:
+---------------------------------------*/
 @for $i from 1 through 12 {
 	.nuts-fs-#{$i * 2} {
 		font-size:#{$i * 2}px;
@@ -12,6 +31,9 @@
 }
 
 
+/* --------------------------------------
+others
+---------------------------------------*/
 
 .no-box-shadow {
     box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;    
