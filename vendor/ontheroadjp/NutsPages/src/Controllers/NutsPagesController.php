@@ -63,13 +63,15 @@ class NutsPagesController extends Controller
             } else {
                 http_response_code(400);
                 return \Response::json([
-                    'message' => _('DB update failed.')
+                    'message' => _('User site delete failed.'),
+                    'result' => {{ _('Failed') }},
                 ]);
             }
         } else {
             http_response_code(400);
             return \Response::json([
-                'message' => _('Bad Request.')
+                'message' => _('Bad Request.'),
+                'result' => 
             ]);
         }
     }
