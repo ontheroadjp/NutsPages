@@ -71,7 +71,7 @@ class NutsPagesController extends Controller
             http_response_code(400);
             return \Response::json([
                 'message' => _('Bad Request.'),
-                'result' => 
+                'result' => _('Failed'),
             ]);
         }
     }
