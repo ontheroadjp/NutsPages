@@ -2,12 +2,14 @@
 
 namespace Spatie\MediaLibrary;
 
-use Illuminate\Support\Facades\File;
+use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Support\Facades\File;
 use Spatie\Glide\GlideImage;
 use Spatie\MediaLibrary\Conversion\Conversion;
 use Spatie\MediaLibrary\Conversion\ConversionCollection;
 use Spatie\MediaLibrary\Conversion\ConversionCollectionFactory;
+use Spatie\MediaLibrary\Events\ConversionHasBeenCompleted;
 use Spatie\MediaLibrary\Helpers\File as MediaLibraryFileHelper;
 use Spatie\MediaLibrary\Helpers\Gitignore;
 use Spatie\MediaLibrary\Jobs\PerformConversions;
@@ -16,6 +18,16 @@ use Spatie\PdfToImage\Pdf;
 class FileManipulator
 {
     use DispatchesJobs;
+
+    /**
+     * @var \Illuminate\Contracts\Events\Dispatcher
+     */
+    protected $events;
+
+    public function __construct(Dispatcher $events)
+    {
+        $this->events = $events;
+    }
 
     /**
      * Create all derived files for the given media.
@@ -67,7 +79,9 @@ class FileManipulator
             $renamedFile = MediaLibraryFileHelper::renameInDirectory($conversionResult, $conversion->getName().'.'.
                 $conversion->getResultExtension(pathinfo($copiedOriginalFile, PATHINFO_EXTENSION)));
 
-            app(Filesystem::class)->copyToMediaLibrary($renamedFile, $media, 'conversions');
+            app(Filesystem::class)->copyToMediaLibrary($renamedFile, $media, true);
+
+            $this->events->fire(new ConversionHasBeenCompleted($media, $conversion));
         }
 
         File::deleteDirectory($tempDirectory);
@@ -132,10 +146,10 @@ class FileManipulator
     /**
      * Dispatch the given conversions.
      *
-     * @param Media $media
-     * @param $queuedConversions
+     * @param Media                $media
+     * @param ConversionCollection $queuedConversions
      */
-    protected function dispatchQueuedConversions(Media $media, $queuedConversions)
+    protected function dispatchQueuedConversions(Media $media, ConversionCollection $queuedConversions)
     {
         $job = new PerformConversions($queuedConversions, $media);
 

@@ -8,8 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'phpDocumentor' => array($vendorDir . '/phpdocumentor/reflection-docblock/src'),
     'Xinax\\LaravelGettext\\' => array($vendorDir . '/xinax/laravel-gettext/src'),
+    'Webpatser\\Uuid' => array($vendorDir . '/webpatser/laravel-uuid/src'),
     'Spatie\\Glide' => array($vendorDir . '/spatie/laravel-glide/src'),
-    'Psy\\' => array($vendorDir . '/psy/psysh/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'PhpSpec' => array($vendorDir . '/phpspec/phpspec/src'),

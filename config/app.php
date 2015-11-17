@@ -209,6 +209,7 @@ return [
 
 				'Image'			=> Intervention\Image\Facades\Image::class,
 				'LaravelGettext' => Xinax\LaravelGettext\Facades\LaravelGettext::class,
+				'Uuid'			=> Webpatser\Uuid\Uuid::class,
     ],
 
 ];

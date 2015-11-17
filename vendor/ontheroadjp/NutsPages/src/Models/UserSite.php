@@ -24,14 +24,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class UserSite extends Model
 {
 	protected $table = 'user_sites';
-	protected $fillable = ['user_hash','subdomain','site_name','site_description','site_keywords','published','hash'];
+	protected $fillable = ['id', 'user_id','subdomain','site_name','site_description','site_keywords','published','hash'];
+    // public $incrementing = false;
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
     public function user()
     {
-		return $this->belongsTo('Ontheroadjp\LaravelUser\Models\User', 'user_hash', 'hash');
+		return $this->belongsTo('Ontheroadjp\LaravelUser\Models\User', 'user_id', 'id');
 	}
 
 }

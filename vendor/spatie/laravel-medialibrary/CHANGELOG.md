@@ -2,6 +2,30 @@
 
 All Notable changes to `laravel-medialibrary` will be documented in this file
 
+##3.10.2
+- Fixed mime-type errors when using the local filesystem
+
+##3.10.1
+- Fixed the event names to make them more readable `CollectionHasBeenCleared`, `ConversionHasBeenCompleted`, `MediaHasBeenAdded`
+
+##3.10.0
+- Added `CollectionClearedEvent`, `ConversionCompleteEvent`, `MediaAddedEvent`
+
+##3.9.2
+- Fixed an issue where a model would not regenerate manipulations after changing manipulations on media
+
+##3.9.1
+- Fix bug when using a custom UrlGenerator class
+
+##3.9.0
+- Added PathGenerator
+
+**This version contains a bug when using a custom UrglGenerator, please upgrade to 3.9.1**
+
+##3.8.0
+- Added ability to add media from a url
+
+$media = $this->testModel->addMediaFromUrl($url)
 ##3.7.3
 - `clearMediaCollection` is now chainable
 

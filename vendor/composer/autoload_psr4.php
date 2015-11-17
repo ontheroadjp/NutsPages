@@ -26,6 +26,7 @@ return array(
     'Spatie\\String\\' => array($vendorDir . '/spatie/string/src'),
     'Spatie\\PdfToImage\\' => array($vendorDir . '/spatie/pdf-to-image/src'),
     'Spatie\\MediaLibrary\\' => array($vendorDir . '/spatie/laravel-medialibrary/src'),
+    'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Patchwork\\' => array($vendorDir . '/patchwork/utf8/src/Patchwork'),
     'Ontheroadjp\\NutsWhois\\' => array($vendorDir . '/ontheroadjp/NutsWhois/src'),

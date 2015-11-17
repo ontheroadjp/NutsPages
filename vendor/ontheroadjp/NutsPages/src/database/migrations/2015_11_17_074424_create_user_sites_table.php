@@ -13,10 +13,11 @@ class CreateUserSitesTable extends Migration
     public function up()
     {
         Schema::create('user_sites', function($table){
-            $table->increments('id');
-            $table->string('user_hash',40);
-            // $table->integer('user_id');
-            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->increments('id');
+            $table->char('id',36);
+            $table->primary('id');
+            $table->char('user_id',36)->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('site_name');
             $table->string('subdomain',10);
             $table->string('site_description')->nullable();

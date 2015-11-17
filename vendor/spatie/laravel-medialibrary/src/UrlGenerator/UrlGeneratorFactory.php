@@ -3,6 +3,7 @@
 namespace Spatie\MediaLibrary\UrlGenerator;
 
 use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\PathGenerator\PathGeneratorFactory;
 
 class UrlGeneratorFactory
 {
@@ -10,16 +11,40 @@ class UrlGeneratorFactory
     {
         $urlGeneratorClass = 'Spatie\MediaLibrary\UrlGenerator\\'.ucfirst($media->getDiskDriverName()).'UrlGenerator';
 
-        $customClass = config('laravel-medialibrary.custom_url_generator_class');
+        $customUrlClass = config('laravel-medialibrary.custom_url_generator_class');
 
-        if ($customClass != '' && class_exists($customClass) && is_subclass_of($customClass, UrlGenerator::class)) {
-            $urlGeneratorClass = $customClass;
-        }
+        $urlGenerator = self::isAValidUrlGeneratorClass($customUrlClass)
+            ? app($customUrlClass)
+            : app($urlGeneratorClass);
 
-        $urlGenerator = app($urlGeneratorClass);
+        $pathGenerator = PathGeneratorFactory::create();
 
-        $urlGenerator->setMedia($media);
+        $urlGenerator->setMedia($media)->setPathGenerator($pathGenerator);
 
         return $urlGenerator;
+    }
+
+    /**
+     * Determine if the the given class is a valid UrlGenerator.
+     *
+     * @param $customUrlClass
+     *
+     * @return bool
+     */
+    protected static function isAValidUrlGeneratorClass($customUrlClass)
+    {
+        if (!$customUrlClass) {
+            return false;
+        }
+
+        if (!class_exists($customUrlClass)) {
+            return false;
+        }
+
+        if (!is_subclass_of($customUrlClass, UrlGenerator::class)) {
+            return false;
+        }
+
+        return true;
     }
 }
