@@ -27,7 +27,11 @@ class NutsPagesController extends Controller
     {
         // $user = \DB::table('users')->where('id',\Auth::user()->id)->first();
         $user = \Auth::user();
-        return view('NutsPages::dashboard', compact('user'));
+        $sites = \DB::table('user_sites')
+            ->where('user_hash',$user->hash)
+            ->where('deleted_at',null)
+            ->get();
+        return view('NutsPages::dashboard', compact('user','sites'));
     }
 
     /**
@@ -36,14 +40,38 @@ class NutsPagesController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create()
     {
         $site = UserSite::create([
             'site_name' => \Auth::user()->name."'s Site",
+            'user_hash' => \Auth::user()->hash,
             'hash' => sha1(uniqid(rand(),true)),    // 40文字
         ]);
 
         return view('NutsPages::newsite');
+    }
+
+    public function siteDelete(Request $req, $hash)
+    {
+        if($req->ajax()){
+            $site = UserSite::where('hash','=',$hash);
+            if($site->delete()){
+                return \Response::json([
+                    'message' => $hash,
+                    'result' => 'OK',
+                ]);
+            } else {
+                http_response_code(400);
+                return \Response::json([
+                    'message' => _('DB update failed.')
+                ]);
+            }
+        } else {
+            http_response_code(400);
+            return \Response::json([
+                'message' => _('Bad Request.')
+            ]);
+        }
     }
 
 }

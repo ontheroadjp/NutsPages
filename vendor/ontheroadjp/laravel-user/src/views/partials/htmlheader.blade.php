@@ -21,7 +21,6 @@
 
 <!-- Core CSS -->
 <link href="{{ asset('/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('/css/skins/skin-nuts.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" />
 
 @yield('css', '')

@@ -35,17 +35,15 @@ class UserActivity extends Model
 		static::create(['activity_id'=>'10','user_id'=>$id,'message'=>'UPDATED_EMAIL_ADDRESS']);
 	}
 
+	// 新規サイト追加
 	public static function createdUserSite($id){
 		static::create(['activity_id'=>'40','user_id'=>$id,'message'=>'CREATED_USER_SITE']);
 	}
 
-	// public static function updatedUserSite($id, $msg){
-	// 	static::create(['activity_id'=>'20','user_id'=>$id,'message'=>$msg]);
-	// }
-
-	// public static function deletedUserSite($id, $msg){
-	// 	static::create(['activity_id'=>'20','user_id'=>$id,'message'=>$msg]);
-	// }
+	// 新規サイト削除
+	public static function deletedUserSite($id){
+		static::create(['activity_id'=>'40','user_id'=>$id,'message'=>'DELETED_USER_SITE']);
+	}
 
 	// public static function getHtml($msg){
 

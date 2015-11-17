@@ -12,9 +12,11 @@ namespace Ontheroadjp\NutsPages\Providers;
 
 use Route;
 use Illuminate\Support\ServiceProvider;
-
 use Illuminate\Support\Facades\URL;
 use Xinax\LaravelGettext\Facades\LaravelGettext;
+
+use Ontheroadjp\NutsPages\Models\UserSite;
+use Ontheroadjp\NutsPages\Listeners\UserSiteObserver;
 
 /**
  * Class LaravelAuthServiceProvider
@@ -48,6 +50,9 @@ class NutsPagesServiceProvider extends ServiceProvider
         $this->publishMigrations();
         $this->registerRoutes();
         $this->publishViews();
+
+        UserSite::observe(new UserSiteObserver);
+
     }
 
     private function publishMigrations()
@@ -69,8 +74,9 @@ class NutsPagesServiceProvider extends ServiceProvider
         ];
 
         $this->app['router']->group($routeConfig, function() {
-               Route::get('dashboard', 'NutsPagesController@dashboard');               
-               Route::get('create', 'NutsPagesController@create');               
+               Route::get('/dashboard', 'NutsPagesController@dashboard');               
+               Route::get('/create', 'NutsPagesController@create');               
+               Route::post('site/delete/{hash}', 'NutsPagesController@siteDelete');               
             }
         );
 

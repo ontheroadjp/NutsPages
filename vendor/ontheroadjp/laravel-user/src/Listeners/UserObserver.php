@@ -48,6 +48,14 @@ class UserObserver {
 		}
 	}
 
+	public function deleting($model){
+		// info('UserObserver@deleting: '.$model);
+	}
+
+	public function deleted($model){
+		// info('UserObserver@deleted: '.$model);
+	}
+
 	public function restoring($model){
 		// info('UserObserver@restoring: '.$model );
 	}

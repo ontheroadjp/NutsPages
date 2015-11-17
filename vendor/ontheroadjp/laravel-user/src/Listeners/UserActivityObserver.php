@@ -28,12 +28,20 @@ class UserActivityObserver {
 		// info('UserActivityObserver@updated: '.$model);
 	}
 
+	public function deleting($model){
+		// info('UserActivityObserver@deleting: '.$model);
+	}
+
+	public function deleted($model){
+		// info('UserActivityObserver@deleted: '.$model);
+	}
+
 	public function restoring($model){
-		// info('UserObserver@restoring: '.$model );
+		// info('UserActivityObserver@restoring: '.$model );
 	}
 
 	public function restored($model){
-		// info('UserObserver@restoring: '.$model );
+		// info('UserActivityObserver@restoring: '.$model );
 	}
 
 }

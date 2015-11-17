@@ -19,6 +19,7 @@ class CreateUserSitesTable extends Migration
             $table->string('site_description')->nullable();
             $table->string('site_keywords')->nullable();
             $table->boolean('published')->default(false);
+            $table->string('hash',40);
             $table->softDeletes();
             $table->timestamps();
         });

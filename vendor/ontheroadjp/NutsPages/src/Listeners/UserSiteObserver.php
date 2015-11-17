@@ -1,6 +1,6 @@
 <?php
 
-namespace Ontheroadjp\LaravelUser\Listeners;
+namespace Ontheroadjp\NutsPages\Listeners;
 
 use Illuminate\Support\Facades\DB;
 use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
@@ -8,17 +8,17 @@ use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
 class UserSiteObserver {
 
 	public function creating($model){
-		// info('UserObserver@creating: '.$model );
+		// info('UserSiteObserver@creating: '.$model );
 		DB::beginTransaction();
 		info('Begin Transaction.');
 	}
 
 	public function created($model){
-		// info('UserObserver@created: '.$model );
+		// info('UserSiteObserver@created: '.$model );
 		if($this->createUserSiteDir($model)){
 			DB::commit();
 			info('DB Commit.');
-			Activity::createdUserSite($model['attributes']['id']);
+			Activity::createdUserSite(\Auth::user()->id);
 		} else {
 			DB::rollback();
 			info('DB Rollback.');
@@ -26,19 +26,19 @@ class UserSiteObserver {
 	}
 
 	public function saving($model){
-		// info('UserObserver@saving: '.var_export($model,true) );
+		// info('UserSiteObserver@saving: '.var_export($model,true) );
 	}
 
 	public function saved($model){
-		// info('UserObserver@saved: '.var_export($model,true) );
+		// info('UserSiteObserver@saved: '.var_export($model,true) );
 	}
 
 	public function updating($model){
-		// info('UserObserver@uodating: '.var_export($model,true) );
+		// info('UserSiteObserver@uodating: '.var_export($model,true) );
 	}
 
 	public function updated($model){
-		// info('UserObserver@updated: '.$model);
+		// info('UserSiteObserver@updated: '.$model);
 		// if( $model['original']['name'] !== $model['attributes']['name']) {
 		// 	Activity::updatedUserName(\Auth::user()->id);
 		// } 
@@ -47,23 +47,27 @@ class UserSiteObserver {
 		// }
 	}
 
+	public function deleting($model){
+		// info('UserSiteObserver@deleting: '.var_export($model,true) );
+	}
+
+	public function deleted($model){
+		// info('UserSiteObserver@deleted: '.var_export($model,true) );
+		Activity::deletedUserSite(\Auth::user()->id);
+	}
+
 	public function restoring($model){
-		// info('UserObserver@restoring: '.$model );
+		// info('UserSiteObserver@restoring: '.$model );
 	}
 
 	public function restored($model){
-		// info('UserObserver@restoring: '.$model );
-	}
-
-	private function sendWelcomeMail($user)
-	{
-		\Mail::send('emails.welcome', compact('user'), function($message) use ($user) {
-			$message->to($email, $name)->subject( _('Welcome to the Nuts Pages') );
-		}, 10);
+		// info('UserSiteObserver@restoring: '.$model );
 	}
 
 	private function createUserSiteDir($model)
 	{
-		return mkdir(base_path('users/'.\Auth::user()->hash).'/'.$model['attributes']['hash']);
+		$path = base_path('users/'.\Auth::user()->hash).'/'.$model['attributes']['hash'];
+		info('Made Directory: '.$path);
+		return mkdir($path);
 	}
 }

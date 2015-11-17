@@ -1,8 +1,10 @@
 <?php
 
-namespace Ontheroadjp\LaravelUser\Models;
+namespace Ontheroadjp\NutsPages\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 // // ログイン、ユーザー名変更、画像アップロード、画像削除、サイト編集、サイト情報更新
 // Activity::create(['id'=>'10', 'activity' => 'ACTION']);
@@ -22,10 +24,9 @@ use Illuminate\Database\Eloquent\Model;
 class UserSite extends Model
 {
 	protected $table = 'user_sites';
-	protected $fillable = ['user_hash','site_name','site_description','site_keywords','published'];
+	protected $fillable = ['user_hash','site_name','site_description','site_keywords','published','hash'];
 
-	// public static function createNewSite($user_hash,$site_name){
-	// 	static::create(['user_hash'=>$user_hash,'site_name'=>$site_name]);
-	// }
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 }
 ?>
