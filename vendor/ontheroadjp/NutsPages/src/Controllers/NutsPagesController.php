@@ -64,7 +64,7 @@ class NutsPagesController extends Controller
                 http_response_code(400);
                 return \Response::json([
                     'message' => _('User site delete failed.'),
-                    'result' => {{ _('Failed') }},
+                    'result' => _('Failed'),
                 ]);
             }
         } else {
