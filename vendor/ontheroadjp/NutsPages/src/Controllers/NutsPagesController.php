@@ -31,6 +31,8 @@ class NutsPagesController extends Controller
             ->where('user_hash',$user->hash)
             ->where('deleted_at',null)
             ->get();
+
+        // $sites = \Auth::user()->user_sites();
         return view('NutsPages::dashboard', compact('user','sites'));
     }
 
@@ -42,9 +44,15 @@ class NutsPagesController extends Controller
      */
     protected function create()
     {
+        $user = \Auth::user();
+        $count = \DB::table('user_sites')
+            ->where('user_hash',$user->hash)
+            ->count();
+        $subdomain = $user->name."-".++$count;
         $site = UserSite::create([
-            'site_name' => \Auth::user()->name."'s Site",
-            'user_hash' => \Auth::user()->hash,
+            'site_name' => $subdomain._("'s Site"),
+            'subdomain' => str_random(6),
+            'user_hash' => $user->hash,
             'hash' => sha1(uniqid(rand(),true)),    // 40文字
         ]);
 

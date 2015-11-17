@@ -12,7 +12,12 @@
 
 <?php $__env->startSection('help_content'); ?>
 <ul>
-	<li>このページでは登録情報の変更が行えます。</li>
+	<li>このページでは WEB サイトの作成、編集、削除などが行えます。</li>
+	<li><button class="btn nuts-btn-primary btn-xs"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo e(_('Create New Site')); ?></button> をクリックすると新規サイトを作成できます。</li>
+	<li><button class="btn btn-xs nuts-btn-success"><i class="fa fa-leanpub"></i>&nbsp;<?php echo e(_('SITE PUBLISHE')); ?></button> をクリックするとサイトの公開/非公開を切り替えることができます。</li>
+	<li><button class="btn btn-xs nuts-btn-success"><i class="fa fa-pencil-square-o"></i>&nbsp;<?php echo e(_('SITE EDIT')); ?></button> をクリックすると WEB サイトの編集が行えます。</li>
+	<li><button class="btn btn-xs nuts-btn-danger"><i class="fa fa-trash-o"></i>&nbsp;<?php echo e(_('DELETE')); ?></button> をクリックすると WEB サイトを削除できます（削除した WEB サイトは元に戻せませんのでご注意ください）。</li>
+
 </ul>
 <?php $__env->stopSection(); ?>
 
@@ -20,144 +25,166 @@
 <?php $__env->startSection('main-content'); ?>
 <?php echo $__env->make('partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-<a href="/create" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="<?php echo e(_('Site edit')); ?>"><?php echo e(_('Create New Site')); ?></a>
+<!-- ----------------------------------- -->
+<?php if( count($sites) === 0 ): ?> 
+<h2 class="text-center"><?php echo e(_('Welcome to Nuts Pages')); ?></h2>
+<p class="nuts-fs-14 text-center">
+<?php echo e(_('The easy way to creating web site is here.')); ?>
 
+</p>
+
+<p class="nuts-fs-18 text-center nuts-mg-b-80">
+<?php echo e(_("Let's start now, while a cup of coffee !")); ?>
+
+</p>
+
+<p class="text-center">
+<a href="/create" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="<?php echo e(_('Creating new site')); ?>"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo e(_('Create New Site')); ?></a>
+</p>
+
+<!-- ----------------------------------- -->
+<?php else: ?>
+<div class="nuts-mg-b-20">
+<a href="/create" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="<?php echo e(_('Creating new site')); ?>"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo e(_('Create New Site')); ?></a>
+</div>
+
+<style>
+.panel-title {
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.panel-heading-controls {
+    margin-top: -2px;
+    margin-bottom: -200px;
+    float: right;
+}
+.panel-heading-text {
+    display: inline-block;
+    line-height: 20px;
+    font-size: 12px;
+    margin-top: 1px;
+}
+ul.site-status {
+    list-style: none;
+    padding: 15px;
+    line-height: 2em;
+}
+</style>
 
 <?php for( $n=0; $n<count($sites); $n++ ): ?>
 <div class="panel panel-default" hash="<?php echo e($sites[$n]->hash); ?>">
-<div class="panel-heading"><?php echo e($sites[$n]->site_name); ?></div>
+<div class="panel-heading">
+	<span class="panel-title">
+		<i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;
+		<?php echo e($sites[$n]->site_name); ?>
 
-<div class="panel-heading panel-button">
-<a class="btn nuts-btn-success tooltip-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo e(_('Site published')); ?>"><?php echo e(_('PUBLISH')); ?></a>
+	</span>
+	<div class="panel-heading-controls">
+		<span class="panel-heading-text"><em><?php echo e(_('Created at ')); ?><?php echo e($sites[$n]->created_at); ?></em>&nbsp;&nbsp;<span style="color: #ccc">|</span>&nbsp;&nbsp;</span>
 
-<a href="/delete/<?php echo e($sites[$n]->hash); ?>" class="btn nuts-btn-success tooltip-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo e(_('Site edit')); ?>"><?php echo e(_('SITE EDIT')); ?></a>
+		<a class="btn btn-xs nuts-btn-success tooltip-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo e(_('publishing your site')); ?>"><i class="fa fa-leanpub"></i>&nbsp;<?php echo e(_('SITE PUBLISHE')); ?></a>
 
-<!-- <a class="btn nuts-btn-danger tooltip-success site-delete-btn" data-toggle="tooltip" data-placement="top" hash="<?php echo e($sites[$n]->hash); ?>" data-original-title="<?php echo e(_('Site delete')); ?>"><?php echo e(_('DELETE')); ?></a> -->
-<a class="btn nuts-btn-danger tooltip-success site-delete-btn" data-toggle="tooltip" data-placement="top" data-original-title="<?php echo e(_('Site delete')); ?>"><?php echo e(_('DELETE')); ?></a>
+		<a class="btn btn-xs nuts-btn-success tooltip-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo e(_('editing your site')); ?>"><i class="fa fa-pencil-square-o"></i>&nbsp;<?php echo e(_('SITE EDIT')); ?></a>
 
+		<a class="btn btn-xs nuts-btn-danger tooltip-success site-delete-btn" data-toggle="tooltip" data-placement="top" data-original-title="<?php echo e(_('deleting your site')); ?>"><i class="fa fa-trash-o"></i>&nbsp;<?php echo e(_('DELETE')); ?></a>
+	</div>
 </div>
 
-
 <div class="panel-body">
-	<div class="panel-body">
-		<ul id="" class="nav nav-tabs">
-			<li class="active">
-				<a href="#site-status" data-toggle="tab"><i class="fa fa-tachometer"></i> <?php echo e(_('Status')); ?></a>
-			</li>
-			<li class="">
-				<a href="#site-settings" data-toggle="tab"><i class="fa fa-cog"></i> <?php echo e(_('Settings')); ?></a>
-			</li>
-			<li class="">
-				<a href="#google-analytics" data-toggle="tab"><i class="fa fa-google"></i> <?php echo e(_('Google Analitics')); ?></a>
-			</li>
-		</ul>
+	<ul id="" class="nav nav-tabs">
+		<li class="active">
+			<a href="#site-status" data-toggle="tab"><i class="fa fa-tachometer"></i> <?php echo e(_('Status')); ?></a>
+		</li>
+		<li class="">
+			<a href="#site-settings" data-toggle="tab"><i class="fa fa-cog"></i> <?php echo e(_('Settings')); ?></a>
+		</li>
+		<li class="">
+			<a href="#google-analytics" data-toggle="tab"><i class="fa fa-google"></i> <?php echo e(_('Google Analitics')); ?></a>
+		</li>
+	</ul>
 
-		<div class="tab-content tab-content-bordered">
+	<div class="tab-content tab-content-bordered">
 
-			<!-- ------------------------------------- -->
-			<div class="tab-pane fade active in" id="site-status">
-				<div class="box box-primary">
-					<div class="box-header with-border">
-						<h3 class="box-title"><i class="fa fa-paw"></i><?php echo e(_('User Profile')); ?></h3>
+		<!-- ------------------------------------- -->
+		<div class="tab-pane fade active in" id="site-status">
+			<div class="">
+				<ul class="site-status">
+				<li style="color: #333"><?php echo e(_('Site name')); ?>:&nbsp;<?php echo e($sites[$n]->site_name); ?></li>
+				<li style="color: #333"><?php echo e(_('URL')); ?>:&nbsp;<a href="http://<?php echo e($sites[$n]->subdomain); ?>.nutspages.com" target="_blank">http://<?php echo e($sites[$n]->subdomain); ?>.nutspages.com</a></li>
+				<li style="color: #333"><?php echo e(_('Created at')); ?>:&nbsp;<?php echo e($sites[$n]->created_at); ?></li>
+				<li style="color: #333"><?php echo e(_('Last updated at')); ?>:&nbsp;<?php echo e($sites[$n]->updated_at); ?></li>
+				</ul>
+			</div>
+		</div> <!-- / .tab-pane -->
+
+		<!-- ------------------------------------- -->
+		<div class="tab-pane fade" id="site-settings">
+			<div class="box box-primary">
+
+				<form role="form">
+					<div class="box-body">
+					<div class="col-md-6">
+
+					<div class="form-group">
+						<label for="exampleInputEmail1"><?php echo e(_('Site Address')); ?></label>
+							<div class="input-group input-group">
+							<input name="name" type="text" class="form-control" placeholder="<?php echo e(_('User Name')); ?>" value="<?php echo e($user->name); ?>">
+							<span class="input-group-btn">
+							<button name="name" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
+							</span>
+						</div>
 					</div>
 
-					<form role="form">
-						<div class="box-body">
-						<div class="col-md-6">
-
-						<div class="form-group">
-							<label for="exampleInputEmail1"><?php echo e(_('User Name')); ?></label>
-								<div class="input-group input-group">
-								<input name="name" type="text" class="form-control" placeholder="<?php echo e(_('User Name')); ?>" value="<?php echo e($user->name); ?>">
-								<span class="input-group-btn">
-								<button name="name" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
-								</span>
-							</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1"><?php echo e(_('Site Name')); ?></label>
+							<div class="input-group input-group">
+							<input name="name" type="text" class="form-control" placeholder="<?php echo e(_('User Name')); ?>" value="<?php echo e($user->name); ?>">
+							<span class="input-group-btn">
+							<button name="name" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
+							</span>
 						</div>
+					</div>
 
-						<div class="form-group">
-							<label for="exampleInputEmail1"><?php echo e(_('Email Address')); ?></label>
-								<div class="input-group input-group">
-								<input name='email' type="text" class="form-control" placeholder="<?php echo e(_('Email Address')); ?>" value="<?php echo e($user->email); ?>">
-								<span class="input-group-btn">
-								<button name="email" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
-								</span>
-							</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1"><?php echo e(_('Site Description')); ?></label>
+							<div class="input-group input-group">
+							<input name='email' type="text" class="form-control" placeholder="<?php echo e(_('Email Address')); ?>" value="<?php echo e($user->email); ?>">
+							<span class="input-group-btn">
+							<button name="email" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
+							</span>
 						</div>
+					</div>
 
-						</div><!-- / .col -->
-						</div><!-- /.box-body -->
-					</form>
-				</div>
-			</div> <!-- / .tab-pane -->
-
-			<!-- ------------------------------------- -->
-			<div class="tab-pane fade" id="site-settings">
-				<div class="box box-primary">
-
-					<form role="form">
-						<div class="box-body">
-						<div class="col-md-6">
-
-						<div class="form-group">
-							<label for="exampleInputEmail1"><?php echo e(_('Site Address')); ?></label>
-								<div class="input-group input-group">
-								<input name="name" type="text" class="form-control" placeholder="<?php echo e(_('User Name')); ?>" value="<?php echo e($user->name); ?>">
-								<span class="input-group-btn">
-								<button name="name" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
-								</span>
-							</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1"><?php echo e(_('Keywords')); ?></label>
+							<div class="input-group input-group">
+							<input name='email' type="text" class="form-control" placeholder="<?php echo e(_('Email Address')); ?>" value="<?php echo e($user->email); ?>">
+							<span class="input-group-btn">
+							<button name="email" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
+							</span>
 						</div>
+					</div>
 
-						<div class="form-group">
-							<label for="exampleInputEmail1"><?php echo e(_('Site Name')); ?></label>
-								<div class="input-group input-group">
-								<input name="name" type="text" class="form-control" placeholder="<?php echo e(_('User Name')); ?>" value="<?php echo e($user->name); ?>">
-								<span class="input-group-btn">
-								<button name="name" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
-								</span>
-							</div>
-						</div>
+					</div><!-- / .col -->
+					</div><!-- /.box-body -->
+				</form>
+			</div>
+		</div> <!-- / .tab-pane -->
 
-						<div class="form-group">
-							<label for="exampleInputEmail1"><?php echo e(_('Site Description')); ?></label>
-								<div class="input-group input-group">
-								<input name='email' type="text" class="form-control" placeholder="<?php echo e(_('Email Address')); ?>" value="<?php echo e($user->email); ?>">
-								<span class="input-group-btn">
-								<button name="email" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
-								</span>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="exampleInputEmail1"><?php echo e(_('Keywords')); ?></label>
-								<div class="input-group input-group">
-								<input name='email' type="text" class="form-control" placeholder="<?php echo e(_('Email Address')); ?>" value="<?php echo e($user->email); ?>">
-								<span class="input-group-btn">
-								<button name="email" type="button" class="btn nuts-btn-info btn-flat change-btn"><?php echo e(_('UPDATE')); ?></button>
-								</span>
-							</div>
-						</div>
-
-						</div><!-- / .col -->
-						</div><!-- /.box-body -->
-					</form>
-				</div>
-			</div> <!-- / .tab-pane -->
-
-			<!-- ------------------------------------- -->
-			<div class="tab-pane fade" id="google-analytics">
-				<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
-			</div> <!-- / .tab-pane -->
-		</div> <!-- / .tab-content -->
-	</div>
+		<!-- ------------------------------------- -->
+		<div class="tab-pane fade" id="google-analytics">
+			<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+		</div> <!-- / .tab-pane -->
+	</div> <!-- / .tab-content -->
 </div>
 
 
 
 </div>
 <?php endfor; ?>
-
+<?php endif; ?>
 
 <?php $__env->stopSection(); ?>
 

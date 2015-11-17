@@ -28,9 +28,11 @@
 			}).done(function(data, textStatus, jqXHR){
 				// successAlert.find('.msg').html(data.message);
 				// successAlert.show('fast');
-				$('div[hash="' + data.message + '"]').remove();
 				// nutsSuccessMsg(data.message);
-
+				target = $('div[hash="' + data.message + '"]');
+				target.hide('slow',function(){
+					target.remove();
+				});
 
 			}).fail(function(data, textStatus, errorThrown){
 				errorAlert.find('.msg').html(errorThrown);

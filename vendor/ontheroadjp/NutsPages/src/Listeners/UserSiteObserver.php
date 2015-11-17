@@ -66,7 +66,7 @@ class UserSiteObserver {
 
 	private function createUserSiteDir($model)
 	{
-		$path = base_path('users/'.\Auth::user()->hash).'/'.$model['attributes']['hash'];
+		$path = base_path('users/'.\Auth::user()->hash).'/'.$model['attributes']['subdomain'];
 		info('Made Directory: '.$path);
 		return mkdir($path);
 	}

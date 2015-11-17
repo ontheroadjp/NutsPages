@@ -20,7 +20,7 @@ color:
 font-size:
 margin-buttom:
 ---------------------------------------*/
-@for $i from 1 through 12 {
+@for $i from 1 through 24 {
 	.nuts-fs-#{$i * 2} {
 		font-size:#{$i * 2}px;
 	}

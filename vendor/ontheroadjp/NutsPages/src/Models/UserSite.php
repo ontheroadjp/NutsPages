@@ -24,9 +24,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class UserSite extends Model
 {
 	protected $table = 'user_sites';
-	protected $fillable = ['user_hash','site_name','site_description','site_keywords','published','hash'];
+	protected $fillable = ['user_hash','subdomain','site_name','site_description','site_keywords','published','hash'];
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function user()
+    {
+		return $this->belongsTo('Ontheroadjp\LaravelUser\Models\User', 'user_hash', 'hash');
+	}
+
 }
 ?>

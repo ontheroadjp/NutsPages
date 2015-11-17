@@ -1,5 +1,5 @@
 
-	$('.change-btn').click( function() {
+	$('.site-edit-btn').click( function() {
 
 		successAlert = $('.alert-success').css('display', 'none');
 		errorAlert = $('.alert-danger').css('display', 'none');
