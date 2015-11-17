@@ -89,7 +89,7 @@ class ExAuthController extends \App\Http\Controllers\Auth\AuthController
     }
 
     protected function authenticated($request, $user) {
-        Activity::action($user->id, 'SIGNED_IN'); 
+        Activity::signedIn($user->id); 
         return redirect()->intended($this->redirectPath());
     }
 

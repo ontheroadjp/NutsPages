@@ -5,7 +5,7 @@ namespace Ontheroadjp\LaravelUser\Listeners;
 use Illuminate\Support\Facades\DB;
 use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
 
-class UserObserver {
+class UserSiteObserver {
 
 	public function creating($model){
 		// info('UserObserver@creating: '.$model );
@@ -15,11 +15,10 @@ class UserObserver {
 
 	public function created($model){
 		// info('UserObserver@created: '.$model );
-		if($this->createUserDir($model)){
+		if($this->createUserSiteDir($model)){
 			DB::commit();
 			info('DB Commit.');
-			Activity::createdUserAccount($model['attributes']['id']);
-			// $this->sendWelcomeMail($model);
+			Activity::createdUserSite($model['attributes']['id']);
 		} else {
 			DB::rollback();
 			info('DB Rollback.');
@@ -40,12 +39,12 @@ class UserObserver {
 
 	public function updated($model){
 		// info('UserObserver@updated: '.$model);
-		if( $model['original']['name'] !== $model['attributes']['name']) {
-			Activity::updatedUserName(\Auth::user()->id);
-		} 
-		if( $model['original']['email'] !== $model['attributes']['email']) {
-			Activity::updatedUserEmailAddress(\Auth::user()->id);
-		}
+		// if( $model['original']['name'] !== $model['attributes']['name']) {
+		// 	Activity::updatedUserName(\Auth::user()->id);
+		// } 
+		// if( $model['original']['email'] !== $model['attributes']['email']) {
+		// 	Activity::updatedUserEmailAddress(\Auth::user()->id);
+		// }
 	}
 
 	public function restoring($model){
@@ -63,8 +62,8 @@ class UserObserver {
 		}, 10);
 	}
 
-	private function createUserDir($model)
+	private function createUserSiteDir($model)
 	{
-		return mkdir(base_path('users').'/'.$model['attributes']['hash']);
+		return mkdir(base_path('users/'.\Auth::user()->hash).'/'.$model['attributes']['hash']);
 	}
 }

@@ -1,6 +1,6 @@
 <div class="box box-primary no-box-shadow">
 <div class="box-header">
-	<h3 class="box-title"><i class="fa fa-paw"></i>{{ _('Action History') }}</h3>
+	<h3 class="box-title"><i class="fa fa-history"></i>{{ _('Action History') }}</h3>
 </div>
 
 <style>

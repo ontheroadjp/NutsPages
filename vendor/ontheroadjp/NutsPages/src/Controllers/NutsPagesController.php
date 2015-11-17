@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Ontheroadjp\NutsPages\Models\UserActivity as Activity;
+use Ontheroadjp\NutsPages\Models\UserSite;
 
 class NutsPagesController extends Controller
 {
@@ -29,5 +29,22 @@ class NutsPagesController extends Controller
         $user = \Auth::user();
         return view('NutsPages::dashboard', compact('user'));
     }
+
+    /**
+     * Create a new usersite instance.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    protected function create(array $data)
+    {
+        $site = UserSite::create([
+            'site_name' => \Auth::user()->name."'s Site",
+            'hash' => sha1(uniqid(rand(),true)),    // 40文字
+        ]);
+
+        return view('NutsPages::newsite');
+    }
+
 }
 ?>

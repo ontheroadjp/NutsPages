@@ -32,7 +32,6 @@ return array(
     'Ontheroadjp\\NutsPages\\' => array($vendorDir . '/ontheroadjp/NutsPages/src'),
     'Ontheroadjp\\LaravelUser\\' => array($vendorDir . '/ontheroadjp/laravel-user/src'),
     'Ontheroadjp\\LaravelImageGallery\\' => array($vendorDir . '/ontheroadjp/laravel-img-gallery/src'),
-    'Ontheroadjp\\LaravelAuth\\' => array($vendorDir . '/ontheroadjp/laravel-auth/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\Glide\\' => array($vendorDir . '/league/glide/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),

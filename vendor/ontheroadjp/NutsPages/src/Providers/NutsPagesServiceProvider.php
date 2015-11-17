@@ -45,8 +45,17 @@ class NutsPagesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->publishMigrations();
         $this->registerRoutes();
         $this->publishViews();
+    }
+
+    private function publishMigrations()
+    {
+        $this->publishes([
+            dirname(__FILE__).'/../database/migrations/2015_11_17_074424_create_user_sites_table.php' 
+                => base_path('database/migrations/2015_11_17_074424_create_user_sites_table.php'),
+        ]);
     }
 
     private function registerRoutes()
@@ -60,10 +69,8 @@ class NutsPagesServiceProvider extends ServiceProvider
         ];
 
         $this->app['router']->group($routeConfig, function() {
-               // $router->get('{id}', 'UserController@view');
-               // $router->post('editp', 'UserController@hoge');
                Route::get('dashboard', 'NutsPagesController@dashboard');               
-               // Route::post('edit', 'UserController@edit');
+               Route::get('create', 'NutsPagesController@create');               
             }
         );
 
