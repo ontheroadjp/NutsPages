@@ -56,76 +56,6 @@
 </div>
 
 
-<style>
-.nuts-modal {
-    display: none; 
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1050;
-    -webkit-overflow-scrolling: touch;
-    outline: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    text-align: center;
-}
-.nuts-modal-dialog {
-    width: 350px;
-    margin: 150px auto;
-}
-.nuts-modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    background-color: #fff;
-}
-.nuts-modal-success .modal-header {
-    background-color: #5ebd5e;
-    color: #fff;
-    font-size: 90px;
-    margin-bottom: 30px;
-    padding: 0px;
-    text-shadow: 0 1px 0 rgba(0,0,0,.15);
-    border-bottom: 4px solid rgba(0,0,0,.08);
-}
-.nuts-modal-success .modal-title{
-	font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 3px;
-}
-.nuts-modal-success .modal-body {
-	color: #888;
-}
-.nuts-modal-success .modal-footer {
-	padding: 15px;
-	border-top: none;
-	text-align: center;
-}
-.nuts-modal-success button {
-    width: 100px;
-    background-color: #fff;
-    color: #449d44;
-    margin-bottom: 20px;
-}
-</style>
-
-<div id="successModal" class="nuts-modal nuts-modal-success fade in" aria-hidden="false">
-<div class="nuts-modal-dialog">
-<div class="nuts-modal-content">
-
-	<div class="modal-header">
-		<i class="fa fa-check-circle"></i>
-	</div>
-	<div class="modal-title">{{ _('SUCCESS') }}</div>
-	<div class="modal-body">{{ _('User name has been changed.') }}</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true">OK</button>
-	</div>
-
-</div> <!-- / .modal-content -->
-</div> <!-- / .modal-dialog -->
-</div>
 
 @endsection
 
@@ -137,16 +67,11 @@ $(function(){
 	// -----------------------------------------
 	// For Account Settings Pane
 	// -----------------------------------------
-
 	$('.change-btn').click( function() {
-
-		successAlert = $('.alert-success').css('display', 'none');
-		errorAlert = $('.alert-danger').css('display', 'none');
-
 		$.ajax({
 			headers: {
-	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	        },
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			},
 			url: "/profile/edit",
 			type: "POST",
 			cache: false,
@@ -160,14 +85,15 @@ $(function(){
 
 				// Laravel validation err
 				422 : function() {
-					errorAlert = $('.alert-danger');
-					errorAlert.find('.msg').html('Invalid value you entered.');
-					errorAlert.show('fast');
+					nutsAlertDanger( "<?php echo _('Invalid value you entered.'); ?>" );
+					// errorAlert = $('.alert-danger');
+					// errorAlert.find('.msg').html('Invalid value you entered.');
+					// errorAlert.show('fast');
 				}
 			},
 		}).done(function(data, textStatus, jqXHR){
 			nutsLogoMsgSuccess(data.message);
-			// nutsAlertSuccess(data.message);
+			nutsAlertSuccess(data.message);
 
 		}).fail(function(data, textStatus, errorThrown){
 			nutsLogoMsgDanger(errorThrown);
@@ -177,33 +103,6 @@ $(function(){
 			// alert(textStatus);
 		});
 	});
-
-	$('.close').click(function(){
-		$(this).parent('.nuts-alert').hide('first');
-	});
-
 });
-
-/* エラー文字列の生成 */
-function errorHandler(args) {
-    var error;
-    // errorThrownはHTTP通信に成功したときだけ空文字列以外の値が定義される
-    if (args[2]) {
-        try {
-            // JSONとしてパースが成功し、且つ {"error":"..."} という構造であったとき
-            // (undefinedが代入されるのを防ぐためにtoStringメソッドを使用)
-            error = $.parseJSON(args[0].responseText).error.toString();
-        } catch (e) {
-            // パースに失敗した、もしくは期待する構造でなかったとき
-            // (PHP側にエラーがあったときにもデバッグしやすいようにレスポンスをテキストとして返す)
-            error = 'parsererror(' + args[2] + '): ' + args[0].responseText;
-        }
-    } else {
-        // 通信に失敗したとき
-        error = args[1] + '(HTTP request failed)';
-    }
-    return error;
-}
-
 </script>
 @endsection

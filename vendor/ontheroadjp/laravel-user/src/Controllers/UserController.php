@@ -56,9 +56,14 @@ class UserController extends Controller
                     'email' => _('E-mail address has been changed Successfully.'),
                 ];
 
+                if( $params['field'] === 'name' ){
+                    Activity::updatedUserName($user->id);
+                } elseif( $params['field'] === 'email' ) {
+                    Activity::updatedEmailAddress($user->id);
+                }
+
                 return \Response::json([
-                    'message' => $msg[$params['field']],
-                    'result' => 'OK',
+                    'message' => $msg[$params['field']]
                 ]);
 
             } else {

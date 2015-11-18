@@ -7,37 +7,50 @@ use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
 
 class UserSiteObserver {
 
-	public function creating($model){
+	public function creating($model)
+	{
 		// info('UserSiteObserver@creating: '.$model );
 		DB::beginTransaction();
 		info('Begin Transaction.');
 	}
 
-	public function created($model){
+	public function created($model)
+	{
 		// info('UserSiteObserver@created: '.$model );
-		if($this->createUserSiteDir($model)){
-			DB::commit();
-			info('DB Commit.');
-			Activity::createdUserSite(\Auth::user()->id);
-		} else {
+		try {
+			if($this->createUserSiteDir($model)){
+				DB::commit();
+				info('DB Commit.');
+				Activity::createdUserSite(\Auth::user()->id);
+			} else {
+				DB::rollback();
+				info('DB Rollback.');
+			}
+		} catch( \Exception $e ) {
 			DB::rollback();
 			info('DB Rollback.');
+            \Session::flash('alert_danger', _('Create new site failed.'));
+            return redirect()->route('dashboard.show');
 		}
 	}
 
-	public function saving($model){
+	public function saving($model)
+	{
 		// info('UserSiteObserver@saving: '.var_export($model,true) );
 	}
 
-	public function saved($model){
+	public function saved($model)
+	{
 		// info('UserSiteObserver@saved: '.var_export($model,true) );
 	}
 
-	public function updating($model){
+	public function updating($model)
+	{
 		// info('UserSiteObserver@uodating: '.var_export($model,true) );
 	}
 
-	public function updated($model){
+	public function updated($model)
+	{
 		// info('UserSiteObserver@updated: '.$model);
 		// if( $model['original']['name'] !== $model['attributes']['name']) {
 		// 	Activity::updatedUserName(\Auth::user()->id);
@@ -47,20 +60,24 @@ class UserSiteObserver {
 		// }
 	}
 
-	public function deleting($model){
+	public function deleting($model)
+	{
 		// info('UserSiteObserver@deleting: '.var_export($model,true) );
 	}
 
-	public function deleted($model){
+	public function deleted($model)
+	{
 		// info('UserSiteObserver@deleted: '.var_export($model,true) );
 		Activity::deletedUserSite(\Auth::user()->id);
 	}
 
-	public function restoring($model){
+	public function restoring($model)
+	{
 		// info('UserSiteObserver@restoring: '.$model );
 	}
 
-	public function restored($model){
+	public function restored($model)
+	{
 		// info('UserSiteObserver@restoring: '.$model );
 	}
 

@@ -6,6 +6,10 @@
 <body class="skin-nuts">
 <div class="wrapper">
 
+    {{-- Modal --}}
+    @include('nuts-components.nuts-modal')
+    {{-- Modal --}}
+
     @include('partials.mainheader.simple')
     @include('partials.sidebar.simple')
 
@@ -27,17 +31,15 @@
 
 
 {{-- Alert --}}
-<script>
 @if(Session::has('alert_success'))
-    nutsAlertSuccess( "{{ Session::get('alert_success') }}" );
+    <script>nutsAlertSuccess( "{{ Session::get('alert_success') }}" );</script>
 @elseif(Session::has('alert_info'))
-    nutsAlertInfo( "{{ Session::get('alert_info') }}" );
+    <script>nutsAlertInfo( "{{ Session::get('alert_info') }}" );</script>
 @elseif(Session::has('alert_danger'))
-    nutsAlertDanger( "{{ Session::get('alert_danger') }}" );
+    <script>nutsAlertDanger( "{{ Session::get('alert_danger') }}" );</script>
 @elseif(Session::has('alert_warning'))
-    nutsAlertWarning( "{{ Session::get('alert_warning') }}" );
+    <script>nutsAlertWarning( "{{ Session::get('alert_warning') }}" );</script>
 @endif
-</script>
 {{-- Alert --}}
 
 

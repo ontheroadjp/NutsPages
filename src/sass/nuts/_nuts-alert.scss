@@ -70,6 +70,10 @@ Nuts Alert
     border-radius: 2px;
 }
 
-.nuts-alert .nuts-close {
-    top: 0;
+.nuts-alert .close {
+    position: relative;
+    top: -3px;
+    color: #fff;
+    opacity: 0.6;
+    text-shadow: none;
 }

@@ -1,27 +1,37 @@
 function nutsAlertSuccess( message ) {
 	$('.nuts-alert').css('display', 'none');
-	successAlert = $('.alert-success');
-	successAlert.find('.msg').html(message);
-	successAlert.show('fast');
+	alert = $('.alert-success');
+	alert.find('.msg').html(message);
+	alert.show('fast');
+	initCloseBtn();
 }
 
 function nutsAlertInfo( message ) {
 	$('.nuts-alert').css('display', 'none');
-	errorAlert = $('.alert-info');
-	errorAlert.find('.msg').html(message);
-	errorAlert.show('fast');
+	alert = $('.alert-info');
+	alert.find('.msg').html(message);
+	alert.show('fast');
+	initCloseBtn();
 }
 
 function nutsAlertDanger( message ) {
 	$('.nuts-alert').css('display', 'none');
-	errorAlert = $('.alert-danger');
-	errorAlert.find('.msg').html(message);
-	errorAlert.show('fast');
+	alert = $('.alert-danger');
+	alert.find('.msg').html(message);
+	alert.show('fast');
+	initCloseBtn();
 }
 
 function nutsAlertWarning( message ) {
 	$('.nuts-alert').css('display', 'none');
-	errorAlert = $('.alert-warning');
-	errorAlert.find('.msg').html(message);
-	errorAlert.show('fast');
+	alert = $('.alert-warning');
+	alert.find('.msg').html(message);
+	alert.show('fast');
+	initCloseBtn();
+}
+
+function initCloseBtn() {
+	$('.close').click(function(){
+		$(this).parent('.nuts-alert').hide('first');
+	});
 }

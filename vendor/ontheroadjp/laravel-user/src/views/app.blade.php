@@ -6,6 +6,10 @@
 <body class="skin-nuts">
 <div class="wrapper">
 
+    {{-- Modal --}}
+    @include('nuts-components.nuts-modal')
+    {{-- Modal --}}
+
     @include('partials.mainheader.simple')
     @include('partials.sidebar.simple')
 
@@ -27,7 +31,6 @@
 
 
 {{-- Alert --}}
-
 @if(Session::has('alert_success'))
     <script>nutsAlertSuccess( "{{ Session::get('alert_success') }}" );</script>
 @elseif(Session::has('alert_info'))

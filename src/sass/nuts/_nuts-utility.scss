@@ -1,35 +1,48 @@
 
-
 /* --------------------------------------
 background-color:
 ---------------------------------------*/
-.nuts-bg-indigo		{ background-color: #7B9AB5; }
-.nuts-bg-aqua		{ background-color: #B4EBF9; }
-.nuts-bg-black		{ background-color: #000; }
-.nuts-bg-white		{ background-color: #fff; }
+@each $nuts, $color in $nuts-colors {
+	.nuts-bg-#{$nuts} {
+		background-color: $color;
+	}
+}
+
+/* --------------------------------------
+boarder:
+---------------------------------------*/
+@each $nuts, $color in $nuts-colors {
+	.nuts-bd-#{$nuts} {
+		boarder: 1px solid $color;
+	}
+}
 
 /* --------------------------------------
 color:
 ---------------------------------------*/
-.nuts-text-indigo	{ color: #7B9AB5; }
-.nuts-text-aqua		{ color: #B4EBF9; }
-.nuts-text-black	{ color: #000; }
-.nuts-text-white	{ color: #fff; }
+@each $nuts, $color in $nuts-colors {
+	.nuts-text-#{$nuts} {
+		color: $color;
+	}
+}
 
 /* --------------------------------------
 font-size:
-margin-buttom:
 ---------------------------------------*/
 @for $i from 1 through 24 {
 	.nuts-fs-#{$i * 2} {
 		font-size:#{$i * 2}px;
 	}
+}
 
+/* --------------------------------------
+margin-buttom:
+---------------------------------------*/
+@for $i from 1 through 24 {
 	.nuts-mg-b-#{$i * 5} {
 		margin-bottom:#{$i * 5}px;
 	}
 }
-
 
 /* --------------------------------------
 others

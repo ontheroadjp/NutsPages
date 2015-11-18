@@ -45,24 +45,17 @@ class NutsPagesController extends Controller
     protected function create()
     {
         $user = \Auth::user();
-        $count = \DB::table('user_sites')
-            ->where('user_id',$user->id)
-            ->count();
+        $count = \DB::table('user_sites')->where('user_id',$user->id)->count();
         $subdomain = $user->name."-".++$count;
 
-        try {
-            $site = UserSite::create([
-                'id' => \Uuid::generate(4),
-                'user_id' => $user->id,
-                'site_name' => $subdomain._("'s Site"),
-                'subdomain' => str_random(6),
-                'hash' => sha1(uniqid(rand(),true)),    // 40文字
-            ]);
-        } catch( \Exception $e ) {
-            \DB::rollback();
-            \Session::flash('alert_info', _('Create new site failed.'));
-            return redirect()->route('dashboard.show');
-        }
+        $site = UserSite::create([
+            'id' => \Uuid::generate(4),
+            'user_id' => $user->id,
+            'site_name' => $subdomain._("'s Site"),
+            'subdomain' => str_random(6),
+            'hash' => sha1(uniqid(rand(),true)),    // 40文字
+        ]);
+
         return view('NutsPages::newsite');
     }
 

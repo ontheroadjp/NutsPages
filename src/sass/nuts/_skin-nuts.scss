@@ -187,4 +187,33 @@ body.skin-nuts  {
   background-color: #fff;
 }
 
+.skin-nuts .content-header > h1 {
+    padding-top: 10px;
+}
 
+@media (max-width: 991px) {
+  .skin-nuts .content-header > .breadcrumb {
+      background: #fff;
+  }
+}
+
+.skin-nuts .main-header .logo {
+    font-size: 14px;
+}
+
+.skin-nuts .box {
+    border-top: 1px solid #d2d6de;
+}
+
+.skin-nuts .box-header {
+    color: #444;
+    display: block;
+    padding: 20px 10px;
+    position: relative;
+}
+
+/* ------------------------------------ */
+
+.skin-nuts .form-group {
+    margin-bottom: 35px;
+}

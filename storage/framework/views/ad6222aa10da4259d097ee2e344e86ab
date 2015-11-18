@@ -6,6 +6,10 @@
 <body class="skin-nuts">
 <div class="wrapper">
 
+    <?php /* Modal */ ?>
+    <?php echo $__env->make('nuts-components.nuts-modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php /* Modal */ ?>
+
     <?php echo $__env->make('partials.mainheader.simple', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php echo $__env->make('partials.sidebar.simple', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -27,17 +31,15 @@
 
 
 <?php /* Alert */ ?>
-<script>
 <?php if(Session::has('alert_success')): ?>
-    nutsAlertSuccess( "<?php echo e(Session::get('alert_success')); ?>" );
+    <script>nutsAlertSuccess( "<?php echo e(Session::get('alert_success')); ?>" );</script>
 <?php elseif(Session::has('alert_info')): ?>
-    nutsAlertInfo( "<?php echo e(Session::get('alert_info')); ?>" );
+    <script>nutsAlertInfo( "<?php echo e(Session::get('alert_info')); ?>" );</script>
 <?php elseif(Session::has('alert_danger')): ?>
-    nutsAlertDanger( "<?php echo e(Session::get('alert_danger')); ?>" );
+    <script>nutsAlertDanger( "<?php echo e(Session::get('alert_danger')); ?>" );</script>
 <?php elseif(Session::has('alert_warning')): ?>
-    nutsAlertWarning( "<?php echo e(Session::get('alert_warning')); ?>" );
+    <script>nutsAlertWarning( "<?php echo e(Session::get('alert_warning')); ?>" );</script>
 <?php endif; ?>
-</script>
 <?php /* Alert */ ?>
 
 

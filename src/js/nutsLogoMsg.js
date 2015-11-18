@@ -1,10 +1,4 @@
 
-function nutsAlertDanger( message ) {
-	$('.nuts-alert').css('display', 'none');
-	errorAlert = $('.alert-danger');
-	errorAlert.find('.msg').html(message);
-	errorAlert.show('fast');
-}
 
 function nutsLogoMsgSuccess( message ) {
 	logo = $('.logo-lg').html();
@@ -16,6 +10,16 @@ function nutsLogoMsgSuccess( message ) {
 	},2000);
 }
 
+function nutsLogoMsgInfo( message ) {
+	logo = $('.logo-lg').html();
+	$('.logo').addClass('nuts-alert alert-info alert-dark').css('display','block');
+	$('.logo-lg').css('font-size','14px').html( message);
+	setTimeout(function(){
+		$('.logo-lg').html(logo);
+		$('.logo').removeClass('nuts-alert alert-info alert-dark');
+	},2000);
+}
+
 function nutsLogoMsgDanger( message ) {
 	logo = $('.logo-lg').html();
 	$('.logo').addClass('nuts-alert alert-danger alert-dark').css('display','block');
@@ -23,5 +27,15 @@ function nutsLogoMsgDanger( message ) {
 	setTimeout(function(){
 		$('.logo-lg').html(logo);
 		$('.logo').removeClass('nuts-alert alert-danger alert-dark');
+	},2000);
+}
+
+function nutsLogoWarning( message ) {
+	logo = $('.logo-lg').html();
+	$('.logo').addClass('nuts-alert alert-warning alert-dark').css('display','block');
+	$('.logo-lg').css('font-size','14px').html( message);
+	setTimeout(function(){
+		$('.logo-lg').html(logo);
+		$('.logo').removeClass('nuts-alert alert-warning alert-dark');
 	},2000);
 }

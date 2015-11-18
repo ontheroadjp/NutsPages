@@ -4,24 +4,19 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('contentheader_title'); ?>
-<i class="fa fa-user"></i> <?php echo e(_('Dashboard')); ?>
+	<i class="fa fa-user"></i> <?php echo e(_('Dashboard')); ?>
 
 <?php $__env->stopSection(); ?>
-
 
 
 <?php $__env->startSection('help_content'); ?>
-<ul>
-	<li>このページでは登録情報の変更が行えます。</li>
-</ul>
+	<ul>
+		<li>このページでは登録情報の変更が行えます。</li>
+	</ul>
 <?php $__env->stopSection(); ?>
 
-
 <?php $__env->startSection('main-content'); ?>
-<?php echo $__env->make('partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-<h1>New Site Created.</h1>
-
+	<h1>New Site Created.</h1>
 <?php $__env->stopSection(); ?>
 
 
