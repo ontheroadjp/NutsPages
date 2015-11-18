@@ -55,7 +55,7 @@ class NutsPagesController extends Controller
             'subdomain' => str_random(6),
             'hash' => sha1(uniqid(rand(),true)),    // 40文字
         ]);
-
+        // return redirect()->route('dashboard.show');
         return view('NutsPages::newsite');
     }
 

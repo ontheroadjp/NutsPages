@@ -52,7 +52,6 @@ class NutsPagesServiceProvider extends ServiceProvider
         $this->publishViews();
 
         UserSite::observe(new UserSiteObserver);
-
     }
 
     private function publishMigrations()

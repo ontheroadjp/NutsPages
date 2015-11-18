@@ -1,64 +1,22 @@
 
-.nuts-btn-primary {
-    color: $nuts-primary;
-    background-color: #fff;
-    border-color: $nuts-primary;
-    &:hover {
-        color: #fff;
-        background-color: $nuts-primary;
-        border-color: $nuts-primary;
+@each $nuts, $color in $nuts-colors {
+    .nuts-btn-#{$nuts} {
+        color: $color;
+        background-color: #fff;
+        border-color: $color;
+        &:hover {
+            color: #fff;
+            background-color: $color;
+            border-color: $color;
+        }
     }
 }
 
-.nuts-btn-success {
-    color: $nuts-success;
-    background-color: #fff;
-    border-color: $nuts-success;
-    &:hover {
-        color: #fff;
-        background-color: $nuts-success;
-        border-color: $nuts-success;
-    }
-}
-
-.nuts-btn-info {
-    color: $nuts-info;
-    background-color: #fff;
-    border-color: $nuts-info;
-    &:hover {
-        color: #fff;
-        background-color: $nuts-info;
-        border-color: $nuts-info;
-    }
-}
-
-.nuts-btn-danger {
-    color: $nuts-danger;
-    background-color: #fff;
-    border-color: $nuts-danger;
-    &:hover {
-        color: #fff;
-        background-color: $nuts-danger;
-        border-color: $nuts-danger;
-    }
-}
-
-.nuts-btn-warning {
-    color: $nuts-danger;
-    background-color: #fff;
-    border-color: $nuts-danger;
-    &:hover {
-        color: #fff;
-        background-color: $nuts-danger;
-        border-color: $nuts-danger;
-    }
-}
 
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
     cursor: not-allowed;
     opacity: 0.35;
     filter: alpha(opacity=65);
-    -webkit-box-shadow: none;
     box-shadow: none;
     border: 2px dotted;
 }

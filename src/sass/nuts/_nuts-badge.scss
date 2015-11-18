@@ -1,16 +1,33 @@
 
-.nuts-badge-white {
+
+.nuts-badge,
+.nuts-badge-primary,
+.nuts-badge-success,
+.nuts-badge-info,
+.nuts-badge-danger,
+.nuts-badge-warning,
+.nuts-badge-indigo,
+.nuts-badge-aqua,
+.nuts-badge-navy,
+.nuts-badge-maroon,
+.nuts-badge-white,
+.nuts-badge-black {
     display: inline-block;
     min-width: 10px;
     padding: 3px 7px;
     font-size: 12px;
     font-weight: bold;
-    color: #fff;
     line-height: 1;
     vertical-align: middle;
     white-space: nowrap;
     text-align: center;
-    /* background-color: #fff; */
     border-radius: 10px;
-    border: 1px solid #fff;
 }
+
+@each $nuts, $color in $nuts-colors {
+    .nuts-badge-#{$nuts} {
+        color: $color;
+        border: 1px solid $color
+    }
+}
+

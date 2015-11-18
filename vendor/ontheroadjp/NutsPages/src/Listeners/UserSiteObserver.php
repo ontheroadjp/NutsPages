@@ -29,8 +29,8 @@ class UserSiteObserver {
 		} catch( \Exception $e ) {
 			DB::rollback();
 			info('DB Rollback.');
-            \Session::flash('alert_danger', _('Create new site failed.'));
-            return redirect()->route('dashboard.show');
+            http_response_code(400);
+			\Session::flash('alert_danger', _('Create new site failed.'));
 		}
 	}
 
