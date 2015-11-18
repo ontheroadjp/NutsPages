@@ -110,8 +110,20 @@ class LaravelUserServiceProvider extends ServiceProvider
 
         // Migration
         $this->publishes([
+
+            // users
+            dirname(__FILE__).$mig['src'].'2014_10_12_000000_create_users_table.php' 
+                => base_path($mig['dist'].'2014_10_12_000000_create_users_table.php'),
+
+            // password_resets
+            dirname(__FILE__).$mig['src'].'2014_10_12_100000_create_password_resets_table.php' 
+                => base_path($mig['dist'].'2014_10_12_100000_create_password_resets_table.php'),
+
+            // activity_master
             dirname(__FILE__).$mig['src'].'2015_11_14_043725_create_activity_master_table.php' 
                 => base_path($mig['dist'].'2015_11_14_043725_create_activity_master_table.php'),
+
+            // user_activities
             dirname(__FILE__).$mig['src'].'2015_11_14_042625_create_user_activities_table.php' 
                 => base_path($mig['dist'].'2015_11_14_042625_create_user_activities_table.php'),
         ]);

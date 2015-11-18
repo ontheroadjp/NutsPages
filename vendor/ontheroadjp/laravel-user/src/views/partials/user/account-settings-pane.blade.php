@@ -9,7 +9,7 @@
 		<div class="col-md-6">
 
 		<div class="form-group">
-			<label for="exampleInputEmail1">{{ _('User Name') }}</label>
+			<label for="name">{{ _('User Name') }}</label>
 				<div class="input-group input-group">
 				<input name="name" type="text" class="form-control" placeholder="{{ _('User Name') }}" value="{{ $user->name }}">
 				<span class="input-group-btn">
@@ -19,7 +19,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="exampleInputEmail1">{{ _('Email Address') }}</label>
+			<label for="email">{{ _('Email Address') }}</label>
 				<div class="input-group input-group">
 				<input name='email' type="text" class="form-control" placeholder="{{ _('Email Address') }}" value="{{ $user->email }}">
 				<span class="input-group-btn">
@@ -45,18 +45,18 @@
 		<div class="col-md-6">
 
 		<div class="form-group">
-			<label for="exampleInputEmail1">{{ _('Old password') }}</label>
-			<input type="email" class="form-control" id="" placeholder="{{ _('Old Password') }}">
+			<label for="old_password">{{ _('Old password') }}</label>
+			<input type="password" class="form-control" id="" placeholder="{{ _('Old Password') }}">
 		</div>
 
 		<div class="form-group">
-			<label for="exampleInputEmail1">{{ _('New password') }}</label>
-			<input type="email" class="form-control" id="" placeholder="{{ _('New Password') }}">
+			<label for="new_password">{{ _('New password') }}</label>
+			<input type="password" class="form-control" id="" placeholder="{{ _('New Password') }}">
 		</div>
 
 		<div class="form-group">
-			<label for="exampleInputEmail1">{{ _('New password(Confirm)') }}</label>
-			<input type="email" class="form-control" id="" placeholder="{{ _('New Password Again') }}">
+			<label for="password_confirm">{{ _('New password(Confirm)') }}</label>
+			<input type="password" class="form-control" id="" placeholder="{{ _('New Password Again') }}">
 		</div>
 
 		</div><!-- / .col -->

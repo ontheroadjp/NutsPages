@@ -26,11 +26,6 @@
 
 
 <?php $__env->startSection('main-content'); ?>
-<?php echo $__env->make('partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-<?php /* Alert 使う場合 --}
-{{-- <?php echo $__env->make('nuts-components.nuts-alert', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
-
 <div class="panel no-box-shadow">
 <div class="panel-body">
 

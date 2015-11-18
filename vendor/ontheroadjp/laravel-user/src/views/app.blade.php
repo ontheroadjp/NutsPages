@@ -12,15 +12,33 @@
     <div class="content-wrapper">
         @include('partials.contentheader')
         <section class="content">
+            @include('partials.help_panel')
+            @include('nuts-components.nuts-alert')
             @yield('main-content')
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
-    @include('partials.controlsidebar')
+    {{-- @include('partials.controlsidebar') --}}
     @include('partials.footer')
 
 </div><!-- ./wrapper -->
 
 @include('partials.scripts')
+
+
+{{-- Alert --}}
+
+@if(Session::has('alert_success'))
+    <script>nutsAlertSuccess( "{{ Session::get('alert_success') }}" );</script>
+@elseif(Session::has('alert_info'))
+    <script>nutsAlertInfo( "{{ Session::get('alert_info') }}" );</script>
+@elseif(Session::has('alert_danger'))
+    <script>nutsAlertDanger( "{{ Session::get('alert_danger') }}" );</script>
+@elseif(Session::has('alert_warning'))
+    <script>nutsAlertWarning( "{{ Session::get('alert_warning') }}" );</script>
+@endif
+{{-- Alert --}}
+
+
 </body>
 </html>

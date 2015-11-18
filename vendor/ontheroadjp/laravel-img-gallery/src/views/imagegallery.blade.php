@@ -22,9 +22,6 @@
 
 
 @section('main-content')
-@include('partials.help_panel')
-
-
 <style>
 .dropzone-box {
     position: relative;

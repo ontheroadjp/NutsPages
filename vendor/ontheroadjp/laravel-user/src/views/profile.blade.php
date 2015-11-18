@@ -25,11 +25,6 @@
 
 
 @section('main-content')
-@include('partials.help_panel')
-
-{{-- Alert 使う場合 --}
-{{-- @include('nuts-components.nuts-alert') --}}
-
 <div class="panel no-box-shadow">
 <div class="panel-body">
 

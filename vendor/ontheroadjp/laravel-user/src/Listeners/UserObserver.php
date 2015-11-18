@@ -73,6 +73,6 @@ class UserObserver {
 
 	private function createUserDir($model)
 	{
-		return mkdir(base_path('users').'/'.$model['attributes']['hash']);
+		return mkdir(base_path('users').'/'.$model['attributes']['id']);
 	}
 }

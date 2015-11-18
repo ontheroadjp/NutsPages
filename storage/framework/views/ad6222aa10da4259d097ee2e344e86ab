@@ -12,15 +12,34 @@
     <div class="content-wrapper">
         <?php echo $__env->make('partials.contentheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <section class="content">
+            <?php echo $__env->make('partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('nuts-components.nuts-alert', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->yieldContent('main-content'); ?>
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
-    <?php echo $__env->make('partials.controlsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php /* <?php echo $__env->make('partials.controlsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
     <?php echo $__env->make('partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 </div><!-- ./wrapper -->
 
 <?php echo $__env->make('partials.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
+<?php /* Alert */ ?>
+<script>
+<?php if(Session::has('alert_success')): ?>
+    nutsAlertSuccess( "<?php echo e(Session::get('alert_success')); ?>" );
+<?php elseif(Session::has('alert_info')): ?>
+    nutsAlertInfo( "<?php echo e(Session::get('alert_info')); ?>" );
+<?php elseif(Session::has('alert_danger')): ?>
+    nutsAlertDanger( "<?php echo e(Session::get('alert_danger')); ?>" );
+<?php elseif(Session::has('alert_warning')): ?>
+    nutsAlertWarning( "<?php echo e(Session::get('alert_warning')); ?>" );
+<?php endif; ?>
+</script>
+<?php /* Alert */ ?>
+
+
 </body>
 </html>

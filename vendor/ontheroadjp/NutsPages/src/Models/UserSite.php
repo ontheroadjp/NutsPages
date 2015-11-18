@@ -23,11 +23,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserSite extends Model
 {
+    use SoftDeletes;
+
 	protected $table = 'user_sites';
 	protected $fillable = ['id', 'user_id','subdomain','site_name','site_description','site_keywords','published','hash'];
-    // public $incrementing = false;
+    public $incrementing = false;
 
-    use SoftDeletes;
     protected $dates = ['deleted_at'];
 
     public function user()

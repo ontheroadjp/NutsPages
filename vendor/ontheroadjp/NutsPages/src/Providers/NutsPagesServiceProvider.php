@@ -74,7 +74,10 @@ class NutsPagesServiceProvider extends ServiceProvider
         ];
 
         $this->app['router']->group($routeConfig, function() {
-               Route::get('/dashboard', 'NutsPagesController@dashboard');               
+               Route::get('/dashboard', [ 
+                    'uses' => 'NutsPagesController@dashboard',
+                    'as' =>'dashboard.show',
+                ]);               
                Route::get('/create', 'NutsPagesController@create');               
                Route::post('site/delete/{hash}', 'NutsPagesController@siteDelete');               
             }

@@ -23,9 +23,7 @@
 
 
 @section('main-content')
-@include('partials.help_panel')
 
-<!-- ----------------------------------- -->
 @if( count($sites) === 0 ) 
 <h2 class="text-center">{{ _('Welcome to Nuts Pages') }}</h2>
 <p class="nuts-fs-14 text-center">
@@ -125,41 +123,41 @@ ul.site-status {
 					<div class="col-md-6">
 
 					<div class="form-group">
-						<label for="exampleInputEmail1">{{ _('Site Address') }}</label>
+						<label for="subdomain">{{ _('Site Address') }}</label>
 							<div class="input-group input-group">
-							<input name="name" type="text" class="form-control" placeholder="{{ _('User Name') }}" value="{{ $user->name }}">
+							<input name="subdomain" type="text" class="form-control" placeholder="{{ _('User Name') }}" value="{{ $sites[$n]->subdomain }}">
 							<span class="input-group-btn">
-							<button name="name" type="button" class="btn nuts-btn-info btn-flat change-btn">{{ _('UPDATE') }}</button>
+							<button name="subdomain" type="button" class="btn nuts-btn-info btn-flat change-btn">{{ _('UPDATE') }}</button>
 							</span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="exampleInputEmail1">{{ _('Site Name') }}</label>
+						<label for="site_name">{{ _('Site Name') }}</label>
 							<div class="input-group input-group">
-							<input name="name" type="text" class="form-control" placeholder="{{ _('User Name') }}" value="{{ $user->name }}">
+							<input name="site_name" type="text" class="form-control" placeholder="{{ _('Site name') }}" value="{{ $sites[$n]->site_name }}">
 							<span class="input-group-btn">
-							<button name="name" type="button" class="btn nuts-btn-info btn-flat change-btn">{{ _('UPDATE') }}</button>
+							<button name="site_name" type="button" class="btn nuts-btn-info btn-flat change-btn">{{ _('UPDATE') }}</button>
 							</span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="exampleInputEmail1">{{ _('Site Description') }}</label>
+						<label for="site_description">{{ _('Site Description') }}</label>
 							<div class="input-group input-group">
-							<input name='email' type="text" class="form-control" placeholder="{{ _('Email Address') }}" value="{{ $user->email }}">
+							<input name='site_description' type="text" class="form-control" placeholder="{{ _('Description') }}" value="{{ $sites[$n]->site_description }}">
 							<span class="input-group-btn">
-							<button name="email" type="button" class="btn nuts-btn-info btn-flat change-btn">{{ _('UPDATE') }}</button>
+							<button name="site_description" type="button" class="btn nuts-btn-info btn-flat change-btn">{{ _('UPDATE') }}</button>
 							</span>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="exampleInputEmail1">{{ _('Keywords') }}</label>
+						<label for="site_keywords">{{ _('Keywords') }}</label>
 							<div class="input-group input-group">
-							<input name='email' type="text" class="form-control" placeholder="{{ _('Email Address') }}" value="{{ $user->email }}">
+							<input name='site_keywords' type="text" class="form-control" placeholder="{{ _('Keywords') }}" value="{{ $sites[$n]->site_keywords }}">
 							<span class="input-group-btn">
-							<button name="email" type="button" class="btn nuts-btn-info btn-flat change-btn">{{ _('UPDATE') }}</button>
+							<button name="site_keywords" type="button" class="btn nuts-btn-info btn-flat change-btn">{{ _('UPDATE') }}</button>
 							</span>
 						</div>
 					</div>

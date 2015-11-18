@@ -49,14 +49,20 @@ class NutsPagesController extends Controller
             ->where('user_id',$user->id)
             ->count();
         $subdomain = $user->name."-".++$count;
-        $site = UserSite::create([
-            'id' => \Uuid::generate(4),
-            'user_id' => $user->id,
-            'site_name' => $subdomain._("'s Site"),
-            'subdomain' => str_random(6),
-            'hash' => sha1(uniqid(rand(),true)),    // 40文字
-        ]);
 
+        try {
+            $site = UserSite::create([
+                'id' => \Uuid::generate(4),
+                'user_id' => $user->id,
+                'site_name' => $subdomain._("'s Site"),
+                'subdomain' => str_random(6),
+                'hash' => sha1(uniqid(rand(),true)),    // 40文字
+            ]);
+        } catch( \Exception $e ) {
+            \DB::rollback();
+            \Session::flash('alert_info', _('Create new site failed.'));
+            return redirect()->route('dashboard.show');
+        }
         return view('NutsPages::newsite');
     }
 

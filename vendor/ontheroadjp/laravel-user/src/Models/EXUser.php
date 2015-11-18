@@ -5,7 +5,9 @@ use App\User;
 
 class ExUser extends User
 {
-	protected $fillable = ['name', 'email', 'password', 'hash'];
+	protected $table = 'users';
+	protected $fillable = ['id', 'name', 'email', 'password'];
+    public $incrementing = false;
 
 	public function user_sites()
 	{
