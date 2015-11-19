@@ -17,7 +17,6 @@
 	<li><button class="btn btn-xs nuts-btn-success"><i class="fa fa-leanpub"></i>&nbsp;{{ _('SITE PUBLISHE') }}</button> をクリックするとサイトの公開/非公開を切り替えることができます。</li>
 	<li><button class="btn btn-xs nuts-btn-success"><i class="fa fa-pencil-square-o"></i>&nbsp;{{ _('SITE EDIT') }}</button> をクリックすると WEB サイトの編集が行えます。</li>
 	<li><button class="btn btn-xs nuts-btn-danger"><i class="fa fa-trash-o"></i>&nbsp;{{ _('DELETE') }}</button> をクリックすると WEB サイトを削除できます（削除した WEB サイトは元に戻せませんのでご注意ください）。</li>
-
 </ul>
 @endsection
 
@@ -35,13 +34,13 @@
 </p>
 
 <p class="text-center">
-<a href="/create" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="{{ _('Creating new site') }}"><i class="fa fa-plus"></i>&nbsp;&nbsp;{{ _('Create New Site') }}</a>
+<a href="{{ url('site/create') }}" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="{{ _('Creating new site') }}"><i class="fa fa-plus"></i>&nbsp;&nbsp;{{ _('Create New Site') }}</a>
 </p>
 
 <!-- ----------------------------------- -->
 @else
 <div class="nuts-mg-b-20">
-<a href="/create" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="{{ _('Creating new site') }}"><i class="fa fa-plus"></i>&nbsp;&nbsp;{{ _('Create New Site') }}</a>
+<a href="{{ url('site/create') }}" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="{{ _('Creating new site') }}"><i class="fa fa-plus"></i>&nbsp;&nbsp;{{ _('Create New Site') }}</a>
 </div>
 
 <style>
@@ -77,9 +76,10 @@ ul.site-status {
 		{{ $sites[$n]->site_name }}
 	</span>
 	<div class="panel-heading-controls">
-		<span class="panel-heading-text"><em>{{ _('Created at ')}}{{ $sites[$n]->created_at }}</em>&nbsp;&nbsp;<span style="color: #ccc">|</span>&nbsp;&nbsp;</span>
+		<span class="panel-heading-text">
+		<!-- <em></em>&nbsp;&nbsp;<span style="color: #ccc">|</span>&nbsp;&nbsp;</span> -->
 
-		<a class="btn btn-xs nuts-btn-success tooltip-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ _('publishing your site') }}"><i class="fa fa-leanpub"></i>&nbsp;{{ _('SITE PUBLISHE') }}</a>
+		<a class="btn btn-xs nuts-btn-success tooltip-success site-publish-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ _('publishing your site') }}"><i class="fa fa-leanpub site-status-icon"></i>&nbsp;{{ _('SITE PUBLISHE') }}</a>
 
 		<a class="btn btn-xs nuts-btn-success tooltip-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ _('editing your site') }}"><i class="fa fa-pencil-square-o"></i>&nbsp;{{ _('SITE EDIT') }}</a>
 
@@ -110,6 +110,7 @@ ul.site-status {
 				<li style="color: #333">{{ _('URL')}}:&nbsp;<a href="http://{{ $sites[$n]->subdomain }}.nutspages.com" target="_blank">http://{{ $sites[$n]->subdomain }}.nutspages.com</a></li>
 				<li style="color: #333">{{ _('Created at')}}:&nbsp;{{ $sites[$n]->created_at}}</li>
 				<li style="color: #333">{{ _('Last updated at')}}:&nbsp;{{ $sites[$n]->updated_at}}</li>
+				<li style="color: #333">{{ _('Dev. URL')}}:&nbsp;<a href="http://localhost:9999/{{ $sites[$n]->subdomain }}/" target="_blank">(http://localhost:9999/{{ $sites[$n]->subdomain }}/)</a></li>
 				</ul>
 			</div>
 		</div> <!-- / .tab-pane -->
@@ -186,8 +187,53 @@ ul.site-status {
 @section('javascript')
 <script>
 $(function(){
+	@include('NutsPages::ajax.delete')
+	// {{-- @include('NutsPages::ajax.publish') --}}
 
-@include('NutsPages::ajax.delete')
+	$('.site-publish-btn').click( function() {
+
+		if(!confirm('サイトを公開してもよろしいですか？')){
+	        /* キャンセルの時の処理 */
+	        return false;
+	    }else{
+	        /*　OKの時の処理 */
+			successAlert = $('.alert-success').css('display', 'none');
+			errorAlert = $('.alert-danger').css('display', 'none');
+
+			$.ajax({
+				headers: {
+		            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		        },
+				url: "/site/publish/" + $(this).parents('.panel').attr('hash'),
+				type: "POST",
+				cache: false,
+				dataType: "json",
+				statusCode : {
+					// Laravel validation err
+					422 : function() {
+						errorAlert = $('.alert-danger');
+						errorAlert.find('.msg').html('Invalid value you entered.');
+						errorAlert.show('fast');
+					}
+				},
+			}).done(function(data, textStatus, jqXHR){
+				nutsSuccessAlert('published');
+				// nutsSuccessMsg(data.message);
+				target = $('div[hash="' + data.message + '"]')
+							.find('.fa-dot-circle-o')
+							.css('color','green');
+
+			}).fail(function(data, textStatus, errorThrown){
+				errorAlert.find('.msg').html(errorThrown);
+				errorAlert.show('fast');
+				// alert(errorHandler(arguments));
+
+			}).always(function(data, textStatus, returnedObject){ 
+				// alert(textStatus);
+			});
+	    }
+
+	});
 
 });
 </script>

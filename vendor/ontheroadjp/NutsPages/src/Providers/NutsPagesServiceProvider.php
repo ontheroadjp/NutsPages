@@ -38,6 +38,9 @@ class NutsPagesServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // $this->app->bind('usersite',function($app){
+        //     return new \Ontheroadjp\NutsPages\Models\UserSite();
+        // });
     }
 
     /**
@@ -51,7 +54,7 @@ class NutsPagesServiceProvider extends ServiceProvider
         $this->registerRoutes();
         $this->publishViews();
 
-        UserSite::observe(new UserSiteObserver);
+        // UserSite::observe(new UserSiteObserver);
     }
 
     private function publishMigrations()
@@ -72,12 +75,13 @@ class NutsPagesServiceProvider extends ServiceProvider
         ];
 
         $this->app['router']->group($routeConfig, function() {
-               Route::get('/dashboard', [ 
+               Route::get('dashboard', [ 
                     'uses' => 'NutsPagesController@dashboard',
                     'as' =>'dashboard.show',
                 ]);               
-               Route::get('/create', 'NutsPagesController@create');               
-               Route::post('site/delete/{hash}', 'NutsPagesController@siteDelete');               
+               Route::get('site/create', 'NutsPagesController@create');               
+               Route::post('site/delete/{hash}', 'NutsPagesController@delete');               
+               Route::post('site/publish/{hash}', 'NutsPagesController@publish');               
             }
         );
 

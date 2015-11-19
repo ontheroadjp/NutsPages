@@ -20,20 +20,19 @@ class UserSiteObserver {
 		$errMsg = _('Create new site failed.');
 
 		try {
-			if($this->createUserSiteDir($model)){
-				DB::commit();
-				info('DB Commit.');
-				Activity::createdUserSite(\Auth::user()->id);
+			if($this->createSiteEditDir($model)){
+				if($this->createSitePublicDir($model)) {
+					DB::commit();
+					info('DB Commit.');
+					Activity::createdUserSite(\Auth::user()->id);
+				} else {
+					$this->siteCreatingFailed($errMsg.'01');
+				}
 			} else {
-				DB::rollback();
-				info('DB Rollback.');
-				throw new \Exception($errMsg);
+				$this->siteCreatingFailed($errMsg.'02');
 			}
 		} catch( \Exception $e ) {
-			DB::rollback();
-			info('DB Rollback.');
-			\Session::flash('alert_danger', $errMsg);
-			throw new \Exception($errMsg);
+			$this->siteCreatingFailed($e->getMessage());
 		}
 	}
 
@@ -84,10 +83,58 @@ class UserSiteObserver {
 		// info('UserSiteObserver@restoring: '.$model );
 	}
 
-	private function createUserSiteDir($model)
+	private function siteCreatingFailed( $errMsg ) {
+		DB::rollback();
+		info('DB Rollback.');
+		\Session::flash('alert_danger', $errMsg);
+		throw new \Exception($errMsg);
+	}
+
+	private function createSitePublicDir($model)
 	{
-		$path = base_path('users/'.\Auth::user()->id).'/'.$model['attributes']['subdomain'];
-		info('is going to be making Directory: '.$path);
-		return mkdir($path);
+		$src_dir = dirname(__FILE__).'/../../site_templates';
+		$dist_dir = base_path('users/public').'/'.$model['attributes']['subdomain'];
+		mkdir($dist_dir);
+		copy($src_dir."/index.php", $dist_dir."/index.php");
+		return true;
+	}
+
+	private function createSiteEditDir($model)
+	{
+		$src = dirname(__FILE__).'/../../site_templates/business';
+		$dist = base_path('users/'.\Auth::user()->id).'/'.$model['attributes']['subdomain'];
+		return $this->dir_copy($src, $dist);
+	}
+
+	private function dir_copy($src_dir, $dist_dir)
+	{
+		try {
+			if (is_dir($src_dir)) {
+				if (!is_dir($dist_dir)) {
+					mkdir($dist_dir);
+				}
+
+				if ($dh = opendir($src_dir)) {
+					while (($file = readdir($dh)) !== false) {
+						if ($file == "." || $file == "..") {
+							continue;
+						}
+						if (is_dir($src_dir . "/" . $file)) {
+							dir_copy($src_dir . "/" . $file, $dist_dir . "/" . $file);
+						}
+						else {
+							copy($src_dir . "/" . $file, $dist_dir . "/" . $file);
+						}
+					}
+					closedir($dh);
+				}
+			} else {
+				return false;
+			}
+		} catch( \Exception $e) {
+			throw new \Exception('dir_copy() failed.');
+		}
+		return true;
 	}
 }
+

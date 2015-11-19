@@ -1,0 +1,359 @@
+[
+    {
+        "id": "home-01",
+        "path": "Home\/01\/",
+        "classname": "Home01",
+        "content": {
+            "text01": "ON THE ROAD",
+            "text02": "be happy with our service",
+            "text03": "\u6708\u984d5,000\u5186\u304b\u3089\u59cb\u3081\u308b\u81ea\u5206\u3060\u3051\u306eWEB\u30b5\u30a4\u30c8"
+        },
+        "css": {
+            "section": {
+                "padding": "0",
+                "background-size": "cover",
+                "min-height": "600px",
+                "background-color": "$$primary-color$$",
+                "color": "$$secondary-color$$",
+                "font-family": "Lato, sans-self"
+            },
+            "overlay": {
+                "padding-top": "90px",
+                "min-height": "600px"
+            },
+            "h1": {
+                "font-size": "600%",
+                "margin-top": "15%",
+                "margin-bottom": "25%"
+            },
+            "h2": {
+                "font-size": "200%",
+                "margin-bottom": "5%"
+            }
+        }
+    },
+    {
+        "id": "3columns-headericon",
+        "path": "3columns\/Headericon\/",
+        "classname": "HeaderIcon",
+        "content": {
+            "text01": "OUR SERVICES",
+            "text02": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris v:icula at nunc id posuere.",
+            "text03": "RESPONSIVE DESIGN",
+            "text04": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris v:icula at nunc id posuere.",
+            "text05": "EASY TO CUSTOMIZE",
+            "text06": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris v:icula at nunc id posuere.",
+            "text07": "100% FREE TO USE",
+            "text08": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere."
+        },
+        "css": {
+            "section": {
+                "background-color": "$$secondary-color$$",
+                "color": "$$primary-color$$",
+                "font-family": "Lato, sans-self"
+            },
+            "overlay": []
+        }
+    },
+    {
+        "id": "1column-h2p",
+        "path": "1column\/H2p\/",
+        "classname": "H2p",
+        "content": {
+            "text01": "Stylish Portfolio is the perfect theme for your next project!",
+            "text02": "This theme features some wonderful photography courtesy of Death to the Stock Photo"
+        },
+        "css": {
+            "section": {
+                "padding": "0",
+                "background-size": "cover",
+                "min-height": "300px",
+                "background-color": "$$primary-color$$",
+                "color": "$$secondary-color$$",
+                "font-family": "Lato, sans-self"
+            },
+            "overlay": {
+                "padding-top": "20px",
+                "min-height": "350px"
+            },
+            "h2": {
+                "font-size": "350%",
+                "padding-top": "5%",
+                "padding-bottom": "5%"
+            },
+            "p": []
+        }
+    },
+    {
+        "id": "2columns-Txtimg-rev",
+        "path": "2columns\/txtimg_rev\/",
+        "classname": "TxtImgRev",
+        "content": {
+            "text01": "Death to the Stock Photo:<br>Special Thanks",
+            "text02": "A special thanks to Death to the Stock Photo for providing the photographs that you see in this template. Visit their website to become a member.",
+            "img01": "lib\/Modules\/2columns\/txtimg\/img\/ipad.png"
+        },
+        "css": {
+            "section": {
+                "padding": "0",
+                "background-size": "cover",
+                "min-height": "300px",
+                "background-color": "$$secondary-color$$",
+                "color": "$$primary-color$$",
+                "font-family": "Lato, sans-self"
+            },
+            "overlay": {
+                "padding": "60px 0",
+                "min-height": "400px"
+            },
+            "h2": {
+                "padding": "20px"
+            },
+            "p": {
+                "padding": "20px",
+                "margin_bottom": "70px"
+            },
+            "img": {
+                "width": "350px",
+                "margin": "20px auto",
+                "margin-bottom": "20px"
+            }
+        }
+    },
+    {
+        "id": "2columns-txtimg",
+        "path": "2columns\/Txtimg\/",
+        "classname": "TxtImg",
+        "content": {
+            "text01": "Death to the Stock Photo:<br>Special Thanks",
+            "text02": "A special thanks to Death to the Stock Photo for providing the photographs that you see in this template. Visit their website to become a member.",
+            "img01": "lib\/Modules\/2columns\/txtimg\/img\/ipad.png"
+        },
+        "css": {
+            "section": {
+                "padding": "0",
+                "background-size": "cover",
+                "min-height": "300px",
+                "background-color": "$$primary-color$$",
+                "color": "$$secondary-color$$",
+                "font-family": "Lato, sans-self"
+            },
+            "overlay": {
+                "padding": "60px 0",
+                "min-height": "400px"
+            },
+            "h2": {
+                "padding": "20px"
+            },
+            "p": {
+                "padding": "20px",
+                "margin_bottom": "70px"
+            },
+            "img": {
+                "width": "350px",
+                "margin": "20px auto",
+                "margin-bottom": "20px"
+            }
+        }
+    },
+    {
+        "id": "2columns-imgtxt",
+        "path": "2columns\/Imgtxt\/",
+        "classname": "ImgTxt",
+        "content": {
+            "text01": "Death to the Stock Photo:<br>Special Thanks",
+            "text02": "A special thanks to Death to the Stock Photo for providing the photographs that you see in this template. Visit their website to become a member.",
+            "img01": "lib\/Modules\/2columns\/imgtxt\/img\/dog.png"
+        },
+        "css": {
+            "section": {
+                "padding": "0",
+                "background-size": "cover",
+                "min-height": "300px",
+                "background-color": "$$primary-color$$",
+                "color": "$$secondary-color$$",
+                "font-family": "Lato, sans-self"
+            },
+            "overlay": {
+                "padding": "60px 0",
+                "min-height": "400px"
+            },
+            "h2": {
+                "padding": "20px"
+            },
+            "p": {
+                "padding": "20px",
+                "margin_bottom": "70px"
+            },
+            "img": {
+                "width": "350px",
+                "margin": "20px auto",
+                "margin-bottom": "20px"
+            }
+        }
+    },
+    {
+        "id": "2columns-imgtxtrev",
+        "path": "2columns\/Imgtxt_rev\/",
+        "classname": "ImgTxtRev",
+        "content": {
+            "text01": "Death to the Stock Photo:<br>Special Thanks",
+            "text02": "A special thanks to Death to the Stock Photo for providing the photographs that you see in this template. Visit their website to become a member.",
+            "img01": "lib\/Modules\/2columns\/imgtxt\/img\/dog.png"
+        },
+        "css": {
+            "section": {
+                "padding": "0",
+                "background-size": "cover",
+                "min-height": "300px",
+                "background-color": "$$secondary-color$$",
+                "color": "$$primary-color$$",
+                "font-family": "Lato, sans-self"
+            },
+            "overlay": {
+                "padding": "60px 0",
+                "min-height": "400px"
+            },
+            "h2": {
+                "padding": "20px"
+            },
+            "p": {
+                "padding": "20px",
+                "margin_bottom": "70px"
+            },
+            "img": {
+                "width": "350px",
+                "margin": "20px auto",
+                "margin-bottom": "20px"
+            }
+        }
+    },
+    {
+        "id": "3columns-parallax01",
+        "path": "3columns\/Parallax01\/",
+        "classname": "parallax01",
+        "content": {
+            "text01": "1300+",
+            "text02": "100+",
+            "text03": "5000+",
+            "text04": "Projects",
+            "text05": "Locations",
+            "text06": "Employees"
+        },
+        "css": {
+            "section": {
+                "background": "url(..\/img\/stats.jpg) no-repeat center center",
+                "padding": "0",
+                "background-size": "cover",
+                "background-attachment": "fixed",
+                "color": "$$secondary-color$$"
+            },
+            "overlay": {
+                "font-size": "40px",
+                "background-color": "rgba(15, 38, 81, 0.50)"
+            },
+            "p": {
+                "margin": "40px auto",
+                "padding": "10px"
+            }
+        }
+    },
+    {
+        "id": "portfolio-01",
+        "path": "Portfolio\/01\/",
+        "classname": "Portfolio01",
+        "content": {
+            "text01": "OUR WORKS",
+            "text02": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.",
+            "text03": "Project Title Here",
+            "text04": "<a href='#''><strong>Click Here<\/strong> <\/a>to go to the project",
+            "text05": "Project Title Here",
+            "text06": "<a href='#'><strong>Click Here<\/strong> <\/a>to go to the project",
+            "text07": "Project Title Here",
+            "text08": "<a href='#'><strong>Click Here<\/strong> <\/a>to go to the project"
+        },
+        "css": {
+            "section": [],
+            "overlay": []
+        }
+    },
+    {
+        "id": "movie-01",
+        "path": "Movie\/01\/",
+        "classname": "Movie01",
+        "content": {
+            "text01": "HERE IS BACKGROUND VEDIO",
+            "text02": "This scripts uses plugin <strong>jquery.mb.YTPlayer<\/strong>",
+            "text03": "to play video in background of divs"
+        },
+        "css": {
+            "section": {
+                "text-align": "center",
+                "padding": "0"
+            },
+            "overlay": {
+                "min-height": "300px"
+            },
+            "h1": {
+                "padding-top": "80px",
+                "font-size": "50px",
+                "font-weight": "900",
+                "padding-bottom": "30px"
+            }
+        }
+    },
+    {
+        "id": "location-01",
+        "path": "Location\/01\/",
+        "classname": "Location01",
+        "content": {
+            "text01": "OUR LOCATION",
+            "text02": "Curabitur nec nisl odio. Mauris vehicula at nunc id posuere",
+            "text03": "102, Melborne City,",
+            "text04": "United States - 600 - 009 -00.",
+            "text05": "<strong>Email :<\/strong> info@yourdomain.com"
+        },
+        "css": {
+            "section": [],
+            "overlay": []
+        }
+    },
+    {
+        "id": "location-02",
+        "path": "Location\/02\/",
+        "classname": "Location02",
+        "content": {
+            "text01": "Let's Get In Touch!",
+            "text02": "Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!",
+            "text03": "123-456-6789",
+            "text04": "feedback@startbootstrap.com"
+        },
+        "css": {
+            "section": [],
+            "overlay": [],
+            "h2": {
+                "padding": "10px"
+            },
+            "p": {
+                "font-size": "120%"
+            }
+        }
+    },
+    {
+        "id": "clients-01",
+        "path": "Clients\/01\/",
+        "classname": "Clients01",
+        "content": {
+            "text01": "",
+            "text02": "",
+            "text03": ""
+        },
+        "css": {
+            "section": {
+                "padding-bottom": "50px",
+                "padding-top": "50px"
+            },
+            "overlay": []
+        }
+    }
+]

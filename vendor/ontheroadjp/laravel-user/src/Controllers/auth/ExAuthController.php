@@ -4,9 +4,9 @@ namespace Ontheroadjp\LaravelUser\Controllers\Auth;
 
 // use App\User;
 use Validator;
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+// use App\Http\Controllers\Controller;
+// use Illuminate\Foundation\Auth\ThrottlesLogins;
+// use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 // use Ontheroadjp\LaravelUser\Events\UserWasRegistered;
 use Ontheroadjp\LaravelUser\Models\ExUser;
 use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;

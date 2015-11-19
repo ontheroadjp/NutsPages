@@ -9,7 +9,7 @@
 <!-- <body class="login-page"> -->
 <body>
  
-     @if (session('status'))
+    @if (session('status'))
         <div class="alert alert-success text-center">
             {{ session('status') }}
         </div>

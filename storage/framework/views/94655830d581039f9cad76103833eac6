@@ -11,12 +11,15 @@
 
 <?php $__env->startSection('help_content'); ?>
 	<ul>
-		<li>このページでは登録情報の変更が行えます。</li>
+		<li>WEB サイトの編集画面</li>
 	</ul>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('main-content'); ?>
 	<h1>New Site Created.</h1>
+	<p>
+		<a href="<?php echo e(url('dashboard')); ?>">ダッシュボードへ戻る</a>
+	</p>
 <?php $__env->stopSection(); ?>
 
 

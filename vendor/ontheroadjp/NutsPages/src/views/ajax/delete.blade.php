@@ -35,8 +35,9 @@
 				});
 
 			}).fail(function(data, textStatus, errorThrown){
-				errorAlert.find('.msg').html(errorThrown);
-				errorAlert.show('fast');
+				//errorAlert.find('.msg').html(errorThrown);
+				//errorAlert.show('fast');
+				nutsAlertDanger(data.message);
 				// alert(errorHandler(arguments));
 
 			}).always(function(data, textStatus, returnedObject){ 

@@ -16,6 +16,11 @@
 				url: "/site/delete/" + $(this).parents('.panel').attr('hash'),
 				type: "POST",
 				cache: false,
+				data: {
+					"id" : "{{ $user->id }}",
+					"field" : $(this).attr('name'),
+					"val" : $(":text[name=\"" + $(this).attr('name') + "\"]").val()
+				},
 				dataType: "json",
 				statusCode : {
 					// Laravel validation err
@@ -35,9 +40,8 @@
 				});
 
 			}).fail(function(data, textStatus, errorThrown){
-				//errorAlert.find('.msg').html(errorThrown);
-				//errorAlert.show('fast');
-				nutsAlertDanger(data.message);
+				errorAlert.find('.msg').html(errorThrown);
+				errorAlert.show('fast');
 				// alert(errorHandler(arguments));
 
 			}).always(function(data, textStatus, returnedObject){ 

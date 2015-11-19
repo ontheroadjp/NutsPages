@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Exception;
 
 use Ontheroadjp\NutsPages\Models\UserSite;
 
@@ -27,7 +29,7 @@ class NutsPagesController extends Controller
     {
         // $user = \DB::table('users')->where('id',\Auth::user()->id)->first();
         $user = \Auth::user();
-        $sites = \DB::table('user_sites')
+        $sites = DB::table('user_sites')
             ->where('user_id',$user->id)
             ->where('deleted_at',null)
             ->get();
@@ -45,7 +47,7 @@ class NutsPagesController extends Controller
     protected function create()
     {
         $user = \Auth::user();
-        $count = \DB::table('user_sites')->where('user_id',$user->id)->count();
+        $count = DB::table('user_sites')->where('user_id',$user->id)->count();
         $subdomain = $user->name."-".++$count;
 
         try {
@@ -54,39 +56,67 @@ class NutsPagesController extends Controller
                 'user_id' => $user->id,
                 'site_name' => $subdomain._("'s Site"),
                 'subdomain' => str_random(6),
-                'hash' => sha1(uniqid(rand(),true)),    // 40文字
+                'hash' => sha1(uniqid(rand(),true)),    // 40文字長
             ]);
-        } catch( \Exception $e ) {
+        } catch( Exception $e ) {
             return redirect()->route('dashboard.show');
         }
 
         return view('NutsPages::newsite');
     }
 
-    public function siteDelete(Request $req, $hash)
+    public function delete(Request $req, $hash)
     {
-        if($req->ajax()){
-            $site = UserSite::where('hash','=',$hash);
-            if($site->delete()){
-                return \Response::json([
-                    'message' => $hash,
-                    'result' => 'OK',
-                ]);
+        try {
+            if($req->ajax()){
+                $site = UserSite::where('hash','=',$hash)->first();
+                if($site->delete()){
+                    return \Response::json([
+                        'message' => $hash,
+                        'result' => 'OK',
+                    ]);
+                } else {
+                    http_response_code(400);
+                    $msg = _('DB::delete() failed.');
+                    \Session::flash('alert_danger', $msg);
+                    return \Response::json([
+                        'message' => $msg,
+                        'result' => _('Failed'),
+                    ]);
+                }
             } else {
                 http_response_code(400);
+                $msg = _('Bad Request.');
+                \Session::flash('alert_danger', $msg);
                 return \Response::json([
-                    'message' => _('User site delete failed.'),
+                    'message' => $msg,
                     'result' => _('Failed'),
                 ]);
             }
-        } else {
+        } catch( \Exception $e) {
             http_response_code(400);
+            $msg = $e->getMessage();
+            \Session::flash('alert_danger', $msg);
             return \Response::json([
-                'message' => _('Bad Request.'),
+                'message' => $msg,
                 'result' => _('Failed'),
             ]);
         }
     }
+
+    public function publish(Request $req, $hash)
+    {
+        if($req->ajax()){
+            if(UserSite::where('hash','=',$hash)->update(['published'=>1])){
+                return \Response::json([
+                    'message' => $hash,
+                    'result' => 'OK',
+                ]);
+            }
+
+        }
+    }
+
 
 }
 ?>

@@ -17,7 +17,6 @@
 	<li><button class="btn btn-xs nuts-btn-success"><i class="fa fa-leanpub"></i>&nbsp;<?php echo e(_('SITE PUBLISHE')); ?></button> をクリックするとサイトの公開/非公開を切り替えることができます。</li>
 	<li><button class="btn btn-xs nuts-btn-success"><i class="fa fa-pencil-square-o"></i>&nbsp;<?php echo e(_('SITE EDIT')); ?></button> をクリックすると WEB サイトの編集が行えます。</li>
 	<li><button class="btn btn-xs nuts-btn-danger"><i class="fa fa-trash-o"></i>&nbsp;<?php echo e(_('DELETE')); ?></button> をクリックすると WEB サイトを削除できます（削除した WEB サイトは元に戻せませんのでご注意ください）。</li>
-
 </ul>
 <?php $__env->stopSection(); ?>
 
@@ -37,13 +36,13 @@
 </p>
 
 <p class="text-center">
-<a href="/create" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="<?php echo e(_('Creating new site')); ?>"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo e(_('Create New Site')); ?></a>
+<a href="<?php echo e(url('site/create')); ?>" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="<?php echo e(_('Creating new site')); ?>"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo e(_('Create New Site')); ?></a>
 </p>
 
 <!-- ----------------------------------- -->
 <?php else: ?>
 <div class="nuts-mg-b-20">
-<a href="/create" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="<?php echo e(_('Creating new site')); ?>"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo e(_('Create New Site')); ?></a>
+<a href="<?php echo e(url('site/create')); ?>" class="btn nuts-btn-primary tooltip-success" data-toggle="tooltip" data-placement="top" data-original-title="<?php echo e(_('Creating new site')); ?>"><i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo e(_('Create New Site')); ?></a>
 </div>
 
 <style>
@@ -80,9 +79,10 @@ ul.site-status {
 
 	</span>
 	<div class="panel-heading-controls">
-		<span class="panel-heading-text"><em><?php echo e(_('Created at ')); ?><?php echo e($sites[$n]->created_at); ?></em>&nbsp;&nbsp;<span style="color: #ccc">|</span>&nbsp;&nbsp;</span>
+		<span class="panel-heading-text">
+		<!-- <em></em>&nbsp;&nbsp;<span style="color: #ccc">|</span>&nbsp;&nbsp;</span> -->
 
-		<a class="btn btn-xs nuts-btn-success tooltip-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo e(_('publishing your site')); ?>"><i class="fa fa-leanpub"></i>&nbsp;<?php echo e(_('SITE PUBLISHE')); ?></a>
+		<a class="btn btn-xs nuts-btn-success tooltip-success site-publish-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo e(_('publishing your site')); ?>"><i class="fa fa-leanpub site-status-icon"></i>&nbsp;<?php echo e(_('SITE PUBLISHE')); ?></a>
 
 		<a class="btn btn-xs nuts-btn-success tooltip-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo e(_('editing your site')); ?>"><i class="fa fa-pencil-square-o"></i>&nbsp;<?php echo e(_('SITE EDIT')); ?></a>
 
@@ -113,6 +113,7 @@ ul.site-status {
 				<li style="color: #333"><?php echo e(_('URL')); ?>:&nbsp;<a href="http://<?php echo e($sites[$n]->subdomain); ?>.nutspages.com" target="_blank">http://<?php echo e($sites[$n]->subdomain); ?>.nutspages.com</a></li>
 				<li style="color: #333"><?php echo e(_('Created at')); ?>:&nbsp;<?php echo e($sites[$n]->created_at); ?></li>
 				<li style="color: #333"><?php echo e(_('Last updated at')); ?>:&nbsp;<?php echo e($sites[$n]->updated_at); ?></li>
+				<li style="color: #333"><?php echo e(_('Dev. URL')); ?>:&nbsp;<a href="http://localhost:9999/<?php echo e($sites[$n]->subdomain); ?>/" target="_blank">(http://localhost:9999/<?php echo e($sites[$n]->subdomain); ?>/)</a></li>
 				</ul>
 			</div>
 		</div> <!-- / .tab-pane -->
@@ -189,8 +190,53 @@ ul.site-status {
 <?php $__env->startSection('javascript'); ?>
 <script>
 $(function(){
+	<?php echo $__env->make('NutsPages::ajax.delete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	// <?php /* <?php echo $__env->make('NutsPages::ajax.publish', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
 
-<?php echo $__env->make('NutsPages::ajax.delete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	$('.site-publish-btn').click( function() {
+
+		if(!confirm('サイトを公開してもよろしいですか？')){
+	        /* キャンセルの時の処理 */
+	        return false;
+	    }else{
+	        /*　OKの時の処理 */
+			successAlert = $('.alert-success').css('display', 'none');
+			errorAlert = $('.alert-danger').css('display', 'none');
+
+			$.ajax({
+				headers: {
+		            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		        },
+				url: "/site/publish/" + $(this).parents('.panel').attr('hash'),
+				type: "POST",
+				cache: false,
+				dataType: "json",
+				statusCode : {
+					// Laravel validation err
+					422 : function() {
+						errorAlert = $('.alert-danger');
+						errorAlert.find('.msg').html('Invalid value you entered.');
+						errorAlert.show('fast');
+					}
+				},
+			}).done(function(data, textStatus, jqXHR){
+				nutsSuccessAlert('published');
+				// nutsSuccessMsg(data.message);
+				target = $('div[hash="' + data.message + '"]')
+							.find('.fa-dot-circle-o')
+							.css('color','green');
+
+			}).fail(function(data, textStatus, errorThrown){
+				errorAlert.find('.msg').html(errorThrown);
+				errorAlert.show('fast');
+				// alert(errorHandler(arguments));
+
+			}).always(function(data, textStatus, returnedObject){ 
+				// alert(textStatus);
+			});
+	    }
+
+	});
 
 });
 </script>

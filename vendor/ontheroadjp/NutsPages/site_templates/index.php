@@ -1,0 +1,180 @@
+<?php if( file_exists('conf.json') ) { ?>
+<html>
+<head>
+<title>User Site</title>
+</head>
+<body>
+	<h1>Site is published !!</h1>
+</body>
+</html>
+
+<?php } else { ?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nuts Pages maintenance</title>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js?ver=1.8.3'></script>
+<script type='text/javascript' src='http://localhost:8000/js/static/max_img.js'></script>
+<style>
+.bgmaximage{
+	display:none;
+}
+.dot {
+    background: url(http://localhost:8000/img/static/dot.png) repeat;
+    position: relative;
+    z-index: 10;
+	height: 100%;
+}
+
+#footer {
+	position: absolute;
+	z-index: 100;
+	font-size: 12px;
+	padding: 20px 0;
+	color: #3E3D3D;
+	text-shadow: 0 0 20px #fff;
+	background: 0 text-aligh: right;
+	background-color: rgba(214,210,210,0.30);
+	padding: 0;
+	width: 100%;
+	bottom: 0;
+	text-align: right;
+}
+
+<!-- img.bg {
+	min-height: 100%;
+	min-width: 1024px;
+	width: 100%;
+	height: auto;
+	position: fixed;
+	top: 0;
+	left: 0
+} -->
+
+h1 {
+	font-size: 48px;
+	line-height: 120%;
+	padding-top: 100px;
+	color: #fff;
+	text-align: center;
+}
+
+h2 {
+	color: #fff;
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+.content {
+	padding: 40px;
+	text-align: center;
+}
+.content h2 {
+	font-size: 20px;
+	padding-bottom: 10px
+}
+
+.content h3 {
+	font-size: 16px
+}
+
+.content p {
+	margin-bottom: 2em;
+	font-size: 14px
+}
+
+<!-- .content ul.image {
+    margin: 1em
+} -->
+
+<!-- #bgimg {
+    height: 100%;
+    z-index: -1
+} -->
+
+<!-- #realBody {
+    position: absolute;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    top: 0;
+    left: 0
+} -->
+
+<!-- .fullBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%
+} -->
+
+#maincontent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    width: 100%
+}
+.bgmaximage {
+    position: fixed!important
+}
+.loader {
+    position: absolute;
+    z-index: 9999;
+    width: 66px;
+    height: 66px;
+    top: 49%;
+    left: 49%
+}
+</style>
+</head>
+
+<body id="top">
+<article>
+
+<p><img alt="" src="http://localhost:8000/img/static/01.jpg" class="loader" data-recalc-dims="1" /><br />
+<img src="http://localhost:8000/img/static/02.jpg" alt="" title="" class="bgmaximage size-full wp-image-2221" data-recalc-dims="1" /><br />
+<img src="http://localhost:8000/img/static/03.jpg" alt="" title="" class="bgmaximage size-full wp-image-2227" data-recalc-dims="1" /><br />
+<img src="http://localhost:8000/img/static/04.jpg" alt="" title="" class="bgmaximage size-full wp-image-2231" data-recalc-dims="1" /><br />
+<img src="http://localhost:8000/img/static/05.jpg" alt="" title="" class="bgmaximage size-full wp-image-2240" data-recalc-dims="1" /></p>
+
+<div id="maincontent" class="dot">
+<div id="container">
+
+<h1>Under Construction</h1>
+<h2>We are still working on it.</h2>
+<div class="content">
+<!-- <h2>maxImage Scaling Plugin</h2> -->
+<!-- <p>This site is creating with Nuts Pages</p> -->
+
+</div>
+
+<footer id="footer" class="clearboth">
+<small id="copyright" class="wrapper">This site is creating the Nuts Pages.com</small>
+</footer>
+
+</div>
+</div>
+</article>
+
+<script>
+$(function(){
+	$('img.bgmaximage').maxImage({
+		isBackground: true,
+		slideShow: true,
+		slideShowTitle: false,
+		slideDelay: 5,
+		overflow: 'auto',
+		verticalAlign:'top'
+ 	});
+});
+</script>
+
+</body>
+</html>
+
+<?php } ?>

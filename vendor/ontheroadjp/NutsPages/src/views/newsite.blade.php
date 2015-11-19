@@ -11,11 +11,14 @@
 
 @section('help_content')
 	<ul>
-		<li>このページでは登録情報の変更が行えます。</li>
+		<li>WEB サイトの編集画面</li>
 	</ul>
 @endsection
 
 @section('main-content')
 	<h1>New Site Created.</h1>
+	<p>
+		<a href="{{ url('dashboard') }}">ダッシュボードへ戻る</a>
+	</p>
 @endsection
 
