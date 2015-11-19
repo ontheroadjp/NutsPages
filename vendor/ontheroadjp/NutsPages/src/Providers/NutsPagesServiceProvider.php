@@ -69,7 +69,6 @@ class NutsPagesServiceProvider extends ServiceProvider
             'namespace' => 'Ontheroadjp\NutsPages\Controllers',
             'prefix' => '/',
             'middleware' => 'auth',
-            'where' => ['id' => '[0-9]+'],
         ];
 
         $this->app['router']->group($routeConfig, function() {

@@ -17,6 +17,8 @@ class UserSiteObserver {
 	public function created($model)
 	{
 		// info('UserSiteObserver@created: '.$model );
+		$errMsg = _('Create new site failed.');
+
 		try {
 			if($this->createUserSiteDir($model)){
 				DB::commit();
@@ -25,12 +27,13 @@ class UserSiteObserver {
 			} else {
 				DB::rollback();
 				info('DB Rollback.');
+				throw new \Exception($errMsg);
 			}
 		} catch( \Exception $e ) {
 			DB::rollback();
 			info('DB Rollback.');
-            http_response_code(400);
-			\Session::flash('alert_danger', _('Create new site failed.'));
+			\Session::flash('alert_danger', $errMsg);
+			throw new \Exception($errMsg);
 		}
 	}
 
