@@ -125,7 +125,7 @@ ul.site-status {
 
 					<div class="form-group">
 						<label for="subdomain">{{ _('Site Address') }}</label>
-							<div class="input-group input-group">
+						<div class="input-group input-group">
 							<input name="subdomain" type="text" class="form-control" placeholder="{{ _('User Name') }}" value="{{ $sites[$n]->subdomain }}">
 							<span class="input-group-btn">
 							<button name="subdomain" type="button" class="btn nuts-btn-info btn-flat change-btn">{{ _('UPDATE') }}</button>

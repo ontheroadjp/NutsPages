@@ -33,7 +33,7 @@
     },
     "autoload-dev": {
         "classmap": [
-            "tests/TestCase.php"
+						"vendor/ontheroadjp/NutsPages/tests/unit/TestCase.php"
         ]
     },
     "scripts": {

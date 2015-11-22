@@ -1,3 +1,4 @@
+{{-- newsite.blade.php --}}
 @extends('app')
 
 @section('htmlheader_title')
@@ -17,6 +18,13 @@
 
 @section('main-content')
 	<h1>New Site Created.</h1>
+	<ul>
+		<li>id: {{ $site->id }}</li>
+		<li>user_id: {{ $site->user_id }}</li>
+		<li>site_name: {{ $site->site_name }}</li>
+		<li>subdomain: {{ $site->subdomain }}</li>
+		<li>hash: {{ $site->hash }}</li>
+	</ul>
 	<p>
 		<a href="{{ url('dashboard') }}">ダッシュボードへ戻る</a>
 	</p>

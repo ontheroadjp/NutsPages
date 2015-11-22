@@ -1,3 +1,6 @@
+<?php /* newsite.blade.php */ ?>
+
+
 <?php $__env->startSection('htmlheader_title'); ?>
 <?php echo e(_('Dashboard')); ?>
 
@@ -17,6 +20,13 @@
 
 <?php $__env->startSection('main-content'); ?>
 	<h1>New Site Created.</h1>
+	<ul>
+		<li>id: <?php echo e($site->id); ?></li>
+		<li>user_id: <?php echo e($site->user_id); ?></li>
+		<li>site_name: <?php echo e($site->site_name); ?></li>
+		<li>subdomain: <?php echo e($site->subdomain); ?></li>
+		<li>hash: <?php echo e($site->hash); ?></li>
+	</ul>
 	<p>
 		<a href="<?php echo e(url('dashboard')); ?>">ダッシュボードへ戻る</a>
 	</p>

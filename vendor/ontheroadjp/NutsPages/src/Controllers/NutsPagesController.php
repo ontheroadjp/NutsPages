@@ -38,6 +38,15 @@ class NutsPagesController extends Controller
         return view('NutsPages::dashboard', compact('user','sites'));
     }
 
+    protected function validator(array $data)
+    {
+        return \Validator::make($data, [
+            'hash' => 'required',
+            // 'email' => 'required|email|max:255|unique:users',
+            // 'password' => 'required|confirmed|min:6',
+        ]);
+    }
+
     /**
      * Create a new usersite instance.
      *
@@ -62,27 +71,36 @@ class NutsPagesController extends Controller
             return redirect()->route('dashboard.show');
         }
 
-        return view('NutsPages::newsite');
+        return view('NutsPages::newsite',compact('site'));
     }
+
 
     public function delete(Request $req, $hash)
     {
         try {
             if($req->ajax()){
                 $site = UserSite::where('hash','=',$hash)->first();
-                if($site->delete()){
-                    return \Response::json([
-                        'message' => $hash,
-                        'result' => 'OK',
-                    ]);
+                if($site !== null) {
+                    if($site->delete()){
+                        return \Response::json([
+                            'message' => $hash,
+                            'result' => 'OK',
+                        ]);
+                    } else {
+                        $msg = _('DB::delete() failed.');
+                        \Session::flash('alert_danger', $msg);
+                        return \Response::json([
+                            'message' => $msg,
+                            'result' => _('Failed'),
+                        ]);
+                    }
                 } else {
-                    http_response_code(400);
                     $msg = _('DB::delete() failed.');
                     \Session::flash('alert_danger', $msg);
                     return \Response::json([
                         'message' => $msg,
                         'result' => _('Failed'),
-                    ]);
+                    ]);                    
                 }
             } else {
                 http_response_code(400);
@@ -94,7 +112,6 @@ class NutsPagesController extends Controller
                 ]);
             }
         } catch( \Exception $e) {
-            http_response_code(400);
             $msg = $e->getMessage();
             \Session::flash('alert_danger', $msg);
             return \Response::json([

@@ -18,6 +18,7 @@ use Xinax\LaravelGettext\Facades\LaravelGettext;
 use Ontheroadjp\NutsPages\Models\UserSite;
 use Ontheroadjp\NutsPages\Listeners\UserSiteObserver;
 
+
 /**
  * Class LaravelAuthServiceProvider
  * @package Ontheroad\LaravelAuth\Providers
@@ -84,7 +85,6 @@ class NutsPagesServiceProvider extends ServiceProvider
                Route::post('site/publish/{hash}', 'NutsPagesController@publish');               
             }
         );
-
     }
 
     /**

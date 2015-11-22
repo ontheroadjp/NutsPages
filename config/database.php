@@ -52,6 +52,12 @@ return [
             'prefix'   => '',
         ],
 
+        'sqlite_test' => [
+            'driver'   => 'sqlite',
+            'database' => storage_path('nutspages_test.db'),
+            'prefix'   => '',
+        ],
+
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),

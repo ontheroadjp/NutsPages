@@ -69,7 +69,6 @@ class UserSite extends Model
 			} catch( Exception $e ) {
 				$model->operationFailed($e->getMessage());
 			}
-
 		});
 
 		static::deleting(function($model){
