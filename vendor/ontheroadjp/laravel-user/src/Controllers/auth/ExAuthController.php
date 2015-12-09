@@ -43,14 +43,15 @@ class ExAuthController extends \App\Http\Controllers\Auth\AuthController
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    // protected function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'name' => 'required|max:255',
-    //         'email' => 'required|email|max:255|unique:users',
-    //         'password' => 'required|confirmed|min:6',
-    //     ]);
-    // }
+     protected function validator(array $data)
+     {
+         return Validator::make($data, [
+             'name' => 'required|max:255',
+             'email' => 'required|email|max:255|unique:users',
+             'password' => 'required|confirmed|min:6',
+             'agreement' => 'accepted',
+         ]);
+     }
 
     /**
      * Create a new user instance after a valid registration.

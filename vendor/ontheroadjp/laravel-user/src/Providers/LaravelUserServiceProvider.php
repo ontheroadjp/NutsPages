@@ -101,7 +101,7 @@ class LaravelUserServiceProvider extends ServiceProvider
         // });
     }
 
-    private function publishMigrationsAndSeeds() {
+    protected function publishMigrationsAndSeeds() {
 
         $mig = [
             'src' => '/../database/migrations/',
@@ -129,7 +129,7 @@ class LaravelUserServiceProvider extends ServiceProvider
         ]);
     }
 
-    private function registerRoutes()
+    protected function registerRoutes()
     {
 
         // Route::controllers([
@@ -141,7 +141,6 @@ class LaravelUserServiceProvider extends ServiceProvider
 
         Route::get('/lang/{locale}', function($locale) {
             LaravelGettext::setLocale($locale);
-            // return $req->redirect()->to(URL::previous());
             return redirect(URL::previous());
         });
 
@@ -168,10 +167,9 @@ class LaravelUserServiceProvider extends ServiceProvider
         $this->app['router']->group($routeConfig, function() {
                Route::get('/', 'UserController@view');               
                Route::post('edit', 'UserController@edit');
+               Route::post('changepass', 'PasswordController@changePassword');
             }
         );
-
-
     }
 
     /**
@@ -179,7 +177,7 @@ class LaravelUserServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    private function publishViews()
+    protected function publishViews()
     {
         $this->loadViewsFrom( dirname(__FILE__) . '/../views/', 'LaravelUser');
 
@@ -200,12 +198,13 @@ class LaravelUserServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    private function publishLangAssets()
+    protected function publishLangAssets()
     {
         $this->publishes([
             dirname(__FILE__) . '/../lang/i18n' => base_path('resources/lang/i18n'),
             dirname(__FILE__) . '/../lang/ja' => base_path('resources/lang/ja'),
         ]);
     }
-
 }
+
+

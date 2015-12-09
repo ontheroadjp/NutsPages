@@ -72,7 +72,7 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="/img/flags/{{ $currentLocale }}.png" alt="{{ $currentLabel }}-flag"/>
-                        <?php echo $currentLabel ?>&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
+                        {{ $currentLabel }}&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu">
                       @foreach(Config::get('laravel-gettext.supported-locales') as $locale)

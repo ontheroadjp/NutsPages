@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'phpDocumentor' => array($vendorDir . '/phpdocumentor/reflection-docblock/src'),
+    'org\\bovigo\\vfs' => array($vendorDir . '/mikey179/vfsStream/src/main/php'),
     'Xinax\\LaravelGettext\\' => array($vendorDir . '/xinax/laravel-gettext/src'),
     'Webpatser\\Uuid' => array($vendorDir . '/webpatser/laravel-uuid/src'),
     'Spatie\\Glide' => array($vendorDir . '/spatie/laravel-glide/src'),

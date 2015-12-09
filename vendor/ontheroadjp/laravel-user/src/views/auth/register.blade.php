@@ -56,7 +56,7 @@
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox"> {{ _('I agree to the') }} <a href="#">{{ _('terms') }}</a>
+                                <input type="checkbox" name="agreement"> {{ _('I agree to the') }} <a href="#">{{ _('terms') }}</a>
                             </label>
                         </div>
                     </div><!-- /.col -->

@@ -31,6 +31,10 @@
 
 
 {{-- Alert --}}
+@if (count($errors) > 0)
+    <script>nutsAlertDanger( "{{ Session::get('alert_danger') }}" );</script>
+@endif
+
 @if(Session::has('alert_success'))
     <script>nutsAlertSuccess( "{{ Session::get('alert_success') }}" );</script>
 @elseif(Session::has('alert_info'))

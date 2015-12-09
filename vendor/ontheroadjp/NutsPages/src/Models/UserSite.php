@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
+use Ontheroadjp\Utilities\File\FileUtilities;
 
 class UserSite extends Model
 {
@@ -33,18 +34,49 @@ class UserSite extends Model
 
 	// ---------------------------------------------
 
-	private $edit_dir = '';
-	private $public_dir = '';
-	private $html_templates_dir = '';
-
+	// These variables does not stored in the database.
+	// Only keep in the object as an instance.
+	protected $edit_dir = '';
+	protected $public_dir = '';
+	protected $html_templates_dir = '';
 
     public function __construct(array $attributes = [])
     {
-        parent::__construct($attributes);
-        $this->edit_dir = base_path('users/'.\Auth::user()->id).'/'.$this->subdomain;
-        $this->public_dir = base_path('users/public').'/'.$this->subdomain;
-        $this->html_templates_dir = dirname(__FILE__).'/../../site_templates';
-    }
+		    parent::__construct($attributes);
+	        $this->edit_dir = base_path('users/'.\Auth::user()->id).'/'.$this->subdomain;
+		    $this->public_dir = base_path('users/public').'/'.$this->subdomain;
+			$this->html_templates_dir = dirname(__FILE__).'/../../site_templates';
+	}
+    
+    //    public function __construct(array $attributes = [])
+//    {
+//		if(array_key_exists('id',$attributes)){
+//		    parent::__construct($attributes);
+//	        $this->edit_dir = base_path('users/'.\Auth::user()->id).'/'.$this->subdomain;
+//		    $this->public_dir = base_path('users/public').'/'.$this->subdomain;
+//			$this->html_templates_dir = dirname(__FILE__).'/../../site_templates';
+//		}else{
+//		 	// This is only for Unit Test.
+//			$this->edit_dir = $attributes['edit_dir'];
+//		 	$this->public_dir = $attributes['public_dir'];
+//		 	$this->html_templates_dir = $attributes['html_templates_dir'];
+//		}
+//	}
+//
+//	public function getEditDir()
+//	{
+//		return $this->edit_dir;
+//	}
+//
+//	public function getPublicDir()
+//	{
+//		return $this->public_dir;
+//	}
+//
+//	public function getHtmlTemplatesDir()
+//	{
+//		return $this->html_templates_dir;
+//	}
 
     protected static function boot()
     {
@@ -61,7 +93,11 @@ class UserSite extends Model
 						info('DB Commit.');
 						Activity::createdUserSite(\Auth::user()->id);
 					} else {
-						$model->operationFailed('createPublicDirectory() is failed.');
+						if($this->removeEditDirectory()){
+							$model->operationFailed('createPublicDirectory() is failed.');
+						} else {
+							$model->operationFailed('createPublicDirectory() and removeEditDirectory are failed.');
+						}
 					}
 				} else {
 					$model->operationFailed('createEditFieldDirectory() is failed.');
@@ -83,7 +119,7 @@ class UserSite extends Model
 					info('DB Commit.');
 					Activity::deletedUserSite(\Auth::user()->id);
 				} else {
-					// 他が正常であれば、ここは常に通貨しない
+					// 他が正常であれば、ここは常に通過しない
 					$model->operationFailed('removePublicDirectory() is failed.');
 				}
 			} catch(Exception $e){
@@ -97,13 +133,18 @@ class UserSite extends Model
 		return $this->attributes['published'];
 	}
 
-	private function createEditDirectory()
+	public function createEditDirectory()
 	{
 		$src = $this->html_templates_dir.'/business';
-		return $this->dir_copy($src, $this->edit_dir);
+		return FileUtilities::dirCopy($src, $this->edit_dir);
 	}
 
-	private function createPublicDirectory()
+	public function removeEditDirectory()
+	{
+		return FileUtilities::removeDirectory($this->edit_dir);
+	}
+
+	public function createPublicDirectory()
 	{
 		$src_dir = $this->html_templates_dir;
 		mkdir($this->public_dir);
@@ -111,12 +152,11 @@ class UserSite extends Model
 		return true;
 	}
 
-	private function removePublicDirectory()
+	public function removePublicDirectory()
 	{
-		return $this->remove_directory($this->public_dir.'/'.$this->subdomain);
+		//return $this->remove_directory($this->public_dir.'/'.$this->subdomain);
+		return FileUtilities::removeDirectory(($this->public_dir.'/'.$this->subdomain));
 	}
-
-
 
 	private function operationFailed( $errMsg ) {
 		DB::rollback();
@@ -125,63 +165,5 @@ class UserSite extends Model
 		throw new Exception($errMsg);
 	}
 
-	private function dir_copy($src_dir, $dist_dir)
-	{
-		try {
-			if (is_dir($src_dir)) {
-				if (!is_dir($dist_dir)) {
-					mkdir($dist_dir);
-				}
-
-				if ($dh = opendir($src_dir)) {
-					while (($file = readdir($dh)) !== false) {
-						if ($file == "." || $file == "..") {
-							continue;
-						}
-						if (is_dir($src_dir."/".$file)) {
-							dir_copy($src_dir."/". $file, $dist_dir."/".$file);
-						}
-						else {
-							copy($src_dir."/".$file, $dist_dir."/".$file);
-						}
-					}
-					closedir($dh);
-				}
-			} else {
-				return false;
-			}
-		} catch( Exception $e) {
-			$this->operationFailed($e->getMessage());
-		}
-		return true;
-	}
-
-	private function remove_directory($dir)
-	{
-		info('remove_directory: '.$dir);
-		try {
-			if( file_exists($dir) && is_dir($dir) ) {
-				if ($dh = opendir($dir)) {
-					while (($file = readdir($dh)) !== false) {
-						if ($file == "." || $file == "..") {
-							continue;
-						}
-						if (is_dir($dir.'/'.$file)) {
-							$this->remove_directory($dir.'/'.$file);
-						} else {
-							unlink($dir.'/'.$file);
-						}
-					}
-					rmdir($dir);
-					closedir($dh);
-				}
-			} else {
-				return false;
-			}
-		} catch( Exception $e ) {
-			$this->operationFailed($e->getMessage());
-		}
-		return true;
-	}
 }
 ?>

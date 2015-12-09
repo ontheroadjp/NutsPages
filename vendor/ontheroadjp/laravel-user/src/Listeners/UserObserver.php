@@ -36,15 +36,26 @@ class UserObserver {
 
 	public function updating($model){
 		// info('UserObserver@uodating: '.var_export($model,true) );
+		DB::beginTransaction();
+		info('Begin Transaction.');
 	}
 
 	public function updated($model){
 		// info('UserObserver@updated: '.$model);
-		if( $model['original']['name'] !== $model['attributes']['name']) {
+		DB::commit();
+		info('DB Commit.');
+        
+        if( $model['original']['name'] !== $model['attributes']['name'])
+        {
 			Activity::updatedUserName(\Auth::user()->id);
 		} 
-		if( $model['original']['email'] !== $model['attributes']['email']) {
+        if( $model['original']['email'] !== $model['attributes']['email'])
+        {
 			Activity::updatedUserEmailAddress(\Auth::user()->id);
+		}
+        if( $model['original']['password'] !== $model['attributes']['password'])
+        {
+			Activity::changePassword(\Auth::user()->id);
 		}
 	}
 
@@ -64,14 +75,14 @@ class UserObserver {
 		// info('UserObserver@restoring: '.$model );
 	}
 
-	private function sendWelcomeMail($user)
+	protected function sendWelcomeMail($user)
 	{
 		\Mail::send('emails.welcome', compact('user'), function($message) use ($user) {
 			$message->to($email, $name)->subject( _('Welcome to the Nuts Pages') );
 		}, 10);
 	}
 
-	private function createUserDir($model)
+	protected function createUserDir($model)
 	{
 		return mkdir(base_path('users').'/'.$model['attributes']['id']);
 	}

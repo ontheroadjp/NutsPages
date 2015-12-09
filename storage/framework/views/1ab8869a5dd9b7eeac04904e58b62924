@@ -31,25 +31,25 @@
 
 	<ul id="" class="nav nav-tabs">
 		<li class="active">
-			<a href="#action-history-tab-pane" data-toggle="tab"><?php echo _('Action History') ?></a>
-		</li>
-		<li class="">
 			<a href="#account-settings-tab-pane" data-toggle="tab"><?php echo e(_('Account Settings')); ?></a>
 		</li>
 		<li class="">
 			<a href="#billing-and-plan-settings-tab-pane" data-toggle="tab"><?php echo e(_('Billing & Plan Settings')); ?></a>
 		</li>
+		<li class="">
+			<a href="#action-history-tab-pane" data-toggle="tab"><?php echo _('Action History') ?></a>
+		</li>
 	</ul>
 
 	<div class="tab-content tab-content-bordered">
-		<div id="action-history-tab-pane" class="tab-pane fade active in">
-			<?php echo $__env->make('LaravelUser::partials.user.action-history-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-		</div>
-		<div id="account-settings-tab-pane" class="tab-pane fade">
+		<div id="account-settings-tab-pane" class="tab-pane fade in active">
 			<?php echo $__env->make('LaravelUser::partials.user.account-settings-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		</div>
 		<div id="billing-and-plan-settings-tab-pane" class="tab-pane fade">
 			<?php echo $__env->make('LaravelUser::partials.user.billing-and-plan-settings-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+		<div id="action-history-tab-pane" class="tab-pane fade">
+			<?php echo $__env->make('LaravelUser::partials.user.action-history-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		</div>
 	</div>
 
@@ -68,7 +68,8 @@ $(function(){
 	// -----------------------------------------
 	// For Account Settings Pane
 	// -----------------------------------------
-	$('.change-btn').click( function() {
+	$('.update-btn').click( function() {
+        $(this).prop("disabled",true);
 		$.ajax({
 			headers: {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -87,21 +88,68 @@ $(function(){
 				// Laravel validation err
 				422 : function() {
 					nutsAlertDanger( "<?php echo _('Invalid value you entered.'); ?>" );
-					// errorAlert = $('.alert-danger');
-					// errorAlert.find('.msg').html('Invalid value you entered.');
-					// errorAlert.show('fast');
 				}
 			},
 		}).done(function(data, textStatus, jqXHR){
-			nutsLogoMsgSuccess(data.message);
+			//nutsLogoMsgSuccess(data.message);
 			nutsAlertSuccess(data.message);
 
 		}).fail(function(data, textStatus, errorThrown){
-			nutsLogoMsgDanger(errorThrown);
-			// nutsAlertDanger(errorThrown);
+			//nutsLogoMsgDanger(errorThrown);
+			nutsAlertDanger(errorThrown);
 
 		}).always(function(data, textStatus, returnedObject){ 
+            $('.update-btn').prop("disabled",false);
 			// alert(textStatus);
+		});
+	});
+
+    // -----------------------------------------
+	// For Account Settings Pane
+	// -----------------------------------------
+	$('.password-change-btn').click( function() {
+		$.ajax({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			},
+			url: "/profile/changepass",
+			type: "POST",
+			cache: false,
+			data: {
+				"current_password" : $(':password[name="current_password"]').val(),
+				"new_password" : $(':password[name="new_password"]').val(),
+				"new_password_confirmation" : $(':password[name="new_password_confirmation"]').val()
+			},
+			dataType: "json",
+			statusCode : {
+
+				// Unprocessable Entity: Laravel validation err.
+				422 : function(data) {
+					nutsAlertDanger("<?php echo _('Invalid value you entered.'); ?>");
+				},
+
+                // Forbidden: current password is not match.
+                403 : function(data) {
+                    nutsAlertDanger(data.message);
+                },
+
+                // Bad Request: not AJAX access.
+                400 : function(data) {
+                    nutsAlertDanger(data.message);
+                }
+			},
+		}).done(function(data, textStatus, jqXHR){
+			//nutsLogoMsgSuccess(data.message);
+			nutsAlertSuccess(data.message);
+
+		}).fail(function(data, textStatus, errorThrown){
+			//nutsLogoMsgDanger(errorThrown);
+			//nutsAlertDanger(errorThrown);
+
+		}).always(function(data, textStatus, returnedObject){ 
+			$(':password[name="current_password"]').val(''),
+			$(':password[name="new_password"]').val(''),
+			$(':password[name="new_password_confirmation"]').val('')
 		});
 	});
 });

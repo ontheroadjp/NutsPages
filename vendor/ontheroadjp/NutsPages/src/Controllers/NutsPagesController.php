@@ -10,15 +10,10 @@ use Illuminate\Support\Facades\DB;
 use Exception;
 
 use Ontheroadjp\NutsPages\Models\UserSite;
+use Ontheroadjp\Utilities\Exceptions\AjaxExceptionHandler;
 
 class NutsPagesController extends Controller
 {
-
-    // public function changeLang($locale=null){
-    //     LaravelGettext::setLocale($locale);
-    //     return Redirect::to(URL::previous());
-    // }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -53,9 +48,9 @@ class NutsPagesController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create()
+    public function create()
     {
-        $user = \Auth::user();
+		$user = \Auth::user();
         $count = DB::table('user_sites')->where('user_id',$user->id)->count();
         $subdomain = $user->name."-".++$count;
 
@@ -70,15 +65,15 @@ class NutsPagesController extends Controller
         } catch( Exception $e ) {
             return redirect()->route('dashboard.show');
         }
-
         return view('NutsPages::newsite',compact('site'));
     }
 
 
     public function delete(Request $req, $hash)
     {
-        try {
-            if($req->ajax()){
+        //try {
+            //if($req->ajax()){
+            if($req->ajax() || $req->wantsJson()){
                 $site = UserSite::where('hash','=',$hash)->first();
                 if($site !== null) {
                     if($site->delete()){
@@ -94,8 +89,8 @@ class NutsPagesController extends Controller
                             'result' => _('Failed'),
                         ]);
                     }
-                } else {
-                    $msg = _('DB::delete() failed.');
+               } else {
+                    $msg = _('does not exist $site.');
                     \Session::flash('alert_danger', $msg);
                     return \Response::json([
                         'message' => $msg,
@@ -103,22 +98,21 @@ class NutsPagesController extends Controller
                     ]);                    
                 }
             } else {
-                http_response_code(400);
                 $msg = _('Bad Request.');
                 \Session::flash('alert_danger', $msg);
                 return \Response::json([
                     'message' => $msg,
                     'result' => _('Failed'),
-                ]);
+                ],'400');
             }
-        } catch( \Exception $e) {
-            $msg = $e->getMessage();
-            \Session::flash('alert_danger', $msg);
-            return \Response::json([
-                'message' => $msg,
-                'result' => _('Failed'),
-            ]);
-        }
+        //} catch( \Exception $e) {
+        //    $msg = $e->getMessage();
+        //    \Session::flash('alert_danger', $msg);
+        //    return \Response::json([
+        //        'message' => $msg,
+        //        'result' => _('Failed'),
+        //    ],'500');
+        //}
     }
 
     public function publish(Request $req, $hash)

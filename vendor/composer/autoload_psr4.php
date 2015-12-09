@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'org\\bovigo\\vfs\\' => array($vendorDir . '/mikey179/vfsStream/src/main/php/org/bovigo/vfs'),
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
     'Underscore\\' => array($vendorDir . '/anahkiasen/underscore-php/src', $vendorDir . '/anahkiasen/underscore-php/tests'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
@@ -29,7 +30,9 @@ return array(
     'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Patchwork\\' => array($vendorDir . '/patchwork/utf8/src/Patchwork'),
+    'Ontheroadjp\\Utilities\\' => array($vendorDir . '/ontheroadjp/Utilities'),
     'Ontheroadjp\\NutsWhois\\' => array($vendorDir . '/ontheroadjp/NutsWhois/src'),
+    'Ontheroadjp\\NutsPages\\Test\\' => array($vendorDir . '/ontheroadjp/NutsPages/tests'),
     'Ontheroadjp\\NutsPages\\' => array($vendorDir . '/ontheroadjp/NutsPages/src'),
     'Ontheroadjp\\LaravelUser\\' => array($vendorDir . '/ontheroadjp/laravel-user/src'),
     'Ontheroadjp\\LaravelImageGallery\\' => array($vendorDir . '/ontheroadjp/laravel-img-gallery/src'),

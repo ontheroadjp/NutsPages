@@ -1,3 +1,17 @@
+
+@if (count($errors) > 0)
+<div class="nuts-alert alert-danger alert-dark" style="display:block"">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong><i class="icon fa fa-ban"></i>&nbsp;Alert!</strong>&nbsp;&nbsp;<span class="msg"></span>
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
+
 <div class="nuts-alert alert-success alert-dark">
 <button type="button" class="close" data-dismiss="alert">×</button>
 <strong><i class="icon fa fa-ban"></i>&nbsp;Success!</strong>&nbsp;&nbsp;<span class="msg"></span>

@@ -1,0 +1,164 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+などに	NutsPages/site_templates/business/index.php	/^	\/\/ セレクタは単純な img ではなくて class などに .editable を設定すべき$/;"	c
+NutsPagesController	NutsPages/src/Controllers/NutsPagesController.php	/^class NutsPagesController extends Controller$/;"	c
+changeLang	NutsPages/src/Controllers/NutsPagesController.php	/^    \/\/ public function changeLang($locale=null){$/;"	f
+create	NutsPages/src/Controllers/NutsPagesController.php	/^    protected function create()$/;"	f
+dashboard	NutsPages/src/Controllers/NutsPagesController.php	/^    public function dashboard()$/;"	f
+delete	NutsPages/src/Controllers/NutsPagesController.php	/^    public function delete(Request $req, $hash)$/;"	f
+publish	NutsPages/src/Controllers/NutsPagesController.php	/^    public function publish(Request $req, $hash)$/;"	f
+validator	NutsPages/src/Controllers/NutsPagesController.php	/^    protected function validator(array $data)$/;"	f
+UserSiteObserver	NutsPages/src/Listeners/UserSiteObserver.php	/^class UserSiteObserver {$/;"	c
+createSiteEditDir	NutsPages/src/Listeners/UserSiteObserver.php	/^	private function createSiteEditDir($model)$/;"	f
+createSitePublicDir	NutsPages/src/Listeners/UserSiteObserver.php	/^	private function createSitePublicDir($model)$/;"	f
+created	NutsPages/src/Listeners/UserSiteObserver.php	/^	public function created($model)$/;"	f
+creating	NutsPages/src/Listeners/UserSiteObserver.php	/^	public function creating($model)$/;"	f
+deleted	NutsPages/src/Listeners/UserSiteObserver.php	/^	public function deleted($model)$/;"	f
+deleting	NutsPages/src/Listeners/UserSiteObserver.php	/^	public function deleting($model)$/;"	f
+dir_copy	NutsPages/src/Listeners/UserSiteObserver.php	/^	private function dir_copy($src_dir, $dist_dir)$/;"	f
+restored	NutsPages/src/Listeners/UserSiteObserver.php	/^	public function restored($model)$/;"	f
+restoring	NutsPages/src/Listeners/UserSiteObserver.php	/^	public function restoring($model)$/;"	f
+saved	NutsPages/src/Listeners/UserSiteObserver.php	/^	public function saved($model)$/;"	f
+saving	NutsPages/src/Listeners/UserSiteObserver.php	/^	public function saving($model)$/;"	f
+siteCreatingFailed	NutsPages/src/Listeners/UserSiteObserver.php	/^	private function siteCreatingFailed( $errMsg ) {$/;"	f
+updated	NutsPages/src/Listeners/UserSiteObserver.php	/^	public function updated($model)$/;"	f
+updating	NutsPages/src/Listeners/UserSiteObserver.php	/^	public function updating($model)$/;"	f
+UserSite	NutsPages/src/Models/UserSite.php	/^class UserSite extends Model$/;"	c
+__construct	NutsPages/src/Models/UserSite.php	/^    public function __construct(array $attributes = [])$/;"	f
+boot	NutsPages/src/Models/UserSite.php	/^    protected static function boot()$/;"	f
+createEditDirectory	NutsPages/src/Models/UserSite.php	/^	private function createEditDirectory()$/;"	f
+createPublicDirectory	NutsPages/src/Models/UserSite.php	/^	private function createPublicDirectory()$/;"	f
+dir_copy	NutsPages/src/Models/UserSite.php	/^	private function dir_copy($src_dir, $dist_dir)$/;"	f
+isPablished	NutsPages/src/Models/UserSite.php	/^	public function isPablished() {$/;"	f
+operationFailed	NutsPages/src/Models/UserSite.php	/^	private function operationFailed( $errMsg ) {$/;"	f
+removePublicDirectory	NutsPages/src/Models/UserSite.php	/^	private function removePublicDirectory()$/;"	f
+remove_directory	NutsPages/src/Models/UserSite.php	/^	private function remove_directory($dir)$/;"	f
+user	NutsPages/src/Models/UserSite.php	/^    public function user()$/;"	f
+NutsPagesServiceProvider	NutsPages/src/Providers/NutsPagesServiceProvider.php	/^class NutsPagesServiceProvider extends ServiceProvider$/;"	c
+boot	NutsPages/src/Providers/NutsPagesServiceProvider.php	/^    public function boot()$/;"	f
+publishMigrations	NutsPages/src/Providers/NutsPagesServiceProvider.php	/^    private function publishMigrations()$/;"	f
+publishViews	NutsPages/src/Providers/NutsPagesServiceProvider.php	/^    private function publishViews()$/;"	f
+register	NutsPages/src/Providers/NutsPagesServiceProvider.php	/^    public function register()$/;"	f
+registerRoutes	NutsPages/src/Providers/NutsPagesServiceProvider.php	/^    private function registerRoutes()$/;"	f
+CreateUserSitesTable	NutsPages/src/database/migrations/2015_11_17_074424_create_user_sites_table.php	/^class CreateUserSitesTable extends Migration$/;"	c
+down	NutsPages/src/database/migrations/2015_11_17_074424_create_user_sites_table.php	/^    public function down()$/;"	f
+up	NutsPages/src/database/migrations/2015_11_17_074424_create_user_sites_table.php	/^    public function up()$/;"	f
+NutsServiceProviderTest	NutsPages/tests/unit/NutsServiceProviderTest.php	/^class NutsServiceProviderTest extends TestCase$/;"	c
+setUp	NutsPages/tests/unit/NutsServiceProviderTest.php	/^    public function setUp(){$/;"	f
+testAllRoute	NutsPages/tests/unit/NutsServiceProviderTest.php	/^    public function testAllRoute()$/;"	f
+testRegisterRoutes	NutsPages/tests/unit/NutsServiceProviderTest.php	/^    public function testRegisterRoutes()$/;"	f
+TestCase	NutsPages/tests/unit/TestCase.php	/^\/\/ class TestCase extends \\PHPUnit_Framework_TestCase $/;"	c
+TestCase	NutsPages/tests/unit/TestCase.php	/^class TestCase extends \\Illuminate\\Foundation\\Testing\\TestCase$/;"	c
+createApplication	NutsPages/tests/unit/TestCase.php	/^    public function createApplication()$/;"	f
+microtimeFloat	NutsPages/tests/unit/TestCase.php	/^    public function microtimeFloat()$/;"	f
+refreshTestDB	NutsPages/tests/unit/TestCase.php	/^    public function refreshTestDB()$/;"	f
+setUp	NutsPages/tests/unit/TestCase.php	/^    public function setUp(){$/;"	f
+setUp	NutsPages/tests/unit/TestCase.php	/^\/\/     public function setUp()$/;"	f
+tearDown	NutsPages/tests/unit/TestCase.php	/^    public function tearDown()$/;"	f
+NutsWhoisController	NutsWhois/src/Controllers/NutsWhoisController.php	/^class NutsWhoisController extends Controller$/;"	c
+result	NutsWhois/src/Controllers/NutsWhoisController.php	/^    public function result(Request $req)$/;"	f
+search	NutsWhois/src/Controllers/NutsWhoisController.php	/^    public function search()$/;"	f
+NutsWhoisServiceProvider	NutsWhois/src/Providers/NutsWhoisServiceProvider.php	/^class NutsWhoisServiceProvider extends ServiceProvider$/;"	c
+boot	NutsWhois/src/Providers/NutsWhoisServiceProvider.php	/^    public function boot()$/;"	f
+publishViews	NutsWhois/src/Providers/NutsWhoisServiceProvider.php	/^    private function publishViews()$/;"	f
+register	NutsWhois/src/Providers/NutsWhoisServiceProvider.php	/^    public function register()$/;"	f
+registerRoutes	NutsWhois/src/Providers/NutsWhoisServiceProvider.php	/^    private function registerRoutes()$/;"	f
+Whois	NutsWhois/src/Services/Whois.php	/^class Whois$/;"	c
+__construct	NutsWhois/src/Services/Whois.php	/^    public function __construct($domain = null)$/;"	f
+getDomain	NutsWhois/src/Services/Whois.php	/^    public function getDomain()$/;"	f
+getSubDomain	NutsWhois/src/Services/Whois.php	/^    public function getSubDomain()$/;"	f
+getTLDs	NutsWhois/src/Services/Whois.php	/^    public function getTLDs()$/;"	f
+htmlInfo	NutsWhois/src/Services/Whois.php	/^    public function htmlInfo()$/;"	f
+info	NutsWhois/src/Services/Whois.php	/^    public function info()$/;"	f
+isAvailable	NutsWhois/src/Services/Whois.php	/^    public function isAvailable()$/;"	f
+isValid	NutsWhois/src/Services/Whois.php	/^    public function isValid()$/;"	f
+errorHandler	NutsWhois/src/views/search.blade.php	/^	function errorHandler(args) {$/;"	f
+successMsg	NutsWhois/src/views/search.blade.php	/^	\/\/ function successMsg( message ) {$/;"	f
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+LaravelImageGalleryController	laravel-img-gallery/src/Controllers/LaravelImageGalleryController.php	/^class LaravelImageGalleryController extends \\Illuminate\\Routing\\Controller$/;"	c
+getFileFormat	laravel-img-gallery/src/Controllers/LaravelImageGalleryController.php	/^    protected function getFileFormat($ext) {$/;"	f
+upload	laravel-img-gallery/src/Controllers/LaravelImageGalleryController.php	/^    public function upload(Request $request, $type = 'default')$/;"	f
+ExUser	laravel-img-gallery/src/Models/ExUser.php	/^class ExUser extends User implements HasMedia$/;"	c
+LaravelImageGalleryServiceProvider	laravel-img-gallery/src/Providers/LaravelImageGalleryServiceProvider.php	/^class LaravelImageGalleryServiceProvider extends ServiceProvider$/;"	c
+boot	laravel-img-gallery/src/Providers/LaravelImageGalleryServiceProvider.php	/^    public function boot()$/;"	f
+publishConfig	laravel-img-gallery/src/Providers/LaravelImageGalleryServiceProvider.php	/^    private function publishConfig()$/;"	f
+publishViews	laravel-img-gallery/src/Providers/LaravelImageGalleryServiceProvider.php	/^    private function publishViews()$/;"	f
+register	laravel-img-gallery/src/Providers/LaravelImageGalleryServiceProvider.php	/^    public function register()$/;"	f
+registerRoutes	laravel-img-gallery/src/Providers/LaravelImageGalleryServiceProvider.php	/^    private function registerRoutes()$/;"	f
+UserController	laravel-user/src/Controllers/UserController.php	/^class UserController extends Controller$/;"	c
+edit	laravel-user/src/Controllers/UserController.php	/^    public function edit(Request $req)$/;"	f
+view	laravel-user/src/Controllers/UserController.php	/^    public function view()$/;"	f
+ExAuthController	laravel-user/src/Controllers/auth/ExAuthController.php	/^class ExAuthController extends \\App\\Http\\Controllers\\Auth\\AuthController$/;"	c
+__construct	laravel-user/src/Controllers/auth/ExAuthController.php	/^    public function __construct()$/;"	f
+authenticated	laravel-user/src/Controllers/auth/ExAuthController.php	/^    protected function authenticated($request, $user) {$/;"	f
+create	laravel-user/src/Controllers/auth/ExAuthController.php	/^    protected function create(array $data)$/;"	f
+getLogin	laravel-user/src/Controllers/auth/ExAuthController.php	/^    public function getLogin()$/;"	f
+getRegister	laravel-user/src/Controllers/auth/ExAuthController.php	/^    public function getRegister()$/;"	f
+validator	laravel-user/src/Controllers/auth/ExAuthController.php	/^    \/\/ protected function validator(array $data)$/;"	f
+ExPasswordController	laravel-user/src/Controllers/auth/ExPasswordController.php	/^class ExPasswordController extends \\App\\Http\\Controllers\\Auth\\PasswordController$/;"	c
+__construct	laravel-user/src/Controllers/auth/ExPasswordController.php	/^    public function __construct()$/;"	f
+getEmail	laravel-user/src/Controllers/auth/ExPasswordController.php	/^    public function getEmail()$/;"	f
+getReset	laravel-user/src/Controllers/auth/ExPasswordController.php	/^    public function getReset($token = null)$/;"	f
+UserWasRegistered	laravel-user/src/Events.bk/UserWasRegistered.php	/^class UserWasRegistered extends Event {$/;"	c
+__construct	laravel-user/src/Events.bk/UserWasRegistered.php	/^    public function __construct(User $user)$/;"	f
+broadcastOn	laravel-user/src/Events.bk/UserWasRegistered.php	/^    public function broadcastOn()$/;"	f
+UserActivityObserver	laravel-user/src/Listeners/UserActivityObserver.php	/^class UserActivityObserver {$/;"	c
+created	laravel-user/src/Listeners/UserActivityObserver.php	/^	public function created($model){$/;"	f
+creating	laravel-user/src/Listeners/UserActivityObserver.php	/^	public function creating($model){$/;"	f
+deleted	laravel-user/src/Listeners/UserActivityObserver.php	/^	public function deleted($model){$/;"	f
+deleting	laravel-user/src/Listeners/UserActivityObserver.php	/^	public function deleting($model){$/;"	f
+restored	laravel-user/src/Listeners/UserActivityObserver.php	/^	public function restored($model){$/;"	f
+restoring	laravel-user/src/Listeners/UserActivityObserver.php	/^	public function restoring($model){$/;"	f
+saved	laravel-user/src/Listeners/UserActivityObserver.php	/^	public function saved($model){$/;"	f
+saving	laravel-user/src/Listeners/UserActivityObserver.php	/^	public function saving($model){$/;"	f
+updated	laravel-user/src/Listeners/UserActivityObserver.php	/^	public function updated($model){$/;"	f
+updating	laravel-user/src/Listeners/UserActivityObserver.php	/^	public function updating($model){$/;"	f
+UserObserver	laravel-user/src/Listeners/UserObserver.php	/^class UserObserver {$/;"	c
+createUserDir	laravel-user/src/Listeners/UserObserver.php	/^	private function createUserDir($model)$/;"	f
+created	laravel-user/src/Listeners/UserObserver.php	/^	public function created($model){$/;"	f
+creating	laravel-user/src/Listeners/UserObserver.php	/^	public function creating($model){$/;"	f
+deleted	laravel-user/src/Listeners/UserObserver.php	/^	public function deleted($model){$/;"	f
+deleting	laravel-user/src/Listeners/UserObserver.php	/^	public function deleting($model){$/;"	f
+restored	laravel-user/src/Listeners/UserObserver.php	/^	public function restored($model){$/;"	f
+restoring	laravel-user/src/Listeners/UserObserver.php	/^	public function restoring($model){$/;"	f
+saved	laravel-user/src/Listeners/UserObserver.php	/^	public function saved($model){$/;"	f
+saving	laravel-user/src/Listeners/UserObserver.php	/^	public function saving($model){$/;"	f
+sendWelcomeMail	laravel-user/src/Listeners/UserObserver.php	/^	private function sendWelcomeMail($user)$/;"	f
+updated	laravel-user/src/Listeners/UserObserver.php	/^	public function updated($model){$/;"	f
+updating	laravel-user/src/Listeners/UserObserver.php	/^	public function updating($model){$/;"	f
+ActivityMaster	laravel-user/src/Models/ActivityMaster.php	/^class ActivityMaster extends Model$/;"	c
+ExUser	laravel-user/src/Models/ExUser.php	/^class ExUser extends User$/;"	c
+user_sites	laravel-user/src/Models/ExUser.php	/^	public function user_sites()$/;"	f
+UserActivity	laravel-user/src/Models/UserActivity.php	/^class UserActivity extends Model$/;"	c
+action	laravel-user/src/Models/UserActivity.php	/^	public static function action($id, $msg){$/;"	f
+createdUserAccount	laravel-user/src/Models/UserActivity.php	/^	public static function createdUserAccount($id){$/;"	f
+createdUserSite	laravel-user/src/Models/UserActivity.php	/^	public static function createdUserSite($id){$/;"	f
+deletedUserSite	laravel-user/src/Models/UserActivity.php	/^	public static function deletedUserSite($id){$/;"	f
+signedIn	laravel-user/src/Models/UserActivity.php	/^	public static function signedIn($id){$/;"	f
+updatedEmailAddress	laravel-user/src/Models/UserActivity.php	/^	public static function updatedEmailAddress($id){$/;"	f
+updatedUserName	laravel-user/src/Models/UserActivity.php	/^	public static function updatedUserName($id){$/;"	f
+LaravelUserServiceProvider	laravel-user/src/Providers/LaravelUserServiceProvider.php	/^class LaravelUserServiceProvider extends ServiceProvider$/;"	c
+boot	laravel-user/src/Providers/LaravelUserServiceProvider.php	/^    \/\/ public function boot(DispatcherContract $events)$/;"	f
+boot	laravel-user/src/Providers/LaravelUserServiceProvider.php	/^    public function boot()$/;"	f
+publishLangAssets	laravel-user/src/Providers/LaravelUserServiceProvider.php	/^    private function publishLangAssets()$/;"	f
+publishMigrationsAndSeeds	laravel-user/src/Providers/LaravelUserServiceProvider.php	/^    private function publishMigrationsAndSeeds() {$/;"	f
+publishViews	laravel-user/src/Providers/LaravelUserServiceProvider.php	/^    private function publishViews()$/;"	f
+register	laravel-user/src/Providers/LaravelUserServiceProvider.php	/^    public function register()$/;"	f
+registerRoutes	laravel-user/src/Providers/LaravelUserServiceProvider.php	/^    private function registerRoutes()$/;"	f
+CreateUsersTable	laravel-user/src/database/migrations/2014_10_12_000000_create_users_table.php	/^class CreateUsersTable extends Migration$/;"	c
+down	laravel-user/src/database/migrations/2014_10_12_000000_create_users_table.php	/^    public function down()$/;"	f
+up	laravel-user/src/database/migrations/2014_10_12_000000_create_users_table.php	/^    public function up()$/;"	f
+CreatePasswordResetsTable	laravel-user/src/database/migrations/2014_10_12_100000_create_password_resets_table.php	/^class CreatePasswordResetsTable extends Migration$/;"	c
+down	laravel-user/src/database/migrations/2014_10_12_100000_create_password_resets_table.php	/^    public function down()$/;"	f
+up	laravel-user/src/database/migrations/2014_10_12_100000_create_password_resets_table.php	/^    public function up()$/;"	f
+CreateUserActivitiesTable	laravel-user/src/database/migrations/2015_11_14_042625_create_user_activities_table.php	/^class CreateUserActivitiesTable extends Migration$/;"	c
+down	laravel-user/src/database/migrations/2015_11_14_042625_create_user_activities_table.php	/^    public function down()$/;"	f
+up	laravel-user/src/database/migrations/2015_11_14_042625_create_user_activities_table.php	/^    public function up()$/;"	f
+CreateActivityMasterTable	laravel-user/src/database/migrations/2015_11_14_043725_create_activity_master_table.php	/^class CreateActivityMasterTable extends Migration$/;"	c
+down	laravel-user/src/database/migrations/2015_11_14_043725_create_activity_master_table.php	/^    public function down()$/;"	f
+up	laravel-user/src/database/migrations/2015_11_14_043725_create_activity_master_table.php	/^    public function up()$/;"	f
+ActivityMasterTableSeeder	laravel-user/src/database/seeds/ActivityMasterTableSeeder.php	/^class ActivityMasterTableSeeder extends Seeder$/;"	c
+run	laravel-user/src/database/seeds/ActivityMasterTableSeeder.php	/^	public function run() {$/;"	f

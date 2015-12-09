@@ -55,7 +55,7 @@
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox"> <?php echo e(_('I agree to the')); ?> <a href="#"><?php echo e(_('terms')); ?></a>
+                                <input type="checkbox" name="agreement"> <?php echo e(_('I agree to the')); ?> <a href="#"><?php echo e(_('terms')); ?></a>
                             </label>
                         </div>
                     </div><!-- /.col -->
