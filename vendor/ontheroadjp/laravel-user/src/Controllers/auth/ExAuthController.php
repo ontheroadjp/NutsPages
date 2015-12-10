@@ -2,12 +2,7 @@
 
 namespace Ontheroadjp\LaravelUser\Controllers\Auth;
 
-// use App\User;
 use Validator;
-// use App\Http\Controllers\Controller;
-// use Illuminate\Foundation\Auth\ThrottlesLogins;
-// use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-// use Ontheroadjp\LaravelUser\Events\UserWasRegistered;
 use Ontheroadjp\LaravelUser\Models\ExUser;
 use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
 
@@ -57,7 +52,7 @@ class ExAuthController extends \App\Http\Controllers\Auth\AuthController
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return User
+     * @return ExUser
      */
     protected function create(array $data)
     {
@@ -69,30 +64,50 @@ class ExAuthController extends \App\Http\Controllers\Auth\AuthController
             // 'hash' => sha1(uniqid(rand(),true)),    // 40文字
         ]);
 
-        // $event = app('Illuminate\Contracts\Events\Dispatcher');
-        // $event->fire( new UserWasRegistered($user) );
-        // \Event::fire(new UserWasRegistered($user));
-
         return $user;
     }
     
+    /**
+     * getLogin 
+     * 
+     * @access public
+     * @return void
+     */
     public function getLogin()
     {
-        if (view()->exists('LaravelUser::auth.authenticate')) {
+        if (view()->exists('LaravelUser::auth.authenticate')) 
+        {
             return view('LaravelUser::auth.authenticate');
         }
 
         return view('LaravelUser::auth.login');
     }
 
+    /**
+     * getRegister 
+     * 
+     * @access public
+     * @return void
+     */
     public function getRegister()
     {
         return view('LaravelUser::auth.register');
     }
 
-    protected function authenticated($request, $user) {
+
+    /**
+     * authenticated 
+     * 
+     * @param mixed $request 
+     * @param mixed $user 
+     * @access protected
+     * @return void
+     */
+    protected function authenticated($request, $user) 
+    {
         Activity::signedIn($user->id); 
         return redirect()->intended($this->redirectPath());
     }
-
 }
+
+

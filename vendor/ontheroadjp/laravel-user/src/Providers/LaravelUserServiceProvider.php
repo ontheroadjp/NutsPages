@@ -71,34 +71,6 @@ class LaravelUserServiceProvider extends ServiceProvider
 
         ExUser::observe(new UserObserver);
         UserActivity::observe(new UserActivityObserver);
-
-        // ---------------------------
-        // Eloquoent Model Event Handller
-        // ---------------------------
-        // 
-        // parent::boot($events);
-        // User::created(function($user) {
-        //     if( $this->createUserDir($user) ) {
-        //         // $this->sendWelcomeMail($user);
-        //         // return false;
-        //     }
-        // });
-
-        // User::created(function($user){
-        //     $this->sendWelcomeMail($user);
-        // });
-
-        // ---------------------------
-        // original events
-        // ---------------------------
-        // 
-        //     $user = $event->user;
-        //     if( $this->createUserDir($user) ) {
-        //         $this->sendWelcomeMail($user);
-        //     } else {
-        //         // todo:エラーログ出力とか
-        //     }
-        // });
     }
 
     protected function publishMigrationsAndSeeds() {

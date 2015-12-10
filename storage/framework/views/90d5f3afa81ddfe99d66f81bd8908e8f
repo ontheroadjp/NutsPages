@@ -2,16 +2,13 @@
 <title>Nuts Pages - <?php echo $__env->yieldContent('htmlheader_title', ''); ?></title>
 
 <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
 <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-
 <meta property="og:title" content="Nuts Pages - <?php echo $__env->yieldContent('htmlheader_title', ''); ?>" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php echo e(Request::url()); ?>" />
 <meta property="og:image" content="" />
 <meta property="og:site_name" content="Nuts Pages" />
-
 <meta property="fb:app_id" content="" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="">

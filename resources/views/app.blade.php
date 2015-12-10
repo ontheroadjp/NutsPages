@@ -8,7 +8,6 @@
 
     {{-- Modal --}}
     @include('nuts-components.nuts-modal')
-    {{-- Modal --}}
 
     @include('partials.mainheader.simple')
     @include('partials.sidebar.simple')
@@ -29,7 +28,6 @@
 
 @include('partials.scripts')
 
-
 {{-- Alert --}}
 @if (count($errors) > 0)
     <script>nutsAlertDanger( "{{ Session::get('alert_danger') }}" );</script>
@@ -45,8 +43,6 @@
     <script>nutsAlertWarning( "{{ Session::get('alert_warning') }}" );</script>
 @endif
 {{-- Alert --}}
-
-
 
 
 </body>

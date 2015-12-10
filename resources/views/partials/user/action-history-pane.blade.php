@@ -31,6 +31,11 @@
             "icon" => "fa-pencil-square-o",
             "icon_color" => "nuts-bg-success",
             "message" => _('Created new site.'),
+        ],
+        "DELETED_USER_SITE" => [
+            "icon" => "fa-trash-o",
+            "icon_color" => "nuts-bg-warning",
+            "message" => _('Deleted your site.'),
         ]
     ];
 ?>

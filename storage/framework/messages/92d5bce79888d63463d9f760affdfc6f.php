@@ -6,7 +6,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>L</b>vL</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">Nuts Pages <span class="nuts-badge-white">Free</span>
+        <span class="logo-lg">Nuts Pages <span class="nuts-badge-aqua">Free</span>
 </span>
     </a>
 
@@ -73,7 +73,7 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="/img/flags/<?php echo e($currentLocale); ?>.png" alt="<?php echo e($currentLabel); ?>-flag"/>
-                        <?php echo $currentLabel ?>&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
+                        <?php echo e($currentLabel); ?>&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu">
                       <?php foreach(Config::get('laravel-gettext.supported-locales') as $locale): ?>

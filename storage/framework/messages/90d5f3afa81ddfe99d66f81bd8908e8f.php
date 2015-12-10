@@ -21,7 +21,6 @@
 
 <!-- Core CSS -->
 <link href="<?php echo e(asset('/css/AdminLTE.css')); ?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo e(asset('/css/skins/skin-nuts.css')); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo e(asset('/css/style.css')); ?>" rel="stylesheet" type="text/css" />
 
 <?php echo $__env->yieldContent('css', ''); ?>

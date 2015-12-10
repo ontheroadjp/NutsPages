@@ -8,7 +8,6 @@
 
     <?php /* Modal */ ?>
     <?php echo $__env->make('nuts-components.nuts-modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <?php /* Modal */ ?>
 
     <?php echo $__env->make('partials.mainheader.simple', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php echo $__env->make('partials.sidebar.simple', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -29,7 +28,6 @@
 
 <?php echo $__env->make('partials.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-
 <?php /* Alert */ ?>
 <?php if(count($errors) > 0): ?>
     <script>nutsAlertDanger( "<?php echo e(Session::get('alert_danger')); ?>" );</script>
@@ -45,8 +43,6 @@
     <script>nutsAlertWarning( "<?php echo e(Session::get('alert_warning')); ?>" );</script>
 <?php endif; ?>
 <?php /* Alert */ ?>
-
-
 
 
 </body>

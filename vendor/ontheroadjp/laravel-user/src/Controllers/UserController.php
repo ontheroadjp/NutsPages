@@ -95,10 +95,9 @@ class UserController extends Controller
                 }
                 else
                 {
-                    http_response_code(400);
                     return \Response::json([
                         'message' => _('DB update failed.')
-                    ]);
+                    ],'400');
                 }
             }
             else

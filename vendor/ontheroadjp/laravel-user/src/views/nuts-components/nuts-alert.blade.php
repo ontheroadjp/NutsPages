@@ -1,6 +1,6 @@
 
 @if (count($errors) > 0)
-<div class="nuts-alert alert-danger alert-dark" style="display:block"">
+<div class="nuts-alert alert-warning alert-dark" style="display:block"">
     <button type="button" class="close" data-dismiss="alert">×</button>
     <strong><i class="icon fa fa-ban"></i>&nbsp;Alert!</strong>&nbsp;&nbsp;<span class="msg"></span>
     <ul>

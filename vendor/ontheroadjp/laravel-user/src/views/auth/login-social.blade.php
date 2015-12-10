@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-<!-- <body class="login-page"> -->
 <body>
 
+<!--
     @if (count($errors) > 0)
         <div class="alert alert-danger text-center">
             <strong>{{ _('Whoops!') }}</strong>{{ _('There were some problems with your input.') }}<br><br>
@@ -22,6 +22,7 @@
     <div class="login-logo">
         <a href="{{ url('/') }}">Laravel 5.1</a>
     </div><!-- /.login-logo -->
+-->
 
 <div class="main-section">
     <div class="login-box">

@@ -19,6 +19,7 @@
         font-family: 'Lato';
     }
     .container {
+        width: 100%;
         text-align: center;
         display: table-cell;
         vertical-align: middle;
@@ -31,23 +32,22 @@
         font-size: 72px;
 				margin-bottom: 100px;
     }
-		.start-btn {
-				font-size: 18px;
-				padding: 5px 50px;
-		}
+	.start-btn {
+			font-size: 18px;
+			padding: 5px 50px;
+	}
 </style>
 </head>
-
 <body>
     <div class="container">
         <div class="content">
-            <div class="title">Nuts Pages</div>
+            <div class="title">nutspages.com</div>
             <div><a href="{{ url('dashboard') }}" class="btn btn-primary start-btn">{{ _('Start') }}</a></div>
         </div>
     </div>
 </body>
 
-</html>2
+</html>
 
 
 

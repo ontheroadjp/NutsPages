@@ -15,10 +15,15 @@
 
 @section('help_content')
 <ul>
-	<li>このページでは登録情報の変更が行えます。</li>
-	<li>画面には現在の登録情報が表示されています。</li>
-	<li>変更したい項目の内容を修正して、変更ボタン（パスワード変更の場合はパスワードの変更ボタン）を押してください。</li>
-	<li>登録情報の変更が完了すると、その旨のメッセージが表示されます。</li>
+	<li>{{ _('Update registerd infomation and past activity history can be checked on this page.') }}</li>
+    <li>{{ _('If you want to change your user name or Email Address, please click on the corresponding UPDATE button after you edit the item to be applicable by clicking on the Account Settings tab .') }}</li>
+    <li>{{ _('If you want to change your password, after you enter your current password and newly registered password, please click on the Change Password button.') }}</li>
+    <li>{{ _('If you want to see the activity history, please click the Action History tab.') }}</li>
+    <li>{{ _('If the error from being displayed, please contact us sorry to trouble you, but up to here.') }}</li>
+	<li>このページでは登録情報の変更や過去の活動履歴を確認できます。</li>
+	<li>ユーザー名または Email Address を変更する場合は、Account Settings タブをクリックして該当する項目を編集したのち対応する UPDATE ボタンをクリックしてください。</li>
+	<li>パスワードを変更する場合は、現在のパスワード及び新しく登録するパスワードを入力したのち、Change Password ボタンをクリックしてください。</li>
+	<li>活動履歴を確認する場合は、Action History タブをクリックしてください。</li>
 	<li>エラーが表示されてしまう場合には、お手数ですがこちらまでお問い合わせください。</li>
 </ul>
 @endsection
@@ -60,7 +65,6 @@
 @endsection
 
 @section('javascript')
-
 <script>
 $(function(){
 
@@ -99,7 +103,6 @@ $(function(){
 
 		}).always(function(data, textStatus, returnedObject){ 
             $('.update-btn').prop("disabled",false);
-			// alert(textStatus);
 		});
 	});
 
