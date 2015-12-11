@@ -77,7 +77,7 @@ class UserObserver {
 
 	protected function sendWelcomeMail($user)
 	{
-		\Mail::send('emails.welcome', compact('user'), function($message) use ($user) {
+		\Mail::send('LaravelUser::emails.welcome', compact('user'), function($message) use ($user) {
 			$message->to($email, $name)->subject( _('Welcome to the Nuts Pages') );
 		}, 10);
 	}

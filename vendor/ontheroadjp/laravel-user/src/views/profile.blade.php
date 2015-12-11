@@ -1,4 +1,4 @@
-@extends('app')
+@extends('LaravelAppBase::app')
 
 @section('htmlheader_title')
 {{ _('User Pofile') }}
@@ -47,13 +47,13 @@
 
 	<div class="tab-content tab-content-bordered">
 		<div id="account-settings-tab-pane" class="tab-pane fade in active">
-			@include('LaravelUser::partials.user.account-settings-pane')
+			@include('LaravelUser::partials.account-settings-pane')
 		</div>
 		<div id="billing-and-plan-settings-tab-pane" class="tab-pane fade">
-			@include('LaravelUser::partials.user.billing-and-plan-settings-pane')
+			@include('LaravelUser::partials.billing-and-plan-settings-pane')
 		</div>
 		<div id="action-history-tab-pane" class="tab-pane fade">
-			@include('LaravelUser::partials.user.action-history-pane')
+			@include('LaravelUser::partials.action-history-pane')
 		</div>
 	</div>
 

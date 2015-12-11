@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
 <head>
-@include('partials.htmlheader')
+@include('LaravelUser::partials.htmlheader')
 </head>
 <body class="skin-nuts">
 <div class="wrapper">
 
     {{-- Modal --}}
-    @include('nuts-components.nuts-modal')
+    @include('LaravelUser::nuts-components.nuts-modal')
 
-    @include('partials.mainheader.simple')
-    @include('partials.sidebar.simple')
+    @include('LaravelUser::partials.mainheader.simple')
+    @include('LaravelUser::partials.sidebar.simple')
 
     <div class="content-wrapper">
-        @include('partials.contentheader')
+        @include('LaravelUser::partials.contentheader')
         <section class="content">
-            @include('partials.help_panel')
-            @include('nuts-components.nuts-alert')
+            @include('LaravelUser::partials.help_panel')
+            @include('LaravelUser::nuts-components.nuts-alert')
             @yield('main-content')
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
-    {{-- @include('partials.controlsidebar') --}}
-    @include('partials.footer')
+    {{-- @include('LaravelUser::partials.controlsidebar') --}}
+    @include('LaravelUser::partials.footer')
 
 </div><!-- ./wrapper -->
 
-@include('partials.scripts')
+@include('LaravelUser::partials.scripts')
 
 {{-- Alert --}}
 @if (count($errors) > 0)

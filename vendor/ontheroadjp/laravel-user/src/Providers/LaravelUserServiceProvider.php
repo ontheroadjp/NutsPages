@@ -70,7 +70,7 @@ class LaravelUserServiceProvider extends ServiceProvider
         $this->publishLangAssets();
 
         ExUser::observe(new UserObserver);
-        UserActivity::observe(new UserActivityObserver);
+        //UserActivity::observe(new UserActivityObserver);
     }
 
     protected function publishMigrationsAndSeeds() {
@@ -103,18 +103,14 @@ class LaravelUserServiceProvider extends ServiceProvider
 
     protected function registerRoutes()
     {
+        // Route::get('/home', ['middleware' => 'auth', function () {
+        //     return view('home');
+        // }]);
 
-        // Route::controllers([
-        // ]);
-
-        Route::get('/home', ['middleware' => 'auth', function () {
-            return view('home');
-        }]);
-
-        Route::get('/lang/{locale}', function($locale) {
-            LaravelGettext::setLocale($locale);
-            return redirect(URL::previous());
-        });
+        // Route::get('/lang/{locale}', function($locale) {
+        //     LaravelGettext::setLocale($locale);
+        //     return redirect(URL::previous());
+        // });
 
         // Define the route for auth
         $routeConfig = [
@@ -155,13 +151,13 @@ class LaravelUserServiceProvider extends ServiceProvider
 
         $this->publishes([
         //     dirname(__FILE__).'/../views/auth' => base_path('resources/views/auth'),
-            dirname(__FILE__).'/../views/emails' => base_path('resources/views/emails'),
+            // dirname(__FILE__).'/../views/emails' => base_path('resources/views/emails'),
             dirname(__FILE__).'/../views/errors' => base_path('resources/views/errors'),
-            dirname(__FILE__).'/../views/partials' => base_path('resources/views/partials'),
-            dirname(__FILE__).'/../views/nuts-components' => base_path('resources/views/nuts-components'),
-            dirname(__FILE__).'/../views/app.blade.php' => base_path('resources/views/app.blade.php'),
-            dirname(__FILE__).'/../views/home.blade.php' => base_path('resources/views/home.blade.php'),
-            dirname(__FILE__).'/../views/welcome.blade.php' => base_path('resources/views/welcome.blade.php'),
+            // dirname(__FILE__).'/../views/partials' => base_path('resources/views/partials'),
+            // dirname(__FILE__).'/../views/nuts-components' => base_path('resources/views/nuts-components'),
+            // dirname(__FILE__).'/../views/app.blade.php' => base_path('resources/views/app.blade.php'),
+            // dirname(__FILE__).'/../views/home.blade.php' => base_path('resources/views/home.blade.php'),
+            // dirname(__FILE__).'/../views/welcome.blade.php' => base_path('resources/views/welcome.blade.php'),
         ]);
     }
 

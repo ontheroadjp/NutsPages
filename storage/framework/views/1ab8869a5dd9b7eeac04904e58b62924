@@ -48,13 +48,13 @@
 
 	<div class="tab-content tab-content-bordered">
 		<div id="account-settings-tab-pane" class="tab-pane fade in active">
-			<?php echo $__env->make('LaravelUser::partials.user.account-settings-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->make('LaravelUser::partials.account-settings-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		</div>
 		<div id="billing-and-plan-settings-tab-pane" class="tab-pane fade">
-			<?php echo $__env->make('LaravelUser::partials.user.billing-and-plan-settings-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->make('LaravelUser::partials.billing-and-plan-settings-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		</div>
 		<div id="action-history-tab-pane" class="tab-pane fade">
-			<?php echo $__env->make('LaravelUser::partials.user.action-history-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->make('LaravelUser::partials.action-history-pane', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		</div>
 	</div>
 
@@ -66,7 +66,6 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('javascript'); ?>
-
 <script>
 $(function(){
 
@@ -105,7 +104,6 @@ $(function(){
 
 		}).always(function(data, textStatus, returnedObject){ 
             $('.update-btn').prop("disabled",false);
-			// alert(textStatus);
 		});
 	});
 
@@ -161,4 +159,4 @@ $(function(){
 </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('LaravelAppBase::app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

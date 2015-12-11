@@ -145,17 +145,17 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-				Barryvdh\Debugbar\ServiceProvider::class,
+		Barryvdh\Debugbar\ServiceProvider::class,
 
-        Ontheroadjp\NutsPages\Providers\NutsPagesServiceProvider::class,
-
-        //Ontheroadjp\LaravelAuth\Providers\LaravelAuthServiceProvider::class,
+        Ontheroadjp\LaravelAppBase\Providers\LaravelAppBaseServiceProvider::class,
         Ontheroadjp\LaravelUser\Providers\LaravelUserServiceProvider::class,
         Xinax\LaravelGettext\LaravelGettextServiceProvider::class,
 
+        Ontheroadjp\NutsPages\Providers\NutsPagesServiceProvider::class,
+
         Ontheroadjp\LaravelImageGallery\Providers\LaravelImageGalleryServiceProvider::class,
-				Intervention\Image\ImageServiceProvider::class,
-				Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+		Intervention\Image\ImageServiceProvider::class,
+		Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
         Ontheroadjp\NutsWhois\Providers\NutsWhoisServiceProvider::class,
     ],

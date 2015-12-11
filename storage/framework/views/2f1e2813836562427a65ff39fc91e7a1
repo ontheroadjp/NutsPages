@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
 <head>
-    <?php echo $__env->make('partials.htmlheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('LaravelAppBase::partials.htmlheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
     <style>
     .login-logo, .register-logo{
@@ -37,10 +37,10 @@
 
     <div class="login-logo"> <a href="<?php echo e(url('/')); ?>">Laravel 5.1</a></div>
     <div style="width:60%; margin: 0 auto; margin-bottom:30px;">
-        <?php echo $__env->make('LaravelUser::nuts-components.nuts-alert', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->make('LaravelAppBase::nuts-components.nuts-alert', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     </div>
     <?php echo $__env->yieldContent('content'); ?>
-    <?php echo $__env->make('LaravelUser::partials.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('LaravelAppBase::partials.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <script>
         initCloseBtn();
     </script>
