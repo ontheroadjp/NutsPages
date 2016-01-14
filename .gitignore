@@ -11,6 +11,8 @@ vendor
 !vendor/ontheroadjp
 
 storage/debugbar
+storage/nutspages.db
+storage/nutspages_test.db
 
 public/css
 public/fonts
