@@ -1,0 +1,271 @@
+/*
+ * Skin: Nuts
+ * ----------
+ */
+
+// --------------------------------
+// グローバル
+// --------------------------------
+body.skin-nuts  {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 1.42857;
+    color: #333333;
+    background-color: #fff;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+// --------------------------------
+// レイアウト（共通）
+// --------------------------------
+.skin-nuts {
+    .wrapper,
+    .main-sidebar,
+    .left-side {
+        background-color: $nuts-gray-light;
+    }
+    .content-wrapper{
+        background-color: #fff;
+    }
+}
+
+@media (max-width: 991px) {
+  .skin-nuts .content-header > .breadcrumb {
+      background: #fff;
+  }
+}
+
+// --------------------------------
+// レイアウト（Single Page）
+// --------------------------------
+.skin-nuts.nuts-single-page {
+    .content-wrapper {
+        margin-left: 0;
+    }
+}
+
+
+// --------------------------------
+// コンポーネント
+// --------------------------------
+.skin-nuts {
+    .content-header {
+        background: transparent;
+        & > h1 {
+            padding-top: 10px;
+        }
+    }
+    .box {
+        border-top: 1px solid #d2d6de;
+    }
+    .box-header {
+        color: #444;
+        display: block;
+        padding: 20px 10px;
+        position: relative;
+    }
+    .form-group {
+        margin-bottom: 35px;
+    }
+    .user-panel {
+        & > .info,
+        & > .info > a {
+            color: #fff;
+        }
+    }
+}
+
+// --------------------------------
+// メインヘッダ
+// --------------------------------
+.skin-nuts .main-header {
+    .logo {
+        font-size: 14px;
+        background-color: $nuts-navy-dark;
+        color: #fff;
+        border-bottom: 0 solid transparent;
+        &:hover {
+            background-color: $nuts-navy-dark;
+        }
+    }
+    .navbar {
+        color: #626b7a;
+        //background-color: $nuts-indigo-light;
+
+        .nav {
+            & > li > a {
+                //color: #fff;
+            }
+            & > li > a:hover,
+            & > li > a:active,
+            & > li > a:focus,
+            & .open > a,
+            & .open > a:hover,
+            & .open > a:focus,
+            & > .active > a {
+                //background: rgba(0, 0, 0, 0.1);
+                //color: #f6f6f6;
+            }
+        }
+        .sidebar-toggle {
+            color: #626b7a;
+            &:hover {
+                //color: #f6f6f6;
+                //background: rgba(0, 0, 0, 0.1);      
+                //background-color: #367fa9;
+            }
+        }
+    }
+    li.user-header {
+        background-color: $nuts-maroon;
+    }
+
+}
+
+@media (max-width: 991px) {
+    .skin-nuts .navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
+        right: 0;
+    }
+}
+
+// --------------------------------
+// サイドバー
+// --------------------------------
+.skin-nuts .sidebar {
+    a {
+        color: #b8c7ce;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .sidebar-menu {
+        & > li.header {
+            color: #4b646f;
+            background: #1a2226;
+        }
+        & > li > a {
+            border-left: 8px solid transparent;
+            border-bottom: 1px solid #dfe4e6;
+            color: #626b7a;
+        }
+        & > li:hover > a, 
+        & > li.active > a {
+            border-left: 8px solid #F7AC05;
+        }
+        & > li > .treeview-menu {
+            margin: 0 1px;
+            background: #EEF7FB;
+            & > li > a {
+                color: #8aa4af;
+                padding: 10px;
+                border-bottom: 1px solid #C5DCE6;
+            }
+            & > li.active > a,
+            & > li > a:hover {
+                border-left: 5px solid #8E92CA;
+            }
+        }
+    }
+}
+
+.skin-nuts .main-menu-item.active:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 12px 10px 0;
+    border-color: transparent #fff transparent transparent;
+    position: absolute;
+    left: 218px;
+    right: auto;
+    top: 12px;
+    z-index: 999;
+}
+
+// --------------------------------
+// サイドバーフォーム
+// --------------------------------
+.skin-nuts .sidebar-form {
+    border-radius: 3px;
+    border: 1px solid #374850;
+    margin: 10px 10px;
+    input[type="text"],
+    .btn {
+        box-shadow: none;
+        background-color: #374850;
+        border: 1px solid transparent;
+        height: 35px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    input[type="text"] {
+        color: #666;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 2px;
+    }
+    input[type="text"]:focus,
+    input[type="text"]:focus + .input-group-btn .btn {
+        background-color: #fff;
+        color: #666;
+        border-left-color: #fff;
+    }
+    .btn {
+        color: #999;
+        border-top-left-radius: 0;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 0;
+    }
+}
+
+/* ------------------------------------ */
+
+//.skin-nuts .sidebar-form {
+//    border-radius: 3px;
+//    border: 1px solid #374850;
+//    margin: 10px 10px;
+//}
+//.skin-nuts .sidebar-form input[type="text"],
+//.skin-nuts .sidebar-form .btn {
+//  box-shadow: none;
+//  background-color: #374850;
+//  border: 1px solid transparent;
+//  height: 35px;
+//  -webkit-transition: all 0.3s ease-in-out;
+//  -o-transition: all 0.3s ease-in-out;
+//  transition: all 0.3s ease-in-out;
+//}
+//.skin-nuts .sidebar-form input[type="text"] {
+//  color: #666;
+//  border-top-left-radius: 2px;
+//  border-top-right-radius: 0;
+//  border-bottom-right-radius: 0;
+//  border-bottom-left-radius: 2px;
+//}
+//.skin-nuts .sidebar-form input[type="text"]:focus,
+//.skin-nuts .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+//  background-color: #fff;
+//  color: #666;
+//}
+//.skin-nuts .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+//  border-left-color: #fff;
+//}
+//.skin-nuts .sidebar-form .btn {
+//  color: #999;
+//  border-top-left-radius: 0;
+//  border-top-right-radius: 2px;
+//  border-bottom-right-radius: 2px;
+//  border-bottom-left-radius: 0;
+//}
+//
+
+
+

@@ -1,49 +1,29 @@
+<?php 
+    if(LaravelGettext::getLocale() === null)
+    {
+        $languages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+        $languages = array_reverse($languages);
+
+        foreach ($languages as $language) {
+            if (preg_match('/^ja/i', $language)) 
+            {
+                LaravelGettext::setLocale('ja_JP'); 
+            }
+            //elseif (preg_match('/^zh/i', $language)) 
+            //{
+            //    LaravelGettext::setLocale('en_US'); 
+            //}
+            //else (preg_match('/^en/i', $language)) 
+            else
+            {
+                LaravelGettext::setLocale('en_US'); 
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
-<head>
 <?php echo $__env->make('LaravelAppBase::partials.htmlheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-</head>
-<body class="skin-nuts">
-<div class="wrapper">
-
-    <?php /* Modal */ ?>
-    <?php echo $__env->make('LaravelAppBase::nuts-components.nuts-modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-    <?php echo $__env->make('LaravelAppBase::partials.mainheader.simple', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <?php echo $__env->make('LaravelAppBase::partials.sidebar.simple', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-    <div class="content-wrapper">
-        <?php echo $__env->make('LaravelAppBase::partials.contentheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-        <section class="content">
-            <?php echo $__env->make('LaravelAppBase::partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-            <?php echo $__env->make('LaravelAppBase::nuts-components.nuts-alert', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-            <?php echo $__env->yieldContent('main-content'); ?>
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
-
-    <?php /* <?php echo $__env->make('LaravelAppBase::partials.controlsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
-    <?php echo $__env->make('LaravelAppBase::partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-</div><!-- ./wrapper -->
-
-<?php echo $__env->make('LaravelAppBase::partials.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-<?php /* Alert */ ?>
-<?php if(count($errors) > 0): ?>
-    <script>nutsAlertDanger( "<?php echo e(Session::get('alert_danger')); ?>" );</script>
-<?php endif; ?>
-
-<?php if(Session::has('alert_success')): ?>
-    <script>nutsAlertSuccess( "<?php echo e(Session::get('alert_success')); ?>" );</script>
-<?php elseif(Session::has('alert_info')): ?>
-    <script>nutsAlertInfo( "<?php echo e(Session::get('alert_info')); ?>" );</script>
-<?php elseif(Session::has('alert_danger')): ?>
-    <script>nutsAlertDanger( "<?php echo e(Session::get('alert_danger')); ?>" );</script>
-<?php elseif(Session::has('alert_warning')): ?>
-    <script>nutsAlertWarning( "<?php echo e(Session::get('alert_warning')); ?>" );</script>
-<?php endif; ?>
-<?php /* Alert */ ?>
-
-
-</body>
+<?php echo $__env->yieldContent('body','<body><h1>Hello, Laravel AppBase</h1></body>'); ?>
 </html>

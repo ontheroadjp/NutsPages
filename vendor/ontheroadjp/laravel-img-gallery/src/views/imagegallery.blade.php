@@ -1,4 +1,4 @@
-@extends('LaravelAppBase::app')
+@extends('LaravelAppBase::two_columns_page')
 
 @section('htmlheader_title')
 {{ _('Image Gallery') }}

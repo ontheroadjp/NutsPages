@@ -1,0 +1,67 @@
+/* ---------------------------------------------
+Nuts Modal
+---------------------------------------------- */
+
+
+// --------------------------------------------
+// Common
+// --------------------------------------------
+.nuts-modal {
+    display: none; 
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+.nuts-modal-dialog {
+    width: 350px;
+    margin: 150px auto;
+}
+.nuts-modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    border-radius: 5px;
+}
+.modal-header {
+    color: #fff;
+    font-size: 84px;
+    margin-bottom: 30px;
+    padding: 0px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.15);
+    border-bottom: 3px solid rgba(0,0,0,.08);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.modal-title{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2em;
+}
+.modal-body {
+    color: #888;
+}
+.modal-footer {
+    padding: 15px;
+    border-top: none;
+    text-align: center;
+}
+.nuts-modal button {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+// --------------------------------------------
+// Success
+// --------------------------------------------
+.nuts-modal-success .modal-header {
+    background-color: $nuts-success-light;
+}
+

@@ -1,54 +1,33 @@
-<?php LaravelGettext::setLocale('ja_JP'); ?>
-<!DOCTYPE html>
-<html>
+@extends('LaravelAppBase::single_page')
 
-<head>
-<title>Laravel</title>
-<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" />
-<style>
-    html, body {
-        height: 100%;
-    }
-    body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        display: table;
-        font-weight: 100;
-        font-family: 'Lato';
-    }
-    .container {
-        width: 100%;
-        text-align: center;
-        display: table-cell;
-        vertical-align: middle;
-    }
-    .content {
-        text-align: center;
-        display: inline-block;
-    }
+@section('css')
     .title {
+        font-family: 'Lato';
         font-size: 72px;
-				margin-bottom: 100px;
+        margin: 200px auto 0 auto;
     }
-	.start-btn {
-			font-size: 18px;
-			padding: 5px 50px;
-	}
-</style>
-</head>
-<body>
-    <div class="container">
-        <div class="content">
-            <div class="title">nutspages.com</div>
-            <div><a href="{{ url('dashboard') }}" class="btn btn-primary start-btn">{{ _('Start') }}</a></div>
-        </div>
+    .sub-title{
+        font-family: 'Lato';
+        font-size: 28px;
+        margin-bottom: 180px;
+    }
+    .start-btn {
+        font-size: 18px;
+        padding: 5px 50px;
+    }
+@endsection
+
+@section('main-content')
+<div class="container">
+<div class="content">
+    <div class="title text-center">Nuts Pages</div>
+    <div class="sub-title text-center">www.nutspages.com</div>
+    <div class="text-center">
+        <a href="{{ url('dashboard') }}" class="btn btn-primary start-btn">{{ _('Start') }}</a>
     </div>
-</body>
-
-</html>
-
+</div>
+</div>
+@endsection
 
 
 

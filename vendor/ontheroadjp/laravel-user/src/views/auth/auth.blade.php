@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#">
-<head>
-    @include('LaravelAppBase::partials.htmlheader')
-    <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-    <style>
+@extends('LaravelAppBase::single_page')
+@section('css')
     .login-logo, .register-logo{
         font-weight: 100;
         font-family: 'Lato';
@@ -30,21 +26,6 @@
     .mg-30 {
     	margin: 30px;
     }
-    </style>
-</head>
+@endsection
 
-<body>
-
-    <div class="login-logo"> <a href="{{ url('/') }}">Laravel 5.1</a></div>
-    <div style="width:60%; margin: 0 auto; margin-bottom:30px;">
-        @include('LaravelAppBase::nuts-components.nuts-alert')
-    </div>
-    @yield('content')
-    @include('LaravelAppBase::partials.scripts')
-    <script>
-        initCloseBtn();
-    </script>
-
-</body>
-</html>
 

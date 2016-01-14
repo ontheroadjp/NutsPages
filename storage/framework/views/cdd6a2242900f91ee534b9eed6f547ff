@@ -1,0 +1,34 @@
+<?php $__env->startSection('body'); ?>
+<?php $has_sidebar = true; ?>
+
+<body class="skin-nuts nuts-two-columns-page">
+<div class="wrapper">
+
+    <?php /* Modal */ ?>
+    <?php echo $__env->make('LaravelAppBase::nuts-components.nuts-modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    <?php echo $__env->make('LaravelAppBase::partials.mainheader.simple', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('LaravelAppBase::partials.sidebar.simple', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    <div class="content-wrapper">
+        <?php echo $__env->make('LaravelAppBase::partials.contentheader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <section class="content">
+            <?php echo $__env->make('LaravelAppBase::partials.help_panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('LaravelAppBase::nuts-components.nuts-alert', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->yieldContent('main-content'); ?>
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+
+    <?php /* <?php echo $__env->make('LaravelAppBase::partials.controlsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
+    <?php echo $__env->make('LaravelAppBase::partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+</div><!-- ./wrapper -->
+
+<?php echo $__env->make('LaravelAppBase::partials.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+</body>
+<?php $__env->stopSection(); ?>
+
+
+
+<?php echo $__env->make('LaravelAppBase::app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

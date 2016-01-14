@@ -4,7 +4,9 @@
 {{ _('Log in') }}
 @endsection
 
-@section('content')
+@section('main-content')
+<div class="login-logo"><a href="{{ url('/') }}">Laravel 5.1</a></div>
+
 <div class="main-section">
 <div class="login-box">
 <div class="login-box-body">
@@ -39,6 +41,7 @@
 
 </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->
-</div><!-- / .main-section -->
+</div><!-- /.main-section -->
+
 @endsection
 

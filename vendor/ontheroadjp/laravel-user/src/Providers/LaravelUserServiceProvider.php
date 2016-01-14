@@ -66,13 +66,65 @@ class LaravelUserServiceProvider extends ServiceProvider
     {
         $this->publishMigrationsAndSeeds();
         $this->registerRoutes();
+        $this->registerEventListeners();
         $this->publishViews();
-        $this->publishLangAssets();
-
-        ExUser::observe(new UserObserver);
-        //UserActivity::observe(new UserActivityObserver);
     }
 
+    /**
+     * registerRoutes 
+     * 
+     * @access protected
+     * @return void
+     */
+    protected function registerRoutes()
+    {
+        // Define the route
+        $routeConfig = [
+            'namespace' => 'Ontheroadjp\LaravelUser\Controllers\auth',
+        ];
+
+        $this->app['router']->group($routeConfig, function($router) {
+            $router->controllers([
+                'auth' => 'ExAuthController',
+                'password' => 'ExPasswordController',
+            ]);
+        });
+
+        // Define the route
+        $routeConfig = [
+            'namespace' => 'Ontheroadjp\LaravelUser\Controllers',
+            'prefix' => 'profile',
+            'middleware' => 'auth',
+            'where' => ['id' => '[0-9]+'],
+        ];
+
+        $this->app['router']->group($routeConfig, function() {
+               Route::get('/', 'UserController@index');               
+               Route::post('edit', 'UserController@edit');
+               Route::post('changepass', 'PasswordController@changePassword');
+            }
+        );
+    }
+
+    /**
+     * registerEventListeners 
+     * 
+     * @access protected
+     * @return void
+     */
+    protected function registerEventListeners()
+    {
+        //ExUser::observe(new UserObserver);
+        //UserActivity::observe(new UserActivityObserver);
+        ExUser::observe(new UserObserver);
+    }
+
+    /**
+     * publishMigrationsAndSeeds 
+     * 
+     * @access protected
+     * @return void
+     */
     protected function publishMigrationsAndSeeds() {
 
         $mig = [
@@ -101,45 +153,6 @@ class LaravelUserServiceProvider extends ServiceProvider
         ]);
     }
 
-    protected function registerRoutes()
-    {
-        // Route::get('/home', ['middleware' => 'auth', function () {
-        //     return view('home');
-        // }]);
-
-        // Route::get('/lang/{locale}', function($locale) {
-        //     LaravelGettext::setLocale($locale);
-        //     return redirect(URL::previous());
-        // });
-
-        // Define the route for auth
-        $routeConfig = [
-            'namespace' => 'Ontheroadjp\LaravelUser\Controllers\auth',
-        ];
-
-        $this->app['router']->group($routeConfig, function($router) {
-            $router->controllers([
-                'auth' => 'ExAuthController',
-                'password' => 'ExPasswordController',
-            ]);
-        });
-
-        // Define the route
-        $routeConfig = [
-            'namespace' => 'Ontheroadjp\LaravelUser\Controllers',
-            'prefix' => 'profile',
-            'middleware' => 'auth',
-            'where' => ['id' => '[0-9]+'],
-        ];
-
-        $this->app['router']->group($routeConfig, function() {
-               Route::get('/', 'UserController@view');               
-               Route::post('edit', 'UserController@edit');
-               Route::post('changepass', 'PasswordController@changePassword');
-            }
-        );
-    }
-
     /**
      * Publish package views to Laravel project
      *
@@ -148,30 +161,6 @@ class LaravelUserServiceProvider extends ServiceProvider
     protected function publishViews()
     {
         $this->loadViewsFrom( dirname(__FILE__) . '/../views/', 'LaravelUser');
-
-        $this->publishes([
-        //     dirname(__FILE__).'/../views/auth' => base_path('resources/views/auth'),
-            // dirname(__FILE__).'/../views/emails' => base_path('resources/views/emails'),
-            dirname(__FILE__).'/../views/errors' => base_path('resources/views/errors'),
-            // dirname(__FILE__).'/../views/partials' => base_path('resources/views/partials'),
-            // dirname(__FILE__).'/../views/nuts-components' => base_path('resources/views/nuts-components'),
-            // dirname(__FILE__).'/../views/app.blade.php' => base_path('resources/views/app.blade.php'),
-            // dirname(__FILE__).'/../views/home.blade.php' => base_path('resources/views/home.blade.php'),
-            // dirname(__FILE__).'/../views/welcome.blade.php' => base_path('resources/views/welcome.blade.php'),
-        ]);
-    }
-
-    /**
-     * Publish lang assets to Laravel project
-     *
-     * @return void
-     */
-    protected function publishLangAssets()
-    {
-        $this->publishes([
-            dirname(__FILE__) . '/../lang/i18n' => base_path('resources/lang/i18n'),
-            dirname(__FILE__) . '/../lang/ja' => base_path('resources/lang/ja'),
-        ]);
     }
 }
 

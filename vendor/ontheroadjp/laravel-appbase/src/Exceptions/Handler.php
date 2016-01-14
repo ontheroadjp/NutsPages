@@ -34,6 +34,26 @@ class Handler extends ExceptionHandler
     }
 
     /**
+     * renderHttpException 
+     * 
+     * @param HttpException $e 
+     * @access protected
+     * @return void
+     */
+    protected function renderHttpException(HttpException $e) {
+        $status = $e->getStatusCode();
+    
+        if (view()->exists("LaravelAppBase::errors.{$status}")) 
+        {
+            return response()->view("LaravelAppBase::errors.{$status}", compact('e'), $status);
+        }
+        else 
+        {
+            return $this->convertExceptionToResponse($e);
+        }
+    }
+
+    /**
      * Render an exception into an HTTP response.
      *
      * @param  \Illuminate\Http\Request  $request

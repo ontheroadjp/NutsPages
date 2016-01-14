@@ -1,9 +1,10 @@
+<head>
 <meta charset="UTF-8">
-<title>Nuts Pages - <?php echo $__env->yieldContent('htmlheader_title', ''); ?></title>
+<title><?php echo $__env->yieldContent('htmlheader_title', 'Laravel AppBase'); ?></title>
 
 <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-<meta property="og:title" content="Nuts Pages - <?php echo $__env->yieldContent('htmlheader_title', ''); ?>" />
+<meta property="og:title" content="<?php echo $__env->yieldContent('htmlheader_title', 'Laravel AppBase'); ?>" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php echo e(Request::url()); ?>" />
@@ -20,7 +21,9 @@
 <link href="<?php echo e(asset('/css/AdminLTE.css')); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo e(asset('/css/style.css')); ?>" rel="stylesheet" type="text/css" />
 
+<style>
 <?php echo $__env->yieldContent('css', ''); ?>
+</style>
 
 <!-- Plug-in CSS -->
 <link href="<?php echo e(asset('/js/iCheck/square/blue.css')); ?>" rel="stylesheet" type="text/css" />
@@ -44,3 +47,4 @@
 	ga('send', 'pageview');
 </script>
 <!-- END Google Analytics -->
+</head>

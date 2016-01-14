@@ -12,19 +12,13 @@ use Ontheroadjp\LaravelUser\Models\UserActivity as Activity;
 
 class UserController extends Controller
 {
-
-    //public function __construct()
-    //{
-    //    $this->middleware('auth');
-    //}
-
     /**
      * ユーザー名/E-mail アドレス/パスワード変更用フォームの表示
      *
      * @param  int  $id 変更対象のユーザー ID
      * @return \Illuminate\Http\Response
      */
-    public function view()
+    public function index()
     {
         $user = \DB::table('users')->where('id',\Auth::user()->id)->first();
         $history = \DB::table('user_activities')
@@ -39,13 +33,13 @@ class UserController extends Controller
             ->where('user_id', \Auth::user()->id)
             ->orderBy('user_activities.created_at','desc')
             ->get();
-        return view('LaravelUser::profile', compact('user','history'));
+        return view('LaravelUser::index', compact('user','history'));
     }
 
     /**
      * [AJAX] ユーザー名/Email アドレスの変更処理 
      * 
-     * @param Request $req メソッドインジェクション
+     * @param Request $req 
      * @access public
      * @return json
      */
@@ -53,52 +47,33 @@ class UserController extends Controller
     {
         if($req->ajax())
         {
-            if(Auth::check())
+            $params = $req->all();
+
+            $rules = [
+                'name' => [
+                    'id' => 'required',
+                    'field' => 'required',
+                    'val' => 'required'
+                ],
+                'email' => [
+                    'id' => 'required',
+                    'field' => 'required',
+                    'val' => 'required|email'
+                ],
+            ];
+            $this->validate($req, $rules[$params['field']]);
+            $user = Auth::user();
+            $user->setAttribute($params['field'], $params['val']);
+            if($user->save())
             {
-                $params = $req->all();
-
-                $rules = [
-                    'name' => [
-                        'id' => 'required',
-                        'field' => 'required',
-                        'val' => 'required'
-                    ],
-                    'email' => [
-                        'id' => 'required',
-                        'field' => 'required',
-                        'val' => 'required|email'
-                    ],
+                $msg = [
+                    'name' => _('User name has been changed Successfully.'),
+                    'email' => _('E-mail address has been changed Successfully.'),
                 ];
-                $this->validate($req, $rules[$params['field']]);
 
-                $user = Auth::user();
-                $user->setAttribute($params['field'], $params['val']);
-                if($user->save())
-                {
-                    $msg = [
-                        'name' => _('User name has been changed Successfully.'),
-                        'email' => _('E-mail address has been changed Successfully.'),
-                    ];
-
-                    //if($params['field'] === 'name')
-                    //{
-                    //    Activity::updatedUserName($user->id);
-                    //}
-                    //elseif($params['field'] === 'email') 
-                    //{
-                    //    Activity::updatedEmailAddress($user->id);
-                    //}
-
-                    return \Response::json([
-                        'message' => $msg[$params['field']]
-                    ],'200');
-                }
-                else
-                {
-                    return \Response::json([
-                        'message' => _('DB update failed.')
-                    ],'400');
-                }
+                return \Response::json([
+                    'message' => $msg[$params['field']]
+                ],'200');
             }
             else
             {

@@ -1,1 +1,0 @@
-ようこそ <?php echo e($user['name']); ?>

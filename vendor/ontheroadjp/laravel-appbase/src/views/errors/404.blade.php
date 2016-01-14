@@ -1,4 +1,4 @@
-@extends('app')
+@extends('LaravelAppBase::two_columns_page')
 
 @section('htmlheader_title')
     Page not found

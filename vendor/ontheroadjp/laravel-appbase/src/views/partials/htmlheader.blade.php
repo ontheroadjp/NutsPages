@@ -1,9 +1,10 @@
+<head>
 <meta charset="UTF-8">
-<title>Nuts Pages - @yield('htmlheader_title', '')</title>
+<title>@yield('htmlheader_title', 'Laravel AppBase')</title>
 
 <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<meta property="og:title" content="Nuts Pages - @yield('htmlheader_title', '')" />
+<meta property="og:title" content="@yield('htmlheader_title', 'Laravel AppBase')" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{ Request::url() }}" />
@@ -20,7 +21,9 @@
 <link href="{{ asset('/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" />
 
+<style>
 @yield('css', '')
+</style>
 
 <!-- Plug-in CSS -->
 <link href="{{ asset('/js/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
@@ -44,3 +47,4 @@
 	ga('send', 'pageview');
 </script>
 <!-- END Google Analytics -->
+</head>

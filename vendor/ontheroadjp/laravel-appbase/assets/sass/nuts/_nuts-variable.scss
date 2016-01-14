@@ -1,0 +1,108 @@
+
+@import url(https://fonts.googleapis.com/css?family=Lato:100);
+
+$nuts-primary:		#3c8dbc;
+$nuts-success:		#73DEAD;
+$nuts-info:			#00c0ef;
+$nuts-danger:		#DC786B;
+$nuts-warning:		#FDC875;
+$nuts-indigo:		#7B9AB5;
+$nuts-aqua:			#B4EBF9;
+$nuts-navy:			#012D5A;
+$nuts-maroon:		#d81b60;
+$nuts-gray:			#EDF0F1;
+
+$nuts-colors: (
+	"primary":		$nuts-primary,
+	"success":		$nuts-success,
+	"info":			$nuts-info,
+	"danger":		$nuts-danger,
+	"warning":		$nuts-warning,
+	"indigo":		$nuts-indigo,
+	"aqua":			$nuts-aqua,
+	"navy":			$nuts-navy,
+	"maroon":		$nuts-maroon,
+	"gray":			$nuts-gray,
+	"black":		#000,
+	"white":		#fff,
+);
+
+
+$nuts-primary-light:  lighten($nuts-primary,3%);
+$nuts-success-light:  lighten($nuts-success,3%);
+$nuts-info-light:     lighten($nuts-info,3%);
+$nuts-danger-light:   lighten($nuts-danger,3%);
+$nuts-warning-light:  lighten($nuts-warning,3%);
+$nuts-indigo-light:   lighten($nuts-indigo,3%);
+$nuts-aqua-light:     lighten($nuts-aqua,3%);
+$nuts-navy-light:     lighten($nuts-navy,3%);
+$nuts-maroon-light:   lighten($nuts-maroon,3%);
+$nuts-gray-light:     lighten($nuts-gray,3%);
+
+$nuts-primary-dark: darken($nuts-primary,8%);
+$nuts-success-dark: darken($nuts-success,8%);
+$nuts-info-dark:    darken($nuts-info,8%);
+$nuts-danger-dark:  darken($nuts-danger,8%);
+$nuts-warning-dark: darken($nuts-warning,8%);
+$nuts-indigo-dark:  darken($nuts-indigo,8%);
+$nuts-aqua-dark:    darken($nuts-aqua,8%);
+$nuts-navy-dark:    darken($nuts-navy,8%);
+$nuts-maroon-dark:	darken($nuts-maroon,8%);
+$nuts-gray-dark:	darken($nuts-gray,8%);
+
+@function nuts-color($kind, $tone){
+    @return map-get(map-get($nuts-color-palette, $kind), $tone)
+}
+
+$nuts-color-palette: (
+    primary: (
+        base:   $nuts-primary,
+        light:  lighten($nuts-primary,8%),
+        dark:   darken($nuts-primary,15%),
+    ),
+    success: (
+        base:   $nuts-success,
+        light:  lighten($nuts-success,8%),
+        dark:   darken($nuts-success,15%),
+    ),
+    info: (
+        base:   $nuts-info,
+        light:  lighten($nuts-info,8%),
+        dark:   darken($nuts-info,15%),
+    ),
+    danger: (
+        base:   $nuts-danger,
+        light:  lighten($nuts-danger,8%),
+        dark:   darken($nuts-danger,15%),
+    ),
+    warning: (
+        base:   $nuts-warning,
+        light:  lighten($nuts-warning,8%),
+        dark:   darken($nuts-warning,15%),
+    ),
+    indigo: (
+        base:   $nuts-indigo,
+        light:  lighten($nuts-indigo,8%),
+        dark:   darken($nuts-indigo,15%),
+    ),
+    aqua: (
+        base:   $nuts-aqua,
+        light:  lighten($nuts-aqua,8%),
+        dark:   darken($nuts-aqua,15%),
+    ),
+    navy: (
+        base:   $nuts-navy,
+        light:  lighten($nuts-navy,8%),
+        dark:   darken($nuts-navy,15%),
+    ),
+    maroon: (
+        base:   $nuts-maroon,
+        light:  lighten($nuts-maroon,8%),
+        dark:   darken($nuts-maroon,15%),
+    ),
+    gray: (
+        base:   $nuts-gray,
+        light:  lighten($nuts-gray,8%),
+        dark:   darken($nuts-gray,15%),
+    ),
+);

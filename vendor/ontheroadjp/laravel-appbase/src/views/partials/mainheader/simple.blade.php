@@ -3,23 +3,25 @@
 
     <!-- Logo -->
     <a href="{{ url('/home') }}" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>L</b>vL</span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">Nuts Pages <span class="nuts-badge-aqua">Free</span>
-</span>
+        <span class="logo-lg">Nuts Pages <span class="nuts-badge-aqua">Free</span></span>
     </a>
 
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
+
         <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-        </a>
+        @if($has_sidebar)
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+        @endif
+
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
+            @if(Auth::check())
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
@@ -52,7 +54,8 @@
                                 <a href="#">{{ _('Friends') }}</a>
                             </div>
                         </li>
- -->                        <!-- Menu Footer-->
+ -->
+                        <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
                                 <a href="/profile" class="btn btn-default btn-flat">{{ _('Profile') }}</a>
@@ -63,6 +66,7 @@
                         </li>
                     </ul>
                 </li>
+            @endif
 
                 <!-- Language Switcher Menu -->
                 <li class="dropdown">
