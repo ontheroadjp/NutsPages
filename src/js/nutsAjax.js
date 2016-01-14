@@ -30,5 +30,5 @@ var ajax = function(method, url, params) {
 	}).always(function(data, textStatus, returnedObject){ 
         $('.update-btn').prop("disabled",false);
 	});
-});
+};
 
