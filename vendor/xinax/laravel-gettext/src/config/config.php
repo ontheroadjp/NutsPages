@@ -18,7 +18,6 @@ return array(
      */
     'supported-locales' => array(
         'en_US',
-        'ja_JP',
     ),
 
     /**
@@ -56,7 +55,7 @@ return array(
     /**
      * Translator contact data (used on .po headers too)
      */
-    'translator' => 'Hideaki Ishihara<dev@ontheroad.jp>',
+    'translator' => 'James Translator <james@translations.colm>',
 
     /**
      * Paths where PoEdit will search recursively for strings to translate.
@@ -67,21 +66,7 @@ return array(
     'source-paths' => array(
         'Http/Controllers',
         '../resources/views',
-        'Console/Commands',
-        '../vendor/ontheroadjp/laravel-auth/src/Providers',
-        '../vendor/ontheroadjp/laravel-user/src/Providers',
-        '../vendor/ontheroadjp/laravel-img-gallery/src/Providers',
-        '../vendor/ontheroadjp/NutsWhois/src/Providers',
-
-        '../vendor/ontheroadjp/laravel-user/src/Controllers',
-        '../vendor/ontheroadjp/laravel-img-gallery/src/Controllers',
-        '../vendor/ontheroadjp/NutsWhois/src/Controllers',
-
-        '../vendor/ontheroadjp/laravel-user/src/views',
-        '../vendor/ontheroadjp/laravel-img-gallery/src/views',
-        '../vendor/ontheroadjp/NutsWhois/src/views',
-
-        '../vendor/ontheroadjp/NutsWhois/src/Services',
+        'Console/Commands'
     ),
 
     /**
