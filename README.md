@@ -1,5 +1,12 @@
 # NutsPages
 
+## Require
+
+1. nodejp & npm
+2. bower
+3. composer
+4. sass
+
 ## インストール
 
 ### 1. モジュール群のインストール
