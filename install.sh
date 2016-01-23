@@ -5,7 +5,7 @@ echo 'install npm packages...'
 npm install
 
 echo 'install bower components...'
-bower install
+bower install --allow-root
 
 echo 'install composer modules...'
 composer install
@@ -16,6 +16,9 @@ gulp build
 echo 'initialize .env file'
 cp .env.sample .env
 php artisan key:generate
+
+echo 'publish vendor resources...'
+php artisan vendor:publish
 
 echo 'complete!'
 
