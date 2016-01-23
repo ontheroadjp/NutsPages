@@ -103,6 +103,10 @@ gulp.task('assets', function() {
 	gulp.src( 'public_original/index.php')
 		.pipe(gulp.dest(paths.lara_public));
 	
+	// to public/ 
+	gulp.src( 'public_original/.htaccess')
+		.pipe(gulp.dest(paths.lara_public));
+	
 });
 
 // -------------------------
