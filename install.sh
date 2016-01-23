@@ -14,7 +14,7 @@ echo 'execute gulp build...'
 gulp build
 
 echo 'initialize .env file'
-cp .env.sample .env
+cp .env.example .env
 php artisan key:generate
 
 echo 'publish vendor resources...'
